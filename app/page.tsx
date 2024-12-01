@@ -9,14 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardHeader } from "@/components/ui/card";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -25,6 +18,8 @@ import Ocr from "@/public/ocr.png";
 import Rentco from "@/public/rentco.png";
 import TpIco from "@/public/tp_ico.png";
 import RentcoIco from "@/public/rentco_ico.png";
+import Mvg from "@/public/mvg.png";
+import Kasa from "@/public/kasa.png";
 
 const socials = [
   { url: "https://github.com/SebLau02", label: "GitHub" },
@@ -68,11 +63,10 @@ const projects = [
           },
           {
             key: "Contribution:",
-            value:
-              "Contribution: Développement FrontEnd / Backend et maintenance",
+            value: "Développement FrontEnd / Backend et maintenance",
           },
         ],
-        stack: "React.js / Material UI / Ruby on Rails / PostgreSQL",
+        stack: ["React.js ", " Material UI ", "Ruby on Rails ", "PostgreSQL"],
         link: "https://talentsetpaillettes.app/",
         icon: TpIco,
       },
@@ -89,7 +83,7 @@ const projects = [
             value: "Maintenance et développement de nouveaux modules",
           },
         ],
-        stack: "Ruby on Rails / PostgreSQL",
+        stack: ["Ruby on Rails", "PostgreSQL"],
         link: "",
         icon: RentcoIco,
       },
@@ -108,12 +102,12 @@ const projects = [
           },
           {
             key: "Contribution:",
-            value: "Contribution: Développement FrontEnd",
+            value: "Développement FrontEnd",
           },
         ],
-        stack: "React.js",
-        link: "",
-        icon: TpIco,
+        stack: ["React.js"],
+        link: "https://github.com/SebLau02/OC-6_Kasa",
+        icon: Kasa,
       },
       {
         name: "Mon vieux grimoire",
@@ -125,12 +119,12 @@ const projects = [
           },
           {
             key: "Contribution:",
-            value: "Contribution: Développement Backend",
+            value: "Développement Backend",
           },
         ],
-        stack: "Express.js / mongodb",
-        link: "",
-        icon: TpIco,
+        stack: ["Express.js", "mongodb", "TypeScript"],
+        link: "https://github.com/SebLau02/OC_7_mon-vieux-grimoire",
+        icon: Mvg,
       },
     ],
   },
@@ -208,22 +202,48 @@ export default function Home() {
                         <AccordionItem value={`item-${i + 1}`}>
                           <AccordionTrigger className="pb-2">
                             <div className="flex gap-2">
-                              <ProjectIconButton
-                                url={project.icon}
-                                label={project.name}
-                              />
-                              <h3 className="text-sm underline">
-                                {project.name}
-                              </h3>
+                              {project.link === "" ? (
+                                <ProjectIconButton
+                                  url={project.icon}
+                                  label={project.name}
+                                />
+                              ) : (
+                                <Link
+                                  target="_blank"
+                                  href={project.link}
+                                  className="text-sm underline h-fit flex"
+                                >
+                                  <ProjectIconButton
+                                    url={project.icon}
+                                    label={project.name}
+                                  />
+                                  <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    className="size-3 inline ml-1 self-start"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                                    />
+                                  </svg>
+                                </Link>
+                              )}
+                              <div>
+                                <h3 className="text-sm mb-2">{project.name}</h3>
+                                <Badge
+                                  variant="outline"
+                                  className="font-caption border-custom"
+                                >
+                                  {project.enterprise}
+                                </Badge>
+                              </div>
                             </div>
                           </AccordionTrigger>
                           <AccordionContent className="pl-3">
-                            <p className="text-sm">
-                              <span className="underline decoration-dotted">
-                                Entreprise:
-                              </span>{" "}
-                              {project.enterprise}
-                            </p>
                             {project.description.map((description, i) => (
                               <p key={i} className="text-sm my-1">
                                 <span className="underline decoration-dotted">
@@ -231,6 +251,14 @@ export default function Home() {
                                 </span>{" "}
                                 {description.value}
                               </p>
+                            ))}
+                            <h4 className="font-caption underline decoration-dotted my-1">
+                              Stack:
+                            </h4>
+                            {project.stack.map((item, i) => (
+                              <Badge key={i} className="m-1">
+                                {item}
+                              </Badge>
                             ))}
                           </AccordionContent>
                         </AccordionItem>
