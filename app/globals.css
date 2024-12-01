@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(200 16% 18%);
+  --background: #273035;
   --foreground: hsl(166 100% 97%);
   --muted: hsl(200 12% 22%);
   --muted-foreground: hsl(200 12% 72%);
@@ -22,10 +22,17 @@
   --destructive: hsl(6 86% 53%);
   --destructive-foreground: hsl(0 0% 100%);
   --ring: hsl(52 100% 72%);
+  --chart-1: hsl(220 70% 50%);
+  --chart-2: hsl(160 60% 45%);
+  --chart-3: hsl(30 80% 55%);
+  --chart-4: hsl(280 65% 60%);
+  --chart-5: hsl(340 75% 55%);
+  --radius: 0.5rem;
 }
-
+p {
+  font-family: var(--font-cutive-mono);
+}
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-cutive-mono);
 }
