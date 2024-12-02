@@ -146,7 +146,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h1 className="text-lg">Sébastien LAU</h1>
+                <h1>Sébastien LAU</h1>
                 <h2 className="font-caption">Développeur freelance</h2>
               </div>
             </div>

@@ -32,6 +32,9 @@
 p {
   font-family: var(--font-cutive-mono);
 }
+h1 {
+  @apply text-base sm:text-3xl;
+}
 body {
   color: var(--foreground);
   background: var(--background);

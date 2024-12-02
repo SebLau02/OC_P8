@@ -14,7 +14,8 @@ const CutiveMono = Cutive_Mono({
 
 export const metadata: Metadata = {
   title: "Sébastien LAU",
-  description: "Développeur React freelance",
+  description:
+    "Développeur React freelance basé sur Rennes, disponible pour des missions 100% distanciel.",
 };
 
 export default function RootLayout({
