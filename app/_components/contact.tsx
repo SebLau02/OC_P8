@@ -9,7 +9,9 @@ import React, { ChangeEvent, useState } from "react";
 export const Contact = () => {
   const [contact, setContact] = useState({ name: "", email: "", message: "" });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
   return (
