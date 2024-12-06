@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from "./_components/header";
-// import { Contact } from "./_components/contact";
+import { Contact } from "./_components/contact";
 import { ProjectIconButton } from "./_components/projectIconButton";
 import Section from "./_components/section";
 import { Badge, badgeVariants } from "@/components/ui/badge";
@@ -303,7 +303,9 @@ export default function Home() {
           {/* <Parcours /> */}
         </Section>
         <h2 className="text-lg m-auto text-center my-6">contact</h2>
-        <Section>{/* <Contact /> */}</Section>
+        <Section>
+          <Contact />
+        </Section>
       </main>
     </main>
   );
