@@ -28,7 +28,7 @@ import Ror from "@/public/rails.svg";
 import Pg from "@/public/postgresql.svg";
 import Exp from "@/public/exp.svg";
 import Mongo from "@/public/mongodb.svg";
-// import { Parcours } from "./_components/parcours";
+import { Parcours } from "./_components/parcours";
 
 const socials = [
   { url: "https://github.com/SebLau02", label: "GitHub" },
@@ -300,7 +300,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          {/* <Parcours /> */}
+          <Parcours />
         </Section>
         <h2 className="text-lg m-auto text-center my-6">contact</h2>
         <Section>

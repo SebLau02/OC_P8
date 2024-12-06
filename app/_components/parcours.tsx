@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import Animation from "@/public/assets/walk.json";
-import { useEffect, useRef, useState } from "react";
 
 export const Parcours = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -13,10 +13,9 @@ export const Parcours = () => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const movementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isClient, setIsClient] = useState(false); // Vérifie si on est côté client
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Initialisation côté client
     setIsClient(true);
   }, []);
 
@@ -30,9 +29,9 @@ export const Parcours = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setIsVisible(false); // Cacher l'animation
+    setIsVisible(false);
     setTimeout(() => {
-      lottieRef.current?.stop(); // Arrêter l'animation quand la souris quitte
+      lottieRef.current?.stop();
     }, 300);
   };
 
@@ -44,11 +43,10 @@ export const Parcours = () => {
   };
 
   useEffect(() => {
-    // Ne s'exécute que côté client
-    if (!isClient) return; // Si ce n'est pas un environnement client, on arrête ici.
+    if (!isClient) return;
 
     if (lottieRef.current) {
-      lottieRef.current.setSpeed(speed); // Appliquer la vitesse de l'animation
+      lottieRef.current.setSpeed(speed);
     }
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -64,7 +62,7 @@ export const Parcours = () => {
           setIsVisible(true);
         }
 
-        setSpeed(1.5); // Vitesse rapide lors du mouvement de la souris
+        setSpeed(1.5);
 
         if (movementTimeoutRef.current) {
           clearTimeout(movementTimeoutRef.current);
@@ -72,11 +70,11 @@ export const Parcours = () => {
 
         movementTimeoutRef.current = setTimeout(() => {
           if (isHovered) {
-            setSpeed(0.2); // Vitesse lente après 100ms d'inactivité
+            setSpeed(0.2);
           } else {
             setIsVisible(false);
           }
-        }, 100); // Pause après 100ms de non-mouvement
+        }, 100);
       }
     };
 
@@ -91,7 +89,6 @@ export const Parcours = () => {
     };
   }, [isVisible, isHovered, speed, isClient]);
 
-  // N'afficher le composant qu'une fois que le client est prêt
   if (!isClient) return null;
 
   return (
