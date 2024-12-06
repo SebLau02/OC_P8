@@ -16,7 +16,9 @@ export const Parcours = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    if (typeof window !== "undefined") {
+      setIsClient(true); // Vérifie que l'environnement est côté client
+    }
   }, []);
 
   const handleMouseEnter = () => {
@@ -43,53 +45,51 @@ export const Parcours = () => {
   };
 
   useEffect(() => {
-    if (isClient) {
-      if (lottieRef.current) {
-        lottieRef.current.setSpeed(speed);
-      }
+    if (isClient && lottieRef.current) {
+      lottieRef.current.setSpeed(speed);
+    }
 
-      const handleMouseMove = (e: MouseEvent) => {
-        if (containerRef.current) {
-          const rect = containerRef.current.getBoundingClientRect();
-          setPosition({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top,
-          });
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setPosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
 
-          if (!isVisible && isHovered) {
-            lottieRef.current?.play();
-            setIsVisible(true);
-          }
-
-          setSpeed(1.5);
-
-          if (movementTimeoutRef.current) {
-            clearTimeout(movementTimeoutRef.current);
-          }
-
-          movementTimeoutRef.current = setTimeout(() => {
-            if (isHovered) {
-              setSpeed(0.2);
-            } else {
-              setIsVisible(false);
-            }
-          }, 100);
+        if (!isVisible && isHovered) {
+          lottieRef.current?.play();
+          setIsVisible(true);
         }
-      };
 
-      const container = containerRef.current;
-      container?.addEventListener("mousemove", handleMouseMove);
+        setSpeed(1.5);
 
-      return () => {
-        container?.removeEventListener("mousemove", handleMouseMove);
         if (movementTimeoutRef.current) {
           clearTimeout(movementTimeoutRef.current);
         }
-      };
-    }
+
+        movementTimeoutRef.current = setTimeout(() => {
+          if (isHovered) {
+            setSpeed(0.2);
+          } else {
+            setIsVisible(false);
+          }
+        }, 100);
+      }
+    };
+
+    const container = containerRef.current;
+    container?.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      container?.removeEventListener("mousemove", handleMouseMove);
+      if (movementTimeoutRef.current) {
+        clearTimeout(movementTimeoutRef.current);
+      }
+    };
   }, [isClient, isVisible, isHovered, speed]);
 
-  if (!isClient) return null;
+  if (!isClient) return null; // Ne pas rendre le composant avant qu'il ne soit côté client
 
   return (
     <div
