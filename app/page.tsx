@@ -300,7 +300,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <Parcours />
+          {/* <Parcours /> */}
         </Section>
         <h2 className="text-lg m-auto text-center my-6">contact</h2>
         <Section>
