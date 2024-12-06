@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { Header } from "./_components/header";
 import { Contact } from "./_components/contact";
 import { ProjectIconButton } from "./_components/projectIconButton";
