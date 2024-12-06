@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from "./_components/header";
+import { Contact } from "./_components/contact";
 import { ProjectIconButton } from "./_components/projectIconButton";
 import Section from "./_components/section";
 import { Badge, badgeVariants } from "@/components/ui/badge";
@@ -13,6 +14,7 @@ import { Card, CardHeader } from "@/components/ui/card";
 
 import Link from "next/link";
 import Image from "next/image";
+
 import Tp from "@/public/tp.jpg";
 import Ocr from "@/public/ocr.png";
 import Rentco from "@/public/rentco.svg";
@@ -26,7 +28,7 @@ import Ror from "@/public/rails.svg";
 import Pg from "@/public/postgresql.svg";
 import Exp from "@/public/exp.svg";
 import Mongo from "@/public/mongodb.svg";
-import { Contact } from "./_components/contact";
+import { Parcours } from "./_components/parcours";
 
 const socials = [
   { url: "https://github.com/SebLau02", label: "GitHub" },
@@ -157,7 +159,7 @@ export default function Home() {
                 <img
                   src="https://www.macapflag.com/blog/wp-content/uploads/2021/05/le-metier-de-developpeur-768x530.jpg"
                   alt="sébastien lau, dévelopeur react"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover block"
                 />
               </div>
               <div>
@@ -298,6 +300,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <Parcours />
         </Section>
         <h2 className="text-lg m-auto text-center my-6">contact</h2>
         <Section>
