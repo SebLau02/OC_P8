@@ -12,6 +12,12 @@ export const Parcours = () => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const movementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isClient, setIsClient] = useState(false); // Pour savoir si on est sur le client
+
+  // Assure-toi que l'effet ne se déclenche que côté client
+  useEffect(() => {
+    setIsClient(true); // Mettre à jour l'état après le premier rendu côté client
+  }, []);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -80,6 +86,11 @@ export const Parcours = () => {
       }
     };
   }, [isVisible, isHovered, speed]);
+
+  // Ne rendre le composant qu'après le premier rendu client
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div
