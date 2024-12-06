@@ -1,4 +1,5 @@
 "use client";
+
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import Animation from "@/public/assets/walk.json";
 import { useEffect, useRef, useState } from "react";
