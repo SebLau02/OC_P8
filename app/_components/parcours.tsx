@@ -24,7 +24,9 @@ export const Parcours = () => {
   const handleMouseLeave = () => {
     setIsHovered(false);
     setIsVisible(false); // Cacher l'animation
-    lottieRef.current?.stop(); // Arrêter l'animation quand la souris quitte
+    setTimeout(() => {
+      lottieRef.current?.stop(); // Arrêter l'animation quand la souris quitte
+    }, 300);
   };
 
   const handleClick = () => {
