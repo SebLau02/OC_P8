@@ -12,11 +12,11 @@ export const Parcours = () => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const movementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isClient, setIsClient] = useState(false); // Pour savoir si on est sur le client
+  const [isClient, setIsClient] = useState(false); // Vérifie si le client est disponible
 
-  // Assure-toi que l'effet ne se déclenche que côté client
   useEffect(() => {
-    setIsClient(true); // Mettre à jour l'état après le premier rendu côté client
+    // Vérifie si nous sommes en mode client
+    setIsClient(true);
   }, []);
 
   const handleMouseEnter = () => {
@@ -29,9 +29,9 @@ export const Parcours = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setIsVisible(false); // Cacher l'animation
+    setIsVisible(false);
     setTimeout(() => {
-      lottieRef.current?.stop(); // Arrêter l'animation quand la souris quitte
+      lottieRef.current?.stop();
     }, 300);
   };
 
@@ -43,8 +43,11 @@ export const Parcours = () => {
   };
 
   useEffect(() => {
+    // Ne s'exécute que côté client
+    if (!isClient) return;
+
     if (lottieRef.current) {
-      lottieRef.current.setSpeed(speed); // Appliquer la vitesse
+      lottieRef.current.setSpeed(speed);
     }
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -56,11 +59,11 @@ export const Parcours = () => {
         });
 
         if (!isVisible && isHovered) {
-          lottieRef.current?.play(); // Relancer l'animation
+          lottieRef.current?.play();
           setIsVisible(true);
         }
 
-        setSpeed(1.5); // Vitesse plus rapide lors du mouvement de la souris
+        setSpeed(1.5);
 
         if (movementTimeoutRef.current) {
           clearTimeout(movementTimeoutRef.current);
@@ -68,11 +71,11 @@ export const Parcours = () => {
 
         movementTimeoutRef.current = setTimeout(() => {
           if (isHovered) {
-            setSpeed(0.2); // Vitesse plus lente après l'inactivité
+            setSpeed(0.2);
           } else {
             setIsVisible(false);
           }
-        }, 100); // Pause après 100ms de non-mouvement
+        }, 100);
       }
     };
 
@@ -85,9 +88,9 @@ export const Parcours = () => {
         clearTimeout(movementTimeoutRef.current);
       }
     };
-  }, [isVisible, isHovered, speed]);
+  }, [isVisible, isHovered, speed, isClient]);
 
-  // Ne rendre le composant qu'après le premier rendu client
+  // Attendre d'être côté client pour rendre le composant
   if (!isClient) {
     return null;
   }
