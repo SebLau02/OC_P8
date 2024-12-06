@@ -12,10 +12,10 @@ export const Parcours = () => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const movementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isClient, setIsClient] = useState(false); // Vérifie si le client est disponible
+  const [isClient, setIsClient] = useState(false); // Vérifie si on est côté client
 
   useEffect(() => {
-    // Vérifie si nous sommes en mode client
+    // Initialisation côté client
     setIsClient(true);
   }, []);
 
@@ -29,9 +29,9 @@ export const Parcours = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setIsVisible(false);
+    setIsVisible(false); // Cacher l'animation
     setTimeout(() => {
-      lottieRef.current?.stop();
+      lottieRef.current?.stop(); // Arrêter l'animation quand la souris quitte
     }, 300);
   };
 
@@ -44,10 +44,10 @@ export const Parcours = () => {
 
   useEffect(() => {
     // Ne s'exécute que côté client
-    if (!isClient) return;
+    if (!isClient) return; // Si ce n'est pas un environnement client, on arrête ici.
 
     if (lottieRef.current) {
-      lottieRef.current.setSpeed(speed);
+      lottieRef.current.setSpeed(speed); // Appliquer la vitesse de l'animation
     }
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -63,7 +63,7 @@ export const Parcours = () => {
           setIsVisible(true);
         }
 
-        setSpeed(1.5);
+        setSpeed(1.5); // Vitesse rapide lors du mouvement de la souris
 
         if (movementTimeoutRef.current) {
           clearTimeout(movementTimeoutRef.current);
@@ -71,11 +71,11 @@ export const Parcours = () => {
 
         movementTimeoutRef.current = setTimeout(() => {
           if (isHovered) {
-            setSpeed(0.2);
+            setSpeed(0.2); // Vitesse lente après 100ms d'inactivité
           } else {
             setIsVisible(false);
           }
-        }, 100);
+        }, 100); // Pause après 100ms de non-mouvement
       }
     };
 
@@ -90,10 +90,8 @@ export const Parcours = () => {
     };
   }, [isVisible, isHovered, speed, isClient]);
 
-  // Attendre d'être côté client pour rendre le composant
-  if (!isClient) {
-    return null;
-  }
+  // N'afficher le composant qu'une fois que le client est prêt
+  if (!isClient) return null;
 
   return (
     <div
