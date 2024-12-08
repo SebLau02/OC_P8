@@ -126,10 +126,15 @@
 import { useEffect, useRef, useState } from "react";
 
 export const Parcours = () => {
+  const [isClient, setIsClient] = useState(false);
   const [isVisible] = useState(false);
   const [speed] = useState(1.5);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isHovered] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Activer après l'hydratation
+  }, []);
 
   const handleMouseEnter = () => {
     console.log("hovered");
@@ -157,6 +162,16 @@ export const Parcours = () => {
       container?.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isVisible, isHovered, speed]);
+
+  if (!isClient) {
+    return (
+      <div
+        className="h-[300px] mt-5 border relative overflow-hidden"
+        ref={containerRef}
+        style={{ visibility: "hidden" }}
+      />
+    );
+  }
 
   return (
     <div
