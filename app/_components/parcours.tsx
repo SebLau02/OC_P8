@@ -124,56 +124,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-// import Lottie, { LottieRefCurrentProps } from "lottie-react";
-// import Animation from "@/public/assets/walk.json";
 
 export const Parcours = () => {
-  // const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
-  // const [animationClick, setAnimationClick] = useState(false);
-  const [speed, setSpeed] = useState(1.5);
+  const [isVisible] = useState(false);
+  const [speed] = useState(1.5);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  // const lottieRef = useRef<LottieRefCurrentProps | null>(null);
-  const movementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsClient(true); // Vérifie que l'environnement est côté client
-    }
-  }, []);
+  const [isHovered] = useState(false);
 
   const handleMouseEnter = () => {
     console.log("hovered");
-    // setIsHovered(true);
-    // if (lottieRef.current) {
-    //   lottieRef.current.play();
-    //   setIsVisible(true);
-    // }
   };
 
   const handleMouseLeave = () => {
-    // setIsHovered(false);
-    // setIsVisible(false);
-    // setTimeout(() => {
-    //   lottieRef.current?.stop();
-    // }, 300);
     console.log("mouse leaves");
   };
 
-  // const handleClick = () => {
-  //   setAnimationClick(true);
-  //   setTimeout(() => {
-  //     setAnimationClick(false);
-  //   }, 100);
-  // };
-
   useEffect(() => {
-    // if (isClient && lottieRef.current) {
-    //   lottieRef.current.setSpeed(speed);
-    // }
-
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
@@ -181,25 +147,6 @@ export const Parcours = () => {
           x: e.clientX - rect.left,
           y: e.clientY - rect.top,
         });
-
-        // if (!isVisible && isHovered) {
-        //   lottieRef.current?.play();
-        //   setIsVisible(true);
-        // }
-
-        // setSpeed(1.5);
-
-        // if (movementTimeoutRef.current) {
-        //   clearTimeout(movementTimeoutRef.current);
-        // }
-
-        // movementTimeoutRef.current = setTimeout(() => {
-        //   if (isHovered) {
-        //     setSpeed(0.2);
-        //   } else {
-        //     setIsVisible(false);
-        //   }
-        // }, 100);
       }
     };
 
@@ -208,13 +155,8 @@ export const Parcours = () => {
 
     return () => {
       container?.removeEventListener("mousemove", handleMouseMove);
-      // if (movementTimeoutRef.current) {
-      //   clearTimeout(movementTimeoutRef.current);
-      // }
     };
-  }, [isClient, isVisible, isHovered, speed]);
-
-  if (!isClient) return null; // Ne pas rendre le composant avant qu'il ne soit côté client
+  }, [isVisible, isHovered, speed]);
 
   return (
     <div
