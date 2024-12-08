@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import { LottieRefCurrentProps } from "lottie-react";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import Animation from "@/public/assets/walk.json";
+import dynamic from "next/dynamic";
 
 export const Parcours = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
