@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from "./_components/header";
+import { Contact } from "./_components/contact";
 import { ProjectIconButton } from "./_components/projectIconButton";
 import Section from "./_components/section";
 import { Badge, badgeVariants } from "@/components/ui/badge";
@@ -13,13 +14,21 @@ import { Card, CardHeader } from "@/components/ui/card";
 
 import Link from "next/link";
 import Image from "next/image";
+
 import Tp from "@/public/tp.jpg";
 import Ocr from "@/public/ocr.png";
-import Rentco from "@/public/rentco.png";
+import Rentco from "@/public/rentco.svg";
 import TpIco from "@/public/tp_ico.png";
 import RentcoIco from "@/public/rentco_ico.png";
 import Mvg from "@/public/mvg.png";
 import Kasa from "@/public/kasa.png";
+import React from "@/public/react.svg";
+import Typescript from "@/public/ts.svg";
+import Ror from "@/public/rails.svg";
+import Pg from "@/public/postgresql.svg";
+import Exp from "@/public/exp.svg";
+import Mongo from "@/public/mongodb.svg";
+import { Parcours } from "./_components/parcours";
 
 const socials = [
   { url: "https://github.com/SebLau02", label: "GitHub" },
@@ -129,6 +138,14 @@ const projects = [
     ],
   },
 ];
+const stacks = [
+  { stack: React, label: "React" },
+  { stack: Typescript, label: "Typescript" },
+  { stack: Ror, label: "Rails" },
+  { stack: Pg, label: "PostgreSQL" },
+  { stack: Exp, label: "Express" },
+  { stack: Mongo, label: "MongoDb" },
+];
 
 export default function Home() {
   return (
@@ -142,7 +159,7 @@ export default function Home() {
                 <img
                   src="https://www.macapflag.com/blog/wp-content/uploads/2021/05/le-metier-de-developpeur-768x530.jpg"
                   alt="sébastien lau, dévelopeur react"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover block"
                 />
               </div>
               <div>
@@ -220,13 +237,13 @@ export default function Home() {
                                   <svg
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                     stroke="currentColor"
                                     className="size-3 inline ml-1 self-start"
                                   >
                                     <path
                                       strokeLinecap="round"
-                                      stroke-linejoin="round"
+                                      strokeLinejoin="round"
                                       d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
                                     />
                                   </svg>
@@ -270,6 +287,25 @@ export default function Home() {
             </div>
           </section>
           <Link href="/about">About</Link>
+        </Section>
+        <h2 className="text-lg m-auto text-center my-6">à propos</h2>
+        <Section className="max-w-3xl">
+          <div className="flex justify-evenly items-center flex-wrap gap-2 md:gap-4">
+            {stacks.map((stack, i) => (
+              <div key={i} className="max-w-20 min-w-10 w-1/6">
+                <Image
+                  src={stack.stack}
+                  alt={stack.label}
+                  className="w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          <Parcours />
+        </Section>
+        <h2 className="text-lg m-auto text-center my-6">contact</h2>
+        <Section>
+          <Contact />
         </Section>
       </main>
     </main>

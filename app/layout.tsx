@@ -13,7 +13,7 @@ const CutiveMono = Cutive_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sébastien LAU",
+  title: "Sébastien LAU - Développeur freelance",
   description:
     "Développeur React freelance basé sur Rennes, disponible pour des missions 100% distanciel.",
 };
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" suppressHydrationWarning className="h-full">
       <body
         className={`${RobotoMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >
