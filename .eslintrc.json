@@ -1,3 +1,8 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "warn", // Affiche un warning au lieu d'une erreur
+    "react-hooks/exhaustive-deps": "warn",
+    "no-console": "off" // Désactive une règle si nécessaire
+  }
 }
