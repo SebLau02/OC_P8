@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="h-full">
+    <html lang="fr" className="h-full">
       <body
         className={`${RobotoMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >

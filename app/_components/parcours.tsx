@@ -124,6 +124,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Lottie from "lottie-react";
+import Animation from "@/public/assets/walk.json";
 
 export const Parcours = () => {
   const [isClient, setIsClient] = useState(false);
@@ -199,6 +201,15 @@ export const Parcours = () => {
           rotate: animationClick ? "15deg" : "",
         }}
       /> */}
+      <Lottie
+        animationData={Animation}
+        loop={true}
+        autoplay={true}
+        style={{
+          height: "100px",
+          width: "100px",
+        }}
+      />
     </div>
   );
 };
