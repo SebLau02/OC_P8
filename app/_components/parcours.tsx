@@ -91,7 +91,7 @@ export const Parcours = () => {
     };
   }, [isClient, isVisible, isHovered, speed]);
 
-  if (!isClient) return null; // Ne pas rendre le composant avant qu'il ne soit côté client
+  if (!isClient) return null;
 
   return (
     <div

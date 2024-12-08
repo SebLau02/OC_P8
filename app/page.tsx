@@ -185,7 +185,9 @@ export default function Home() {
             </div>
           </Card>
         </Section>
-        <h2 className="text-lg m-auto text-center my-6">contributions</h2>
+        <h2 className="text-lg m-auto text-center my-6" id="works">
+          contributions
+        </h2>
         <Section className="px-0">
           <div className="flex justify-center items-center gap-3">
             {enterprises.map((enterprise, i) => (
@@ -287,7 +289,9 @@ export default function Home() {
             </div>
           </section>
         </Section>
-        <h2 className="text-lg m-auto text-center my-6">à propos</h2>
+        <h2 className="text-lg m-auto text-center my-6" id="about">
+          à propos
+        </h2>
         <Section className="max-w-3xl">
           <div className="flex justify-evenly items-center flex-wrap gap-2 md:gap-4">
             {stacks.map((stack, i) => (
@@ -302,7 +306,9 @@ export default function Home() {
           </div>
           <Parcours />
         </Section>
-        <h2 className="text-lg m-auto text-center my-6">contact</h2>
+        <h2 className="text-lg m-auto text-center my-6" id="contact">
+          contact
+        </h2>
         <Section>
           <Contact />
         </Section>
