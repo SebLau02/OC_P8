@@ -124,8 +124,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import Animation from "@/public/assets/walk.json";
+import dynamic from "next/dynamic";
 
 export const Parcours = () => {
   const [isClient, setIsClient] = useState(false);
