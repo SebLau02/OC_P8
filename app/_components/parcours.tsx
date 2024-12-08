@@ -5,6 +5,13 @@ import { LottieRefCurrentProps } from "lottie-react";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import Animation from "@/public/assets/walk.json";
 import dynamic from "next/dynamic";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export const Parcours = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -95,7 +102,7 @@ export const Parcours = () => {
 
   return (
     <div
-      className="h-[300px] mt-5 border relative overflow-hidden"
+      className="min-h-[300px] mt-5 relative overflow-hidden p-2 md:p-4"
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -119,6 +126,112 @@ export const Parcours = () => {
           rotate: animationClick ? "15deg" : "",
         }}
       />
+      <div className="flex flex-col gap-2 w-fit">
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Bac S - 2018</Button>
+          </PopoverTrigger>
+          <PopoverContent
+            side="right"
+            sideOffset={40}
+            align="start"
+            className="w-80"
+          >
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">
+                  Bacalauréat Scientifique - 2018
+                </h4>
+                <p className="text-sm text-muted-foreground">image bac s</p>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Separator orientation="vertical" asChild />
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline"> STAPS - 2021</Button>
+          </PopoverTrigger>
+          <PopoverContent
+            side="right"
+            sideOffset={40}
+            align="start"
+            className="w-80"
+          >
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">STAPS - 2021</h4>
+                <p className="text-sm text-muted-foreground">image staps</p>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Développeur autodidacte - 2022</Button>
+          </PopoverTrigger>
+          <PopoverContent
+            side="right"
+            sideOffset={40}
+            align="start"
+            className="w-80"
+          >
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">
+                  Apprentissage des fondamentaux du code - 2022
+                </h4>
+                <p className="text-sm text-muted-foreground">image code</p>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Openclasserooms - 2024</Button>
+          </PopoverTrigger>
+          <PopoverContent
+            side="right"
+            sideOffset={40}
+            align="start"
+            className="w-80"
+          >
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">
+                  Début formation chez Openclassrooms - 2024
+                </h4>
+                <p className="text-sm text-muted-foreground">image OC</p>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Développeur chez Rudigis - 2024</Button>
+          </PopoverTrigger>
+          <PopoverContent
+            side="right"
+            sideOffset={40}
+            align="start"
+            className="w-80"
+          >
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">
+                  Début alternance chez Rudigis - 2024
+                </h4>
+                <p className="text-sm text-muted-foreground">image rudigis</p>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </div>
     </div>
   );
 };
