@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, ReactElement, useEffect, useRef, useState } from "react";
 import { LottieRefCurrentProps } from "lottie-react";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import Animation from "@/public/assets/walk.json";
@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { CustSeparator } from "./CustSeparator";
 import { Badge } from "@/components/ui/badge";
+import { ArrowIcons } from "./icons";
 
 const parcours = [
   {
@@ -53,12 +54,12 @@ const parcours = [
     image: "fghjk",
   },
   {
-    title: "2022 | Développeur autodidacte",
+    title: "2022 | Développeur",
     titleSecondary: (
       <>
         <Badge variant="secondary">2022</Badge>
         <h4 className="font-medium text-xs md:text-sm leading-5">
-          Apprentissage des fondamentaux pour le code en auto didacte
+          Apprentissage des fondamentaux du dev en autodidacte
         </h4>
       </>
     ),
@@ -82,7 +83,7 @@ const parcours = [
       <>
         <Badge variant="secondary">2024</Badge>
         <h4 className="font-medium text-xs md:text-sm leading-5">
-          Alternance Développeur web chez Rudigis, Rennes, 35000
+          Développeur React/Ruby (alternance), Rudigis, Rennes, 35000
         </h4>
       </>
     ),
@@ -91,8 +92,8 @@ const parcours = [
 ];
 
 export const Parcours = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+  const [position, setPosition] = useState({ x: 70, y: 60 });
+  const [isVisible, setIsVisible] = useState(true);
   const [animationClick, setAnimationClick] = useState(false);
   const [speed, setSpeed] = useState(1.5);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -119,9 +120,15 @@ export const Parcours = () => {
   const handleMouseLeave = () => {
     setIsHovered(false);
     setIsVisible(false);
+
     setTimeout(() => {
       lottieRef.current?.stop();
-    }, 300);
+      setPosition({
+        x: 70,
+        y: 60,
+      });
+      setIsVisible(true);
+    }, 100);
   };
 
   const handleClick = () => {
@@ -186,7 +193,7 @@ export const Parcours = () => {
 
   return (
     <div
-      className="min-h-[300px] mt-5 relative overflow-hidden p-2 md:p-4"
+      className="flex justify-center mt-5 relative overflow-hidden p-2 md:p-4 border-custom border rounded-md"
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -198,8 +205,8 @@ export const Parcours = () => {
         loop={true}
         autoplay={false}
         style={{
-          height: "70px",
-          width: "70px",
+          height: "60px",
+          width: "60px",
           position: "absolute",
           zIndex: "40",
           translate: `-80% -44%`,
@@ -207,7 +214,7 @@ export const Parcours = () => {
           left: `${position.x}px`,
           pointerEvents: "none",
           opacity: isVisible ? 1 : 0,
-          transition: "opacity 0.3s ease-out, transform 0.1s ease-out",
+          transition: "opacity 1s ease",
           rotate: animationClick ? "15deg" : "",
         }}
       />
@@ -219,14 +226,14 @@ export const Parcours = () => {
                 <Button
                   onClick={() => handleUpdateSteps(i)}
                   variant={`${parcoursSteps[i] ? "secondary" : "outline"}`}
-                  className="text-xs md:text-base"
+                  className={`text-xs md:text-base flex justify-end`}
                 >
-                  {p.title}
+                  <span className="flex-1">{p.title}</span> <ArrowIcons />
                 </Button>
               </PopoverTrigger>
               <PopoverContent
                 side="right"
-                sideOffset={40}
+                sideOffset={20}
                 align="start"
                 className="w-80"
               >
