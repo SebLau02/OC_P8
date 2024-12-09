@@ -29,16 +29,36 @@ import Pg from "@/public/postgresql.svg";
 import Exp from "@/public/exp.svg";
 import Mongo from "@/public/mongodb.svg";
 import { Parcours } from "./_components/parcours";
+import {
+  GithubIcon,
+  InstaIcon,
+  LinkedinIcon,
+  MaltIcon,
+  ContactIcon,
+} from "./_components/icons";
 
 const socials = [
-  { url: "https://github.com/SebLau02", label: "GitHub" },
-  { url: "https://github.com/SebLau02", label: "Malt" },
-  { url: "https://github.com/SebLau02", label: "Instagram" },
+  {
+    url: "https://github.com/SebLau02",
+    label: "GitHub",
+    icon: <GithubIcon />,
+  },
+  {
+    url: "https://www.malt.fr/profile/sebastienlau",
+    label: "Malt",
+    icon: <MaltIcon />,
+  },
+  {
+    url: "https://www.instagram.com/lausebastien/",
+    label: "Instagram",
+    icon: <InstaIcon />,
+  },
   {
     url: "https://www.linkedin.com/in/sebastien-lau-884828228/",
     label: "LinkedIn",
+    icon: <LinkedinIcon />,
   },
-  { url: "#contact", label: "Contact me" },
+  { url: "#contact", label: "Contact me", icon: <ContactIcon /> },
 ];
 
 const enterprises = [
@@ -170,17 +190,19 @@ export default function Home() {
             <p>Je crée des applications web avec React et Ruby on rails !</p>
             <div className="flex gap-2 flex-wrap">
               {socials.map((social, i) => (
-                <Link
-                  target="_blank"
-                  href={social.url}
-                  key={i}
-                  className={badgeVariants({
-                    variant: "outline",
-                    className: "font-caption rounded-full border-custom",
-                  })}
-                >
-                  {social.label}
-                </Link>
+                <>
+                  <Link
+                    target="_blank"
+                    href={social.url}
+                    key={i}
+                    className={badgeVariants({
+                      variant: "outline",
+                      className: "font-caption rounded-full border-custom",
+                    })}
+                  >
+                    {social.label} {social.icon}
+                  </Link>
+                </>
               ))}
             </div>
           </Card>
@@ -213,7 +235,9 @@ export default function Home() {
               {projects.map((category, i) => (
                 <Card key={i} className="mb-8 p-3 border-custom">
                   <CardHeader className="p-0 block">
-                    <Badge variant="secondary">{category.type}</Badge>
+                    <Badge variant="secondary" className="ml-auto">
+                      {category.type}
+                    </Badge>
                   </CardHeader>
                   <section>
                     {category.projects.map((project, i) => (
