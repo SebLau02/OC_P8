@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, ReactElement, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { LottieRefCurrentProps } from "lottie-react";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import Animation from "@/public/assets/walk.json";
