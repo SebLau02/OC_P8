@@ -102,6 +102,7 @@ export const Parcours = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [parcoursSteps, setParcoursSteps] = useState<boolean[]>([]);
+  const [popoverOpen, setPopoverOpen] = useState<number | null>();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -221,12 +222,18 @@ export const Parcours = () => {
       <div className="flex flex-col gap-4 w-fit m-2 md:m-4">
         {parcours.map((p, i) => (
           <Fragment key={i}>
-            <Popover>
+            <Popover
+              onOpenChange={(isOpen) =>
+                isOpen ? setPopoverOpen(i) : setPopoverOpen(null)
+              }
+            >
               <PopoverTrigger asChild>
                 <Button
                   onClick={() => handleUpdateSteps(i)}
                   variant={`${parcoursSteps[i] ? "secondary" : "outline"}`}
-                  className={`text-xs md:text-base flex justify-end`}
+                  className={`text-xs md:text-base flex justify-end duration-100 transition-transform ${
+                    popoverOpen === i && "-translate-x-1/2"
+                  }`}
                 >
                   <span className="flex-1">{p.title}</span> <ArrowIcons />
                 </Button>
@@ -246,7 +253,10 @@ export const Parcours = () => {
               </PopoverContent>
             </Popover>
             {i < parcours.length - 1 && (
-              <CustSeparator progress={parcoursSteps[i] ? 100 : 0} />
+              <CustSeparator
+                clicked={popoverOpen === i ? true : false}
+                progress={parcoursSteps[i] ? 100 : 0}
+              />
             )}
           </Fragment>
         ))}
