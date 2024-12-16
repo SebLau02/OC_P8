@@ -12,13 +12,13 @@ export const CustSeparator = ({ progress, clicked }: CustSepType) => {
       <Progress
         value={progress}
         className={`absolute z-10 top-3 left-1/2 -translate-y-1/2 rotate-90 w-9 duration-[25ms] transition-transform ${
-          clicked ? "-translate-x-40" : "-translate-x-1/2"
+          clicked ? "-translate-x-[155px]" : "-translate-x-1/2"
         }`}
       />
       <Progress
         value={progress}
         delay={25}
-        className={`absolute z-10 top-1/2 left-1/2 -translate-y-1/2 -translate-x-full w-36 duration-[25ms] transition-transform origin-right ${
+        className={`absolute z-10 top-1/2 left-1/2 -translate-y-1/2 -translate-x-[98%] w-36 duration-[25ms] transition-transform origin-right ${
           clicked ? "scale-x-25" : "scale-x-0"
         }`}
       />
