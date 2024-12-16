@@ -25,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Sébastien Lau" />
+      </head>
       <body
         className={`${RobotoMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >
