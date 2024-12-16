@@ -123,7 +123,7 @@ const projects = [
     type: "Perso",
     projects: [
       {
-        name: "kasa.vercel.app",
+        name: "rent-a-kasa.vercel.app",
         enterprise: "Formation",
         description: [
           {
@@ -136,11 +136,11 @@ const projects = [
           },
         ],
         stack: ["React.js", "Vite"],
-        link: "https://github.com/SebLau02/OC-6_Kasa",
+        link: "https://rent-a-kasa.vercel.app/",
         icon: Kasa,
       },
       {
-        name: "mon-vieux-grimoire.vercel.app",
+        name: "mvgrimoire.vercel.app/",
         enterprise: "Formation",
         description: [
           {
@@ -153,7 +153,7 @@ const projects = [
           },
         ],
         stack: ["Express.js", "mongodb", "TypeScript"],
-        link: "https://github.com/SebLau02/OC_7_mon-vieux-grimoire",
+        link: "https://mvgrimoire.vercel.app/",
         icon: Mvg,
       },
       {
@@ -170,7 +170,7 @@ const projects = [
           },
         ],
         stack: ["Next.js", "TypeScript", "Tailwind.css"],
-        link: "https://github.com/SebLau02/OC_7_mon-vieux-grimoire",
+        link: "https://sebastien-dev-portfolio.vercel.app/",
         icon: WildFox,
       },
     ],
