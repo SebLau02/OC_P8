@@ -84,7 +84,7 @@ const projects = [
     type: "Pro",
     projects: [
       {
-        name: "Talents et Paillettes",
+        name: "talentsetpaillettes.app",
         enterprise: "Talents et Paillettes",
         description: [
           {
@@ -101,7 +101,7 @@ const projects = [
         icon: TpIco,
       },
       {
-        name: "Rentco",
+        name: "rentco.app",
         enterprise: "The Rent Company",
         description: [
           {
@@ -123,7 +123,7 @@ const projects = [
     type: "Perso",
     projects: [
       {
-        name: "Kasa",
+        name: "kasa.vercel.app",
         enterprise: "Formation",
         description: [
           {
@@ -140,7 +140,7 @@ const projects = [
         icon: Kasa,
       },
       {
-        name: "Mon vieux grimoire",
+        name: "mon-vieux-grimoire.vercel.app",
         enterprise: "Formation",
         description: [
           {
@@ -157,7 +157,7 @@ const projects = [
         icon: Mvg,
       },
       {
-        name: "Sébastien Lau - Portfolio",
+        name: "sebastien-dev-portfolio.vercel.app",
         enterprise: "Personnel",
         description: [
           {
@@ -202,7 +202,7 @@ export default function Home() {
               </div>
               <div>
                 <h1>Sébastien LAU</h1>
-                <h2 className="font-caption">Développeur freelance</h2>
+                <h3>Développeur freelance</h3>
               </div>
             </div>
             <p>Je crée des applications web avec React et Ruby on rails !</p>
@@ -215,7 +215,8 @@ export default function Home() {
                     key={i}
                     className={badgeVariants({
                       variant: "outline",
-                      className: "font-caption rounded-full border-custom",
+                      className:
+                        "font-caption rounded-full border-custom md:text-sm",
                     })}
                   >
                     {social.label} {social.icon}
@@ -225,7 +226,7 @@ export default function Home() {
             </div>
           </Card>
         </Section>
-        <h2 className="text-lg m-auto text-center my-6" id="works">
+        <h2 className="m-auto text-center mt-10 mb-6" id="works">
           collaborations
         </h2>
         <Section className="px-0">
@@ -247,14 +248,12 @@ export default function Home() {
             ))}
           </div>
           <section className="mt-6">
-            <h2 className="text-center mb-2 font-caption">
-              quelques contributions
-            </h2>
+            <h3 className="text-center mb-2">quelques contributions</h3>
             <div>
               {projects.map((category, i) => (
                 <Card
                   key={i}
-                  className={`mb-8 p-3 border-custom opacity-0 ${
+                  className={`mb-8 p-3 sm:p-6 border-custom opacity-0 ${
                     i % 2 === 0 ? "animate-slideInReverse" : "animate-slideIn"
                   }`}
                   style={{
@@ -262,7 +261,7 @@ export default function Home() {
                   }}
                 >
                   <CardHeader className="p-0 block">
-                    <Badge variant="secondary" className="ml-auto">
+                    <Badge variant="secondary" className="ml-auto uppercase">
                       {category.type}
                     </Badge>
                   </CardHeader>
@@ -303,7 +302,7 @@ export default function Home() {
                                 </Link>
                               )}
                               <div>
-                                <h3 className="text-sm mb-2">{project.name}</h3>
+                                <h3 className="mb-2">{project.name}</h3>
                                 <Badge
                                   variant="outline"
                                   className="font-caption border-custom"
@@ -315,14 +314,14 @@ export default function Home() {
                           </AccordionTrigger>
                           <AccordionContent className="pl-3">
                             {project.description.map((description, i) => (
-                              <p key={i} className="text-sm my-1">
+                              <p key={i} className="my-1">
                                 <span className="underline decoration-dotted">
                                   {description.key}
                                 </span>{" "}
                                 {description.value}
                               </p>
                             ))}
-                            <h4 className="font-caption underline decoration-dotted my-1">
+                            <h4 className="underline decoration-dotted my-1">
                               Stack:
                             </h4>
                             {project.stack.map((item, i) => (
@@ -340,7 +339,7 @@ export default function Home() {
             </div>
           </section>
         </Section>
-        <h2 className="text-lg m-auto text-center my-6" id="about">
+        <h2 className="m-auto text-center mt-10 mb-6" id="about">
           à propos
         </h2>
         <Section className="max-w-3xl">
@@ -357,7 +356,7 @@ export default function Home() {
           </div>
           <Parcours />
         </Section>
-        <h2 className="text-lg m-auto text-center my-6" id="contact">
+        <h2 className="m-auto text-center mt-10 mb-6" id="contact">
           contact
         </h2>
         <Section>

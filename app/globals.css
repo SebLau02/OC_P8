@@ -28,39 +28,24 @@
   --chart-4: hsl(34 30% 28%);
   --chart-5: hsl(34 101% 48%);
 
-  /* --background: hsl(201, 15%, 18%);
-  --foreground: hsl(164, 100%, 97%);
-  --muted: hsl(200 12% 22%);
-  --muted-foreground: hsl(200 12% 72%);
-  --popover: hsl(200 16% 15%);
-  --popover-foreground: hsl(0 0% 100%);
-  --card: hsl(200 16% 16%);
-  --card-foreground: hsl(0 0% 100%);
-  --border: hsl(200 6% 23%);
-  --input: hsl(200 6% 26%);
-  --primary: hsl(52 100% 72%);
-  --primary-foreground: hsl(52 100% 12%);
-  --secondary: hsl(52 30% 25%);
-  --secondary-foreground: hsl(52 30% 85%);
-  --accent: hsl(200 16% 33%);
-  --accent-foreground: hsl(200 16% 93%);
-  --destructive: hsl(6 86% 53%);
-  --destructive-foreground: hsl(0 0% 100%);
-  --ring: hsl(52 100% 72%); */
-
-  /* --chart-1: hsl(220 70% 50%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%); */
   --radius: 0.5rem;
 }
-p {
-  font-family: var(--font-cutive-mono);
+p,
+h4 {
+  font-family: var(--font-raleway-mono);
+  @apply text-sm sm:text-base;
 }
 h1 {
-  @apply text-base sm:text-3xl;
+  @apply text-lg sm:text-3xl;
 }
+h2 {
+  @apply text-lg sm:text-2xl;
+}
+h3 {
+  font-family: var(--font-raleway-mono);
+  @apply text-base sm:text-lg;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

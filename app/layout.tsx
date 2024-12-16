@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto_Mono, Cutive_Mono } from "next/font/google";
+import { Raleway, Cutive_Mono } from "next/font/google";
 
-const RobotoMono = Roboto_Mono({
+const RalewayMono = Raleway({
   subsets: ["latin"],
-  variable: "--font-roboto-mono",
+  variable: "--font-raleway-mono",
 });
 const CutiveMono = Cutive_Mono({
   subsets: ["latin"],
@@ -29,7 +29,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Sébastien Lau" />
       </head>
       <body
-        className={`${RobotoMono.variable} ${CutiveMono.variable} font-sans h-full`}
+        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >
         {children}
       </body>

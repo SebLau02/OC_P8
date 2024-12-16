@@ -21,7 +21,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">- 2018</Badge>{" "}
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Baccalauréat Scientifique, Guyane Française
         </h4>
       </>
@@ -33,7 +33,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">2018-2021</Badge>
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Licence Sciences Techniques des Activitées Physiques et Sportives,
           Liévin, 62800
         </h4>
@@ -46,7 +46,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">2021-2024</Badge>
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Cours d&apos;escalade de loisir pour enfant, Noyelles-Godault, 62950
         </h4>
       </>
@@ -58,7 +58,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">2022 -</Badge>
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Apprentissage des fondamentaux du dev en autodidacte
         </h4>
       </>
@@ -70,7 +70,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">2024 - 2025</Badge>
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Formation développeur web Openclassrooms alternance
         </h4>
       </>
@@ -82,7 +82,7 @@ const parcours = [
     titleSecondary: (
       <>
         <Badge variant="secondary">2024 - 2025</Badge>
-        <h4 className="font-medium text-xs md:text-sm leading-5">
+        <h4 className="leading-5">
           Développeur React/Ruby (alternance), Rudigis, Rennes, 35000
         </h4>
       </>
@@ -194,7 +194,7 @@ export const Parcours = () => {
 
   return (
     <div
-      className="flex justify-center mt-5 relative overflow-hidden p-2 md:p-4 border-custom border rounded-md"
+      className="flex justify-center mt-5 relative overflow-hidden p-3 md:p-6 border-custom border rounded-md"
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -219,7 +219,7 @@ export const Parcours = () => {
           rotate: animationClick ? "15deg" : "",
         }}
       />
-      <div className="flex flex-col gap-4 w-fit m-2 md:m-4">
+      <div className="flex flex-col gap-4 w-fit">
         {parcours.map((p, i) => (
           <Fragment key={i}>
             <Popover
@@ -231,7 +231,7 @@ export const Parcours = () => {
                 <Button
                   onClick={() => handleUpdateSteps(i)}
                   variant={`${parcoursSteps[i] ? "secondary" : "outline"}`}
-                  className={`text-xs md:text-base flex justify-end duration-100 transition-transform ${
+                  className={`text-sm md:text-base flex justify-end duration-100 transition-transform ${
                     popoverOpen === i && "-translate-x-1/2"
                   }`}
                 >
@@ -246,10 +246,7 @@ export const Parcours = () => {
                 className="max-w-60 w-32 sm:w-full"
               >
                 <div className="grid gap-4">
-                  <div className="space-y-2">
-                    {p.titleSecondary}
-                    <p className="text-sm text-muted-foreground"></p>
-                  </div>
+                  <div className="space-y-2">{p.titleSecondary}</div>
                 </div>
               </PopoverContent>
             </Popover>

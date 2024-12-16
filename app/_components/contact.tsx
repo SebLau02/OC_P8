@@ -15,13 +15,13 @@ export const Contact = () => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
   return (
-    <Card className="mb-8 p-3 border-custom">
+    <Card className="mb-8 p-3 sm:p-6 border-custom">
       <form className="flex gap-4 flex-col max-w-25">
-        <Label className="text-sm" htmlFor="name">
+        <Label className="text-sm sm:text-md" htmlFor="name">
           Noble identité
           <Input
             onChange={handleChange}
-            className="placeholder:text-xs mt-1"
+            className="placeholder:text-xs placeholder:sm:text-sm mt-1"
             type="text"
             id="name"
             name="name"
@@ -32,7 +32,7 @@ export const Contact = () => {
           Missive electronique
           <Input
             onChange={handleChange}
-            className="placeholder:text-xs mt-1"
+            className="placeholder:text-xs placeholder:sm:text-sm mt-1"
             type="email"
             id="email"
             name="email"
@@ -45,7 +45,7 @@ export const Contact = () => {
             onChange={handleChange}
             id="message"
             name="message"
-            className="placeholder:text-xs placeholder:leading-5 mt-1"
+            className="placeholder:text-xs placeholder:leading-5 placeholder:sm:text-sm mt-1"
             placeholder="Hé Seb, ton profil est des plus intéressants ! Et si nos talents s’alliaient pour accomplir de grandes choses ensemble ?"
             rows={10}
           />
