@@ -20,7 +20,7 @@ const parcours = [
     title: "2018 | Bac S",
     titleSecondary: (
       <>
-        <Badge variant="secondary">2018</Badge>{" "}
+        <Badge variant="secondary">- 2018</Badge>{" "}
         <h4 className="font-medium text-xs md:text-sm leading-5">
           Baccalauréat Scientifique, Guyane Française
         </h4>
@@ -57,7 +57,7 @@ const parcours = [
     title: "2022 | Développeur",
     titleSecondary: (
       <>
-        <Badge variant="secondary">2022</Badge>
+        <Badge variant="secondary">2022 -</Badge>
         <h4 className="font-medium text-xs md:text-sm leading-5">
           Apprentissage des fondamentaux du dev en autodidacte
         </h4>
@@ -69,7 +69,7 @@ const parcours = [
     title: "2024 | Openclassrooms",
     titleSecondary: (
       <>
-        <Badge variant="secondary">2024</Badge>
+        <Badge variant="secondary">2024 - 2025</Badge>
         <h4 className="font-medium text-xs md:text-sm leading-5">
           Formation développeur web Openclassrooms alternance
         </h4>
@@ -81,7 +81,7 @@ const parcours = [
     title: "2024 | Rudigis",
     titleSecondary: (
       <>
-        <Badge variant="secondary">2024</Badge>
+        <Badge variant="secondary">2024 - 2025</Badge>
         <h4 className="font-medium text-xs md:text-sm leading-5">
           Développeur React/Ruby (alternance), Rudigis, Rennes, 35000
         </h4>
@@ -242,7 +242,8 @@ export const Parcours = () => {
                 side="right"
                 sideOffset={20}
                 align="start"
-                className="w-80"
+                sticky="always"
+                className="max-w-60 w-32 sm:w-full"
               >
                 <div className="grid gap-4">
                   <div className="space-y-2">
