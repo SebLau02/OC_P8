@@ -10,6 +10,25 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideIn: {
+          "0%": { translate: "-10% 0", opacity: "0" },
+          "100%": { translate: "0 0", opacity: "1" },
+        },
+        slideInReverse: {
+          "0%": { translate: "10% 0", opacity: "0" },
+          "100%": { translate: "0 0", opacity: "1" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn ease 0.8s forwards",
+        slideIn: "slideIn ease 0.5s forwards",
+        slideInReverse: "slideInReverse ease 0.5s forwards",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

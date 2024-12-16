@@ -28,6 +28,7 @@ import Ror from "@/public/rails.svg";
 import Pg from "@/public/postgresql.svg";
 import Exp from "@/public/exp.svg";
 import Mongo from "@/public/mongodb.svg";
+import WildFox from "@/public/web-app-manifest-192x192.png";
 import { Parcours } from "./_components/parcours";
 import {
   GithubIcon,
@@ -134,7 +135,7 @@ const projects = [
             value: "Développement FrontEnd",
           },
         ],
-        stack: ["React.js"],
+        stack: ["React.js", "Vite"],
         link: "https://github.com/SebLau02/OC-6_Kasa",
         icon: Kasa,
       },
@@ -155,6 +156,23 @@ const projects = [
         link: "https://github.com/SebLau02/OC_7_mon-vieux-grimoire",
         icon: Mvg,
       },
+      {
+        name: "Sébastien Lau - Portfolio",
+        enterprise: "Personnel",
+        description: [
+          {
+            key: "Service:",
+            value: "Mon portfolio personnel",
+          },
+          {
+            key: "Contribution:",
+            value: "Développement frontend / backend",
+          },
+        ],
+        stack: ["Next.js", "TypeScript", "Tailwind.css"],
+        link: "https://github.com/SebLau02/OC_7_mon-vieux-grimoire",
+        icon: WildFox,
+      },
     ],
   },
 ];
@@ -173,7 +191,7 @@ export default function Home() {
       <Header />
       <main className="p-2">
         <Section>
-          <Card className="mt-6 p-3 border-custom flex gap-3 flex-col">
+          <Card className="opacity-0 mt-6 p-3 border-custom flex gap-3 flex-col animate-fadeIn">
             <div className="flex gap-3">
               <div className="w-20 h-20 overflow-hidden rounded-full">
                 <img
@@ -208,16 +226,17 @@ export default function Home() {
           </Card>
         </Section>
         <h2 className="text-lg m-auto text-center my-6" id="works">
-          contributions
+          collaborations
         </h2>
         <Section className="px-0">
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-3 md:gap-16">
             {enterprises.map((enterprise, i) => (
               <Link
                 target="_blank"
                 href={enterprise.website}
                 key={i}
-                className="block w-20"
+                className={`block opacity-0 w-20 md:w-28 animate-fadeIn`}
+                style={{ animationDelay: `${(i + 3) / 10}s` }}
               >
                 <Image
                   src={enterprise.image}
@@ -229,11 +248,19 @@ export default function Home() {
           </div>
           <section className="mt-6">
             <h2 className="text-center mb-2 font-caption">
-              quelques réalisations
+              quelques contributions
             </h2>
             <div>
               {projects.map((category, i) => (
-                <Card key={i} className="mb-8 p-3 border-custom">
+                <Card
+                  key={i}
+                  className={`mb-8 p-3 border-custom opacity-0 ${
+                    i % 2 === 0 ? "animate-slideInReverse" : "animate-slideIn"
+                  }`}
+                  style={{
+                    animationDelay: "1s",
+                  }}
+                >
                   <CardHeader className="p-0 block">
                     <Badge variant="secondary" className="ml-auto">
                       {category.type}
