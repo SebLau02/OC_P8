@@ -329,6 +329,18 @@ export default function Home() {
                                 {item}
                               </Badge>
                             ))}
+                            {project.link !== "" && (
+                              <p className="text-end pr-3 mt-2">
+                                Visite le{" "}
+                                <a
+                                  href={project.link}
+                                  target="_blank"
+                                  className="underline"
+                                >
+                                  ICI
+                                </a>
+                              </p>
+                            )}
                           </AccordionContent>
                         </AccordionItem>
                       </Accordion>
