@@ -247,6 +247,7 @@ export default function Home() {
               </Link>
             ))}
           </div>
+
           <section className="mt-6">
             <h3 className="text-center mb-2">quelques contributions</h3>
             <div>
