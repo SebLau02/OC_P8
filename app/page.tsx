@@ -37,6 +37,7 @@ import {
   MaltIcon,
   ContactIcon,
 } from "./_components/icons";
+import { StyledTitle } from "./_components/styledTitle";
 
 const socials = [
   {
@@ -226,9 +227,7 @@ export default function Home() {
             </div>
           </Card>
         </Section>
-        <h2 className="m-auto text-center mt-10 mb-6" id="works">
-          collaborations
-        </h2>
+        <StyledTitle label="collaboration" orientation="positive" id="works" />
         <Section className="px-0">
           <div className="flex justify-center items-center gap-3 md:gap-16">
             {enterprises.map((enterprise, i) => (
@@ -352,9 +351,7 @@ export default function Home() {
             </div>
           </section>
         </Section>
-        <h2 className="m-auto text-center mt-10 mb-6" id="about">
-          à propos
-        </h2>
+        <StyledTitle label="à propos" orientation="negative" id="about" />
         <Section className="max-w-3xl">
           <div className="flex justify-evenly items-center flex-wrap gap-2 md:gap-4">
             {stacks.map((stack, i) => (
@@ -369,9 +366,7 @@ export default function Home() {
           </div>
           <Parcours />
         </Section>
-        <h2 className="m-auto text-center mt-10 mb-6" id="contact">
-          contact
-        </h2>
+        <StyledTitle label="contact" orientation="negative" id="contact" />
         <Section>
           <Contact />
         </Section>
