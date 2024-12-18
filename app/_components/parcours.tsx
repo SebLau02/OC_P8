@@ -233,6 +233,10 @@ export const Parcours = () => {
                   variant={`${parcoursSteps[i] ? "secondary" : "outline"}`}
                   className={`text-sm md:text-base flex justify-end duration-100 transition-transform ${
                     popoverOpen === i && "-translate-x-1/2"
+                  } ${
+                    popoverOpen === parcours.length - 1 &&
+                    popoverOpen === i &&
+                    "mb-20"
                   }`}
                 >
                   <span className="flex-1">{p.title}</span> <ArrowIcons />
