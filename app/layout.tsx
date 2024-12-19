@@ -30,7 +30,8 @@ export default function RootLayout({
     description:
       "Voici mon portfolio de développeur, vous trouverez y trouverez tout les informations que vous avez besoin",
     url: "https://sebastien-dev-portfolio.vercel.app/",
-    image: "@/public/assets/profile.png",
+    image:
+      "https://sebastien-dev-portfolio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.c8198ac3.png&w=256&q=75",
     creator: {
       "@type": "Person",
       name: "Jean Dupont",
@@ -43,12 +44,15 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Sébastien Lau" />
         {/* Open Graph meta tags **START** */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Mon Portfolio" />
+        <meta property="og:title" content="Sébastien, développeur web" />
         <meta
           property="og:description"
           content="Sébastien, Développeur freelance basé Rennes et dispo en full-remote"
         />
-        <meta property="og:image" content="@/public/assets/profile.png" />
+        <meta
+          property="og:image"
+          content="https://sebastien-dev-portfolio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.c8198ac3.png&w=256&q=75"
+        />
         <meta
           property="og:url"
           content="https://sebastien-dev-portfolio.vercel.app/"
