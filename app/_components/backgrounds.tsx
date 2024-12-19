@@ -3,7 +3,7 @@ import React from "react";
 export const Backgrounds = () => {
   return (
     <div className="overflow-hidden max-w-full">
-      <div className="absolute top-[15%] w-[98%] opacity-20">
+      <div className="absolute top-[7%] right-0 w-[98%] max-w-[1600px] opacity-20">
         <svg version="1.1" viewBox="0 0 800 800" opacity="1">
           <defs>
             <linearGradient
@@ -318,7 +318,7 @@ export const Backgrounds = () => {
           </g>
         </svg>
       </div>
-      <div className="w-[90%] min-w-[300px] absolute top-[170%] left-[37%] -translate-x-1/2 opacity-10">
+      <div className="w-[90%] min-w-[300px] max-w-[1200px] absolute top-[160%] left-[30%] -translate-x-1/2 opacity-10">
         <svg viewBox="0 0 100 100">
           <path
             d="M80,61.5Q78,73,65,67Q52,61,45,66Q38,71,30,65.5Q22,60,19,49Q16,38,26.5,33Q37,28,45.5,27.5Q54,27,62.5,29.5Q71,32,76.5,41Q82,50,80,61.5Z"
