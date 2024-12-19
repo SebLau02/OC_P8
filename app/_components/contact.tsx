@@ -52,7 +52,7 @@ export const Contact = () => {
           Noble identité
           <Input
             onChange={handleChange}
-            className="placeholder:text-xs placeholder:sm:text-sm mt-1"
+            className="placeholder:text-xs placeholder:sm:text-sm mt-1 font-caption"
             type="text"
             id="name"
             name="name"
@@ -63,7 +63,7 @@ export const Contact = () => {
           Missive electronique
           <Input
             onChange={handleChange}
-            className="placeholder:text-xs placeholder:sm:text-sm mt-1"
+            className="placeholder:text-xs placeholder:sm:text-sm mt-1 font-caption"
             type="email"
             id="email"
             name="email"
@@ -76,7 +76,7 @@ export const Contact = () => {
             onChange={handleChange}
             id="message"
             name="message"
-            className="placeholder:text-xs placeholder:leading-5 placeholder:sm:text-sm mt-1"
+            className="placeholder:text-xs placeholder:leading-5 placeholder:sm:text-sm mt-1 font-caption"
             placeholder="Hé Seb, ton profil est des plus intéressants ! Et si nos talents s’alliaient pour accomplir de grandes choses ensemble ?"
             rows={10}
           />

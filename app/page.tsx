@@ -211,7 +211,7 @@ export default function Home() {
               {socials.map((social, i) => (
                 <>
                   <Link
-                    target="_blank"
+                    target={social.url === "#contact" ? "" : "_blank"}
                     href={social.url}
                     key={i}
                     className={badgeVariants({
@@ -227,7 +227,7 @@ export default function Home() {
             </div>
           </Card>
         </Section>
-        <StyledTitle label="collaboration" orientation="positive" id="works" />
+        <StyledTitle label="collaborations" orientation="positive" id="works" />
         <Section className="px-0">
           <div className="flex justify-center items-center gap-3 md:gap-16">
             {enterprises.map((enterprise, i) => (
@@ -302,7 +302,9 @@ export default function Home() {
                                 </Link>
                               )}
                               <div>
-                                <h3 className="mb-2">{project.name}</h3>
+                                <h3 className="mb-2 cursor-text select-text">
+                                  {project.name}
+                                </h3>
                                 <Badge
                                   variant="outline"
                                   className="font-caption border-custom"
@@ -313,22 +315,23 @@ export default function Home() {
                             </div>
                           </AccordionTrigger>
                           <AccordionContent className="pl-3">
-                            {project.description.map((description, i) => (
-                              <p key={i} className="my-1">
-                                <span className="underline decoration-dotted">
-                                  {description.key}
-                                </span>{" "}
-                                {description.value}
-                              </p>
-                            ))}
-                            <h4 className="underline decoration-dotted my-1">
-                              Stack:
-                            </h4>
-                            {project.stack.map((item, i) => (
-                              <Badge key={i} className="m-1">
-                                {item}
-                              </Badge>
-                            ))}
+                            <table>
+                              {project.description.map((description, i) => (
+                                <p key={i} className="my-1">
+                                  <span className="underline">
+                                    {description.key}
+                                  </span>{" "}
+                                  {description.value}
+                                </p>
+                              ))}
+                              <p className="underline my-1">Stack:</p>
+                              {project.stack.map((item, i) => (
+                                <Badge key={i} className="m-1">
+                                  {item}
+                                </Badge>
+                              ))}
+                            </table>
+
                             {project.link !== "" && (
                               <p className="text-end pr-3 mt-2">
                                 Visite le{" "}
