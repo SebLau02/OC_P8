@@ -29,6 +29,7 @@ import Pg from "@/public/postgresql.svg";
 import Exp from "@/public/exp.svg";
 import Mongo from "@/public/mongodb.svg";
 import WildFox from "@/public/web-app-manifest-192x192.png";
+import Profile from "@/public/assets/profile.png";
 import { Parcours } from "./_components/parcours";
 import {
   GithubIcon,
@@ -38,6 +39,7 @@ import {
   ContactIcon,
 } from "./_components/icons";
 import { StyledTitle } from "./_components/styledTitle";
+import { Backgrounds } from "./_components/backgrounds";
 
 const socials = [
   {
@@ -190,13 +192,14 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <main className="p-2">
+      <main className="p-2 overflow-x-hidden">
+        <Backgrounds />
         <Section>
           <Card className="opacity-0 mt-6 p-3 border-custom flex gap-3 flex-col animate-fadeIn">
             <div className="flex gap-3">
               <div className="w-20 h-20 overflow-hidden rounded-full">
-                <img
-                  src="https://www.macapflag.com/blog/wp-content/uploads/2021/05/le-metier-de-developpeur-768x530.jpg"
+                <Image
+                  src={Profile}
                   alt="sébastien lau, dévelopeur react"
                   className="w-full h-full object-cover block"
                 />
@@ -259,6 +262,7 @@ export default function Home() {
                   style={{
                     animationDelay: "1s",
                   }}
+                  id="pro-project"
                 >
                   <CardHeader className="p-0 block">
                     <Badge variant="secondary" className="ml-auto uppercase">
