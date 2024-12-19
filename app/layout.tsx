@@ -28,13 +28,12 @@ export default function RootLayout({
     "@type": "Project",
     name: "Portfolio Développeur web Sébastien LAU",
     description:
-      "Voici mon portfolio de développeur, vous trouverez y trouverez tout les informations que vous avez besoin",
+      "Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin",
     url: "https://sebastien-dev-portfolio.vercel.app/",
-    image:
-      "https://sebastien-dev-portfolio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.c8198ac3.png&w=256&q=75",
+    image: "@/public/assets/profile.png",
     creator: {
       "@type": "Person",
-      name: "Jean Dupont",
+      name: "Sébastien LAU",
     },
   };
 
@@ -49,10 +48,7 @@ export default function RootLayout({
           property="og:description"
           content="Sébastien, Développeur freelance basé Rennes et dispo en full-remote"
         />
-        <meta
-          property="og:image"
-          content="https://sebastien-dev-portfolio.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.c8198ac3.png&w=256&q=75"
-        />
+        <meta property="og:image" content="@/public/assets/profile.png" />
         <meta
           property="og:url"
           content="https://sebastien-dev-portfolio.vercel.app/"
