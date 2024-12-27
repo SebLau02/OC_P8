@@ -28,7 +28,7 @@ export const Header = () => {
   return (
     <header className={`relative min-h-[56px]`}>
       <div
-        className={`fixed top-0 left-0 bg-background w-full z-30 flex justify-evenly align-center py-3 shadow-md transition-transform ${
+        className={`fixed top-0 left-0 bg-background w-full z-30 flex justify-evenly items-center py-3 shadow-md transition-transform ${
           scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
         }`}
       >

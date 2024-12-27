@@ -40,6 +40,7 @@ import {
 } from "./_components/icons";
 import { StyledTitle } from "./_components/styledTitle";
 import { Backgrounds } from "./_components/backgrounds";
+import { Footer } from "./_components/footer";
 
 const socials = [
   {
@@ -155,7 +156,7 @@ const projects = [
             value: "Développement Backend",
           },
         ],
-        stack: ["Express.js", "mongodb", "TypeScript"],
+        stack: ["Express.js", "MongoDB", "TypeScript", "Cloudinary"],
         link: "https://mvgrimoire.vercel.app/",
         icon: Mvg,
       },
@@ -172,7 +173,7 @@ const projects = [
             value: "Développement frontend / backend",
           },
         ],
-        stack: ["Next.js", "TypeScript", "Tailwind.css"],
+        stack: ["Next.js", "TypeScript", "Tailwind.css", "shadcn/ui"],
         link: "https://sebastien-dev-portfolio.vercel.app/",
         icon: WildFox,
       },
@@ -206,7 +207,7 @@ export default function Home() {
               </div>
               <div>
                 <h1>Sébastien LAU</h1>
-                <h3>Développeur freelance</h3>
+                <h3>Développeur web</h3>
               </div>
             </div>
             <p>Je crée des applications web avec React et Ruby on rails !</p>
@@ -378,6 +379,7 @@ export default function Home() {
           <Contact />
         </Section>
       </main>
+      <Footer />
     </main>
   );
 }

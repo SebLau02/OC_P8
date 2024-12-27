@@ -13,9 +13,9 @@ const CutiveMono = Cutive_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sébastien LAU - Développeur freelance",
+  title: "Sébastien LAU - Portfolio déveoppeur",
   description:
-    "Développeur React freelance basé sur Rennes, disponible pour des missions 100% distanciel.",
+    "Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin",
 };
 
 export default function RootLayout({
@@ -30,7 +30,8 @@ export default function RootLayout({
     description:
       "Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin",
     url: "https://sebastien-dev-portfolio.vercel.app/",
-    image: "@/public/assets/profile.png",
+    image:
+      "https://asset.cloudinary.com/dw7tgqocy/3f8ebf9c5cb17a0d2249f2dddc09f89e",
     creator: {
       "@type": "Person",
       name: "Sébastien LAU",
@@ -46,16 +47,19 @@ export default function RootLayout({
         <meta property="og:title" content="Sébastien, développeur web" />
         <meta
           property="og:description"
-          content="Sébastien, Développeur freelance basé Rennes et dispo en full-remote"
+          content="Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin"
         />
-        <meta property="og:image" content="@/public/assets/profile.png" />
+        <meta
+          property="og:image"
+          content="https://asset.cloudinary.com/dw7tgqocy/3f8ebf9c5cb17a0d2249f2dddc09f89e"
+        />
         <meta
           property="og:url"
           content="https://sebastien-dev-portfolio.vercel.app/"
         />
         <meta
           property="og:site_name"
-          content="Sébastien LAU - Développeur freelance"
+          content="Sébastien LAU - Portfolio développeur"
         />
         <meta property="og:locale" content="fr_FR" />
         {/* Open Graph meta tags **END** */}
