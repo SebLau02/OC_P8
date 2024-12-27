@@ -117,7 +117,7 @@ const projects = [
             value: "Maintenance et développement de nouveaux modules",
           },
         ],
-        stack: ["Ruby on Rails", "PostgreSQL"],
+        stack: ["Ruby on Rails", "PostgreSQL", "Bootstrap 5"],
         link: "",
         icon: RentcoIco,
       },
