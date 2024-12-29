@@ -15,7 +15,7 @@ const CutiveMono = Cutive_Mono({
 export const metadata: Metadata = {
   title: "Sébastien LAU - Portfolio déveoppeur",
   description:
-    "Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin",
+    "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
 };
 
 export default function RootLayout({
@@ -28,10 +28,10 @@ export default function RootLayout({
     "@type": "Project",
     name: "Portfolio Développeur web Sébastien LAU",
     description:
-      "Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin",
+      "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
     url: "https://sebastien-dev-portfolio.vercel.app/",
     image:
-      "https://asset.cloudinary.com/dw7tgqocy/3f8ebf9c5cb17a0d2249f2dddc09f89e",
+      "https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg",
     creator: {
       "@type": "Person",
       name: "Sébastien LAU",
@@ -39,7 +39,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="fr" suppressHydrationWarning={true}>
       <head>
         <meta name="apple-mobile-web-app-title" content="Sébastien Lau" />
         {/* Open Graph meta tags **START** */}
@@ -47,11 +47,11 @@ export default function RootLayout({
         <meta property="og:title" content="Sébastien, développeur web" />
         <meta
           property="og:description"
-          content="Voici mon portfolio de développeur, vous y trouverez tout les informations que vous avez besoin"
+          content="Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin"
         />
         <meta
           property="og:image"
-          content="https://asset.cloudinary.com/dw7tgqocy/3f8ebf9c5cb17a0d2249f2dddc09f89e"
+          content="https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg"
         />
         <meta
           property="og:url"
