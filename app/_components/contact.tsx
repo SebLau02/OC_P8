@@ -49,35 +49,35 @@ export const Contact = () => {
     <Card className="mb-8 p-3 sm:p-6 border-custom">
       <form className="flex gap-4 flex-col max-w-25" onSubmit={handleSubmit}>
         <Label className="text-sm sm:text-md" htmlFor="name">
-          Noble identité
+          Nom Prénom
           <Input
             onChange={handleChange}
             className="placeholder:text-xs placeholder:sm:text-sm mt-1 font-caption"
             type="text"
             id="name"
             name="name"
-            placeholder="Sir Eldric le Juste"
+            placeholder="ex: Jonh Doe"
           />
         </Label>
         <Label className="text-sm" htmlFor="email">
-          Missive electronique
+          Addresse mail
           <Input
             onChange={handleChange}
             className="placeholder:text-xs placeholder:sm:text-sm mt-1 font-caption"
             type="email"
             id="email"
             name="email"
-            placeholder="juste_le_eldric@ordre-de-la-justice.org"
+            placeholder="ex: jonh.doe@yopmail.yop"
           />
         </Label>
         <Label className="text-sm" htmlFor="message">
-          Lettre de la quête
+          Votre message
           <Textarea
             onChange={handleChange}
             id="message"
             name="message"
             className="placeholder:text-xs placeholder:leading-5 placeholder:sm:text-sm mt-1 font-caption"
-            placeholder="Hé Seb, ton profil est des plus intéressants ! Et si nos talents s’alliaient pour accomplir de grandes choses ensemble ?"
+            placeholder="ex: Voici un message"
             rows={10}
           />
         </Label>

@@ -11,11 +11,11 @@ export const Footer = () => {
           <li>📧: sebastien.lau2021@gmail.com</li>
           <li>📞: +33 603 709 377</li>
         </ul>
-        <a href="/assets/LS_CV.pdf" className="underline" download>
+        <a href="/assets/Sébastien Lau_CV.pdf" className="underline" download>
           Télécharger le CV
         </a>
       </div>
-      <p>© 2024 Sébastien Lau - Tous droits réservés</p>
+      <p>© {new Date().getFullYear()} Sébastien Lau - Tous droits réservés</p>
     </div>
   );
 };
