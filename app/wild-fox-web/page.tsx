@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { CircleUserRound } from "lucide-react";
+import {
+  ChartNoAxesCombined,
+  CircleUserRound,
+  Code,
+  Wrench,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,12 +58,9 @@ const Page = () => {
               </p>
             </section>
             <div className="flex md:flex-row gap-2 flex-col justify-end">
-              <a
-                href="https://sebastien-dev-portfolio.vercel.app/"
-                className="text-secondary-11 underline hover:text-secondary-12"
-              >
+              <Link href="/" className="underline">
                 À lire aussi
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -113,7 +115,7 @@ const Page = () => {
         <div className="flex flex-col gap-6 md:gap-12 lg:flex-row">
           <Card className="lg:w-1/3 w-full p-8">
             <CardContent className="p-0">
-              <div className="w-full h-40 md:h-80 rounded-sm overflow-hidden">
+              <div className="w-full h-52 md:h-80 rounded-sm overflow-hidden">
                 <Image
                   width={500}
                   height={320}
@@ -123,7 +125,8 @@ const Page = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-secondary-12 my-4">
-                <i className="fa-solid text-secondary-11 fa-code"></i>{" "}
+                <Code size={30} className="inline" />
+                {"  "}
                 Développement
               </h3>
               <p className="text-secondary-12 mb-4">
@@ -135,7 +138,7 @@ const Page = () => {
           </Card>
           <Card className="lg:w-1/3 w-full p-8">
             <CardContent className="p-0">
-              <div className="w-full h-40 md:h-80 rounded-sm overflow-hidden">
+              <div className="w-full h-52 md:h-80 rounded-sm overflow-hidden">
                 <Image
                   width={500}
                   height={320}
@@ -145,8 +148,7 @@ const Page = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-secondary-12 my-4">
-                <i className="fa-solid text-secondary-11 fa-screwdriver-wrench"></i>
-                Maintenance
+                <Wrench size={30} className="inline" /> {"  "}Maintenance
               </h3>
               <p className="text-secondary-12 mb-4">
                 Votre site a besoin d&apos;une nouvelle fonctionnalité ou
@@ -157,7 +159,7 @@ const Page = () => {
           </Card>
           <Card className="lg:w-1/3 w-full p-8">
             <CardContent className="p-0">
-              <div className="w-full h-40 md:h-80 rounded-sm overflow-hidden">
+              <div className="w-full h-52 md:h-80 rounded-sm overflow-hidden">
                 <Image
                   width={500}
                   height={320}
@@ -167,7 +169,7 @@ const Page = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-secondary-12 my-4">
-                <i className="fa-solid text-secondary-11 fa-circle-up"></i>
+                <ChartNoAxesCombined size={30} className="inline" />{" "}
                 Optimisation & SEO
               </h3>
               <p className="text-secondary-12 mb-4">
@@ -183,8 +185,6 @@ const Page = () => {
           </Card>
         </div>
       </section>
-
-      <div className="bg-primary-6 w-full h-2 my-10 rounded-[50%]"></div>
 
       <section id="contact" className="mt-12 max-w-7xl mx-auto">
         <h2 className="text-center text-3xl font-bold text-secondary-11 mb-6">
@@ -207,14 +207,14 @@ const Page = () => {
             className="text-secondary-11 underline hover:text-secondary-12"
           >
             sebastien.lau2021@gmail.com
-          </a>
-          ou via ce
-          <a
-            href="https://sebastien-dev-portfolio.vercel.app/#contact"
+          </a>{" "}
+          ou via ce{" "}
+          <Link
+            href="/#contact"
             className="text-secondary-11 underline hover:text-secondary-12"
           >
-            formulaire{" "}
-          </a>
+            formulaire
+          </Link>
           .
         </p>
       </section>

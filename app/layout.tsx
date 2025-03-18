@@ -73,7 +73,7 @@ export default function RootLayout({
         {/* Schema.org **END** */}
       </head>
       <body
-        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full`}
+        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full dark`}
       >
         {children}
       </body>

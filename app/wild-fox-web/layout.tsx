@@ -24,19 +24,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </div>
           <ul className="flex justify-end flex-wrap md:gap-6 gap-4 text-primary-12">
             <li>
-              <a href="#about" className="hover:text-primary-11">
-                À propos
-              </a>
+              <a href="#about">À propos</a>
             </li>
             <li>
-              <a href="#services" className="hover:text-primary-11">
-                Services
-              </a>
+              <a href="#services">Services</a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-primary-11">
-                Contact
-              </a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </nav>
