@@ -40,7 +40,6 @@ import {
 } from "./_components/icons";
 import { StyledTitle } from "./_components/styledTitle";
 import { Backgrounds } from "./_components/backgrounds";
-import { Footer } from "./_components/footer";
 
 const socials = [
   {
@@ -379,7 +378,6 @@ export default function Home() {
           <Contact />
         </Section>
       </main>
-      <Footer />
     </main>
   );
 }

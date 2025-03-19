@@ -9,6 +9,11 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+const articles = [
+  { slug: "avantages-site-web", title: "Pourquoi avoir un site web ?" },
+  { slug: "no-code-vs-dev", title: "Développement sur mesure vs No-Code" },
+];
+
 const Page = () => {
   return (
     <main className="px-6 py-8 md:px-16">
@@ -19,11 +24,11 @@ const Page = () => {
         <div className="flex flex-col gap-6 md:gap-16 xl:flex-row">
           <article className="h-fit w-full xl:w-2/3 p-8">
             <section>
-              <h1 className="text-4xl font-bold text-secondary-12 mb-4">
+              <h1 className="text-4xl font-bold mb-4">
                 Qui suis-je ?
                 <CircleUserRound className="inline " size={48} />
               </h1>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 Je suis Sébastien, développeur web freelance basé à Rennes,
                 spécialisé dans la création d’applications web performantes et
                 sur mesure. Avec plusieurs années d’expérience, je conçois des
@@ -33,10 +38,10 @@ const Page = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-secondary-12 mb-3">
+              <h2 className="text-2xl font-semibold mb-3">
                 Un accompagnement sur mesure
               </h2>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 Que vous soyez une startup, une PME ou une grande entreprise, je
                 vous accompagne à chaque étape de votre projet : de la
                 définition des objectifs à la mise en ligne, en passant par la
@@ -47,10 +52,10 @@ const Page = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-secondary-12 mb-3">
+              <h2 className="text-2xl font-semibold mb-3">
                 Pourquoi me choisir ?
               </h2>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 En choisissant mes services, vous bénéficiez d&apos;un
                 partenaire dédié et passionné, capable de transformer vos idées
                 en réalité. Mon expertise technique et ma créativité sont au
@@ -66,7 +71,7 @@ const Page = () => {
 
           <Card className={`w-full xl:w-1/3 border-custom p-8`}>
             <CardHeader className="p-0 block">
-              <h3 className="text-xl font-bold text-secondary-12 mb-4">
+              <h3 className="text-xl font-bold mb-4">
                 Une démarche en 3 étapes !
               </h3>
             </CardHeader>
@@ -124,12 +129,12 @@ const Page = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-secondary-12 my-4">
+              <h3 className="text-xl font-bold my-4">
                 <Code size={30} className="inline" />
                 {"  "}
                 Développement
               </h3>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 Besoin d&apos;un site pour présenter votre entreprise,
                 promouvoir un produit ou gérer vos commandes en interne ? Je
                 conçois des solutions adaptées à vos besoins.
@@ -147,10 +152,10 @@ const Page = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-secondary-12 my-4">
+              <h3 className="text-xl font-bold my-4">
                 <Wrench size={30} className="inline" /> {"  "}Maintenance
               </h3>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 Votre site a besoin d&apos;une nouvelle fonctionnalité ou
                 d&apos;une refonte visuelle ? Je vous accompagne pour maintenir
                 et faire évoluer votre projet.
@@ -168,11 +173,11 @@ const Page = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-secondary-12 my-4">
+              <h3 className="text-xl font-bold my-4">
                 <ChartNoAxesCombined size={30} className="inline" />{" "}
                 Optimisation & SEO
               </h3>
-              <p className="text-secondary-12 mb-4">
+              <p className="mb-4">
                 Votre site met du temps à charger ou peu visible sur les moteurs
                 de recherche ? Je vous aide à améliorer ses performances et sa
                 visibilité.
@@ -188,35 +193,20 @@ const Page = () => {
 
       <section id="contact" className="mt-12 max-w-7xl mx-auto">
         <h2 className="text-center text-3xl font-bold text-secondary-11 mb-6">
-          Contact
+          Pas encore décidé ?
         </h2>
-        <p className="text-secondary-12 leading-relaxed mb-4">
-          Vous avez un projet ou une idée ? Parlons-en ! Décrivez vos objectifs
-          et je vous aiderai à concrétiser votre vision.
-        </p>
-        <p className="text-secondary-12 mb-4">
-          Je suis disponible pour discuter de vos besoins et vous proposer une
-          solution adaptée. Mon accompagnement est 100% sur mesure et je suis à
-          votre écoute pour vous conseiller et vous guider tout au long de la
-          réalisation de votre application.
-        </p>
-        <p className="text-secondary-12 mt-4">
-          Contactez-moi par email : <i className="fa-regular fa-envelope"></i>
-          <a
-            href="mailto:sebastien.lau2021@gmail.com"
-            className="text-secondary-11 underline hover:text-secondary-12"
-          >
-            sebastien.lau2021@gmail.com
-          </a>{" "}
-          ou via ce{" "}
-          <Link
-            href="/#contact"
-            className="text-secondary-11 underline hover:text-secondary-12"
-          >
-            formulaire
-          </Link>
-          .
-        </p>
+        <ul>
+          {articles.map((article) => (
+            <li key={article.slug}>
+              <Link
+                href={`/wild-fox-web/${article.slug}`}
+                className="text-blue-500 underline"
+              >
+                {article.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

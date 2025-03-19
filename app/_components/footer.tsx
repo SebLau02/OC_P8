@@ -1,3 +1,5 @@
+import { ChevronRight, Mail } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export const Footer = () => {
@@ -8,8 +10,17 @@ export const Footer = () => {
           <li>
             <h3>Contact</h3>
           </li>
-          <li>📧: sebastien.lau2021@gmail.com</li>
-          <li>📞: +33 603 709 377</li>
+          <li>
+            <ChevronRight className="inline" size={16} />{" "}
+            <a href="mailto:sebastien.lau2021@gmail.com">
+              sebastien.lau2021@gmail.com
+            </a>{" "}
+            <Mail className="inline" size={16} />
+          </li>
+          <li>
+            <ChevronRight className="inline" size={16} />{" "}
+            <Link href="/#contact">Formulaire</Link>
+          </li>
         </ul>
         <a href="/assets/Sébastien Lau_CV.pdf" className="underline" download>
           Télécharger le CV

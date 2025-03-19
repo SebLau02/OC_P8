@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Raleway, Cutive_Mono } from "next/font/google";
+import { Footer } from "./_components/footer";
 
 const RalewayMono = Raleway({
   subsets: ["latin"],
@@ -73,9 +74,10 @@ export default function RootLayout({
         {/* Schema.org **END** */}
       </head>
       <body
-        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full dark`}
+        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
