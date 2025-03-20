@@ -11,182 +11,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardHeader } from "@/components/ui/card";
-
 import Link from "next/link";
 import Image from "next/image";
-
-import Tp from "@/public/tp.jpg";
-import Ocr from "@/public/ocr.png";
-import Rentco from "@/public/rentco.svg";
-import TpIco from "@/public/tp_ico.png";
-import RentcoIco from "@/public/rentco_ico.png";
-import Mvg from "@/public/mvg.png";
-import Kasa from "@/public/kasa.png";
-import React from "@/public/react.svg";
-import Typescript from "@/public/ts.svg";
-import Ror from "@/public/rails.svg";
-import Pg from "@/public/postgresql.svg";
-import Exp from "@/public/exp.svg";
-import Mongo from "@/public/mongodb.svg";
-import WildFox from "@/public/web-app-manifest-192x192.png";
 import Profile from "@/public/assets/profile.png";
 import { Parcours } from "./_components/parcours";
-import {
-  GithubIcon,
-  InstaIcon,
-  LinkedinIcon,
-  MaltIcon,
-  ContactIcon,
-} from "./_components/icons";
 import { StyledTitle } from "./_components/styledTitle";
 import { Backgrounds } from "./_components/backgrounds";
-
-const socials = [
-  {
-    url: "https://github.com/SebLau02",
-    label: "GitHub",
-    icon: <GithubIcon />,
-  },
-  {
-    url: "https://www.malt.fr/profile/sebastienlau",
-    label: "Malt",
-    icon: <MaltIcon />,
-  },
-  {
-    url: "https://www.instagram.com/lausebastien/",
-    label: "Instagram",
-    icon: <InstaIcon />,
-  },
-  {
-    url: "https://www.linkedin.com/in/sebastien-lau-884828228/",
-    label: "LinkedIn",
-    icon: <LinkedinIcon />,
-  },
-  { url: "#contact", label: "Contact me", icon: <ContactIcon /> },
-];
-
-const enterprises = [
-  {
-    image: Tp,
-    name: "Talents et Paillettes",
-    website: "https://talentsetpaillettes.com/",
-  },
-  {
-    image: Ocr,
-    name: "Ouest concept réseaux",
-    website: "https://ouest-concept-reseaux.fr/",
-  },
-  {
-    image: Rentco,
-    name: "The Rent Company",
-    website: "https://www.derentcompany.fr/",
-  },
-];
-const projects = [
-  {
-    type: "Pro",
-    projects: [
-      {
-        name: "talentsetpaillettes.app",
-        enterprise: "Talents et Paillettes",
-        description: [
-          {
-            key: "Service:",
-            value: "Mise en relation entre chercheurs d'emploi et entreprises.",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement FrontEnd / Backend et maintenance",
-          },
-        ],
-        stack: ["React.js ", " Material UI ", "Ruby on Rails ", "PostgreSQL"],
-        link: "https://talentsetpaillettes.app/",
-        icon: TpIco,
-      },
-      {
-        name: "rentco.app",
-        enterprise: "The Rent Company",
-        description: [
-          {
-            key: "Service:",
-            value: "Outils de gestion de chantier immobilier.",
-          },
-          {
-            key: "Contribution:",
-            value: "Maintenance et développement de nouveaux modules",
-          },
-        ],
-        stack: ["Ruby on Rails", "PostgreSQL", "Bootstrap 5"],
-        link: "",
-        icon: RentcoIco,
-      },
-    ],
-  },
-  {
-    type: "Perso",
-    projects: [
-      {
-        name: "rent-a-kasa.vercel.app",
-        enterprise: "Formation",
-        description: [
-          {
-            key: "Service:",
-            value: "Application de location de logements",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement FrontEnd",
-          },
-        ],
-        stack: ["React.js", "Vite"],
-        link: "https://rent-a-kasa.vercel.app/",
-        icon: Kasa,
-      },
-      {
-        name: "mvgrimoire.vercel.app/",
-        enterprise: "Formation",
-        description: [
-          {
-            key: "Service:",
-            value: "Application de notation de livre",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement Backend",
-          },
-        ],
-        stack: ["Express.js", "MongoDB", "TypeScript", "Cloudinary"],
-        link: "https://mvgrimoire.vercel.app/",
-        icon: Mvg,
-      },
-      {
-        name: "sebastien-dev-portfolio.vercel.app",
-        enterprise: "Personnel",
-        description: [
-          {
-            key: "Service:",
-            value: "Mon portfolio personnel",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement frontend / backend",
-          },
-        ],
-        stack: ["Next.js", "TypeScript", "Tailwind.css", "shadcn/ui"],
-        link: "https://sebastien-dev-portfolio.vercel.app/",
-        icon: WildFox,
-      },
-    ],
-  },
-];
-const stacks = [
-  { stack: React, label: "React" },
-  { stack: Typescript, label: "Typescript" },
-  { stack: Ror, label: "Rails" },
-  { stack: Pg, label: "PostgreSQL" },
-  { stack: Exp, label: "Express" },
-  { stack: Mongo, label: "MongoDb" },
-];
+import { enterprises, projects, socials, stacks } from "./config/data";
 
 export default function Home() {
   return (
@@ -195,13 +26,13 @@ export default function Home() {
       <main className="p-2 overflow-x-hidden">
         <Backgrounds />
         <Section>
-          <Card className="opacity-0 mt-6 p-3 border-custom flex gap-3 flex-col animate-fadeIn">
+          <Card className="flex flex-col border-custom p-3 animate-fadeIn gap-3 mt-6 opacity-0">
             <div className="flex gap-3">
-              <div className="w-20 h-20 overflow-hidden rounded-full">
+              <div className="h-20 rounded-full w-20 overflow-hidden">
                 <Image
                   src={Profile}
                   alt="sébastien lau, dévelopeur react"
-                  className="w-full h-full object-cover block"
+                  className="h-full w-full block object-cover"
                 />
               </div>
               <div>
@@ -210,7 +41,7 @@ export default function Home() {
               </div>
             </div>
             <p>Je crée des applications web avec React et Ruby on rails !</p>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex flex-wrap gap-2">
               {socials.map((social, i) => (
                 <>
                   <Link
@@ -232,7 +63,7 @@ export default function Home() {
         </Section>
         <StyledTitle label="collaborations" orientation="positive" id="works" />
         <Section className="px-0">
-          <div className="flex justify-center items-center gap-3 md:gap-16">
+          <div className="flex justify-center gap-3 items-center md:gap-16">
             {enterprises.map((enterprise, i) => (
               <Link
                 target="_blank"
@@ -284,7 +115,7 @@ export default function Home() {
                                 <Link
                                   target="_blank"
                                   href={project.link}
-                                  className="text-sm underline h-fit flex"
+                                  className="flex h-fit text-sm underline"
                                 >
                                   <ProjectIconButton
                                     url={project.icon}
@@ -295,7 +126,7 @@ export default function Home() {
                                     viewBox="0 0 24 24"
                                     strokeWidth="1.5"
                                     stroke="currentColor"
-                                    className="size-3 inline ml-1 self-start"
+                                    className="inline ml-1 self-start size-3"
                                   >
                                     <path
                                       strokeLinecap="round"
@@ -306,12 +137,12 @@ export default function Home() {
                                 </Link>
                               )}
                               <div>
-                                <h3 className="mb-2 cursor-text select-text">
+                                <h3 className="cursor-text mb-2 select-text">
                                   {project.name}
                                 </h3>
                                 <Badge
                                   variant="outline"
-                                  className="font-caption border-custom"
+                                  className="border-custom font-caption"
                                 >
                                   {project.enterprise}
                                 </Badge>
@@ -328,7 +159,7 @@ export default function Home() {
                                   {description.value}
                                 </p>
                               ))}
-                              <p className="underline my-1">Stack:</p>
+                              <p className="my-1 underline">Stack:</p>
                               {project.stack.map((item, i) => (
                                 <Badge key={i} className="m-1">
                                   {item}
@@ -337,7 +168,7 @@ export default function Home() {
                             </table>
 
                             {project.link !== "" && (
-                              <p className="text-end pr-3 mt-2">
+                              <p className="text-end mt-2 pr-3">
                                 Visite le{" "}
                                 <a
                                   href={project.link}
@@ -360,9 +191,9 @@ export default function Home() {
         </Section>
         <StyledTitle label="à propos" orientation="negative" id="about" />
         <Section className="max-w-3xl">
-          <div className="flex justify-evenly items-center flex-wrap gap-2 md:gap-4">
+          <div className="flex flex-wrap justify-evenly gap-2 items-center md:gap-4">
             {stacks.map((stack, i) => (
-              <div key={i} className="max-w-20 min-w-10 w-1/6">
+              <div key={i} className="w-1/6 max-w-20 min-w-10">
                 <Image
                   src={stack.stack}
                   alt={stack.label}
