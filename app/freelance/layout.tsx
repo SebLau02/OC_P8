@@ -115,11 +115,11 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <nav className="flex justify-between shadow-md items-center md:px-20 px-6 py-6">
           <div className="h-14 rounded-sm overflow-hidden">
             <Image
-              src="https://res.cloudinary.com/dw7tgqocy/image/upload/v1739716414/Groupblueu_m0as9w.svg"
+              src="https://res.cloudinary.com/dw7tgqocy/image/upload/v1742592143/logoseb_agrnoz.png"
               alt="logo de wild fox labs"
-              className="h-full cover"
-              width={100}
-              height={100}
+              className="h-full w-full cover"
+              width={60}
+              height={60}
             />
           </div>
           <ul className="flex flex-wrap justify-end text-primary-12 gap-4 md:gap-6">

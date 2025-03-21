@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning={true}>
       <head>
-        <meta name="apple-mobile-web-app-title" content="Sébastien Lau" />
+        <meta name="apple-mobile-web-app-title" content="seb-dev" />
         {/* Open Graph meta tags **START** */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Sébastien, développeur web" />

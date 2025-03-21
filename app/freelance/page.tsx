@@ -195,7 +195,7 @@ const Page = () => {
           {articles.map((article) => (
             <li key={article.slug}>
               <Link
-                href={`/wild-fox-web/${article.slug}`}
+                href={`/freelance/${article.slug}`}
                 className="text-blue-500 underline"
               >
                 {article.title}
