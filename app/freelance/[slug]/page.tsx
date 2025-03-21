@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ReactElement } from "react";
 
 interface SectionTypes {
   title: string;
@@ -159,8 +160,15 @@ const articles: Record<string, ArticlesTypes> = {
   },
 };
 
-export default function BlogArticle({ params }: { params: { slug: string } }) {
-  const article = articles[params.slug];
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function BlogArticle({
+  params,
+}: Readonly<PageProps>): Promise<ReactElement> {
+  const slug = (await params).slug;
+  const article = articles[slug];
 
   if (!article) return notFound();
 
