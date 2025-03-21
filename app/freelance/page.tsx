@@ -8,11 +8,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const articles = [
-  { slug: "avantages-site-web", title: "Pourquoi avoir un site web ?" },
-  { slug: "no-code-vs-dev", title: "Développement sur mesure vs No-Code" },
-];
+import { articles } from "../config/data";
 
 const Page = () => {
   return (
@@ -187,18 +183,33 @@ const Page = () => {
         </div>
       </section>
 
-      <section id="contact" className="max-w-7xl mt-12 mx-auto">
+      <section id="contact" className="max-w-7xl mx-auto mt-12">
         <h2 className="text-3xl text-center font-bold mb-6">
           Pas encore décidé ?
         </h2>
-        <ul>
+        <p className="text-center mb-8">
+          Découvrez nos articles pour en savoir plus sur les avantages de nos
+          services.
+        </p>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article) => (
-            <li key={article.slug}>
+            <li key={article.slug} className="h-full">
               <Link
                 href={`/freelance/${article.slug}`}
-                className="text-blue-500 underline"
+                className="underline font-semibold text-lg h-full"
               >
-                {article.title}
+                <Card className="p-6 h-full transition-transform transform hover:scale-[1.01]">
+                  <CardHeader className="p-0">{article.title}</CardHeader>
+                  <CardContent className="p-0 pt-4 h-56">
+                    <Image
+                      src={article.cover}
+                      alt={article.title}
+                      width={350}
+                      height={200}
+                      className="w-full h-full max-h-56 object-cover rounded-sm"
+                    />
+                  </CardContent>
+                </Card>
               </Link>
             </li>
           ))}

@@ -2,79 +2,160 @@ import { notFound } from "next/navigation";
 
 interface SectionTypes {
   title: string;
-  body: string;
+  content: string;
 }
 interface ArticlesTypes {
-  main_title: string;
+  title: string;
   sections: SectionTypes[];
   intro: string;
+  conclusion: string;
 }
+
 const articles: Record<string, ArticlesTypes> = {
   "avantages-site-web": {
-    main_title: "Pourquoi avoir un site web ?",
-    intro:
-      "Dans le monde numérique d'aujourd'hui, avoir un site web est devenu indispensable pour toute entreprise ou professionnel souhaitant se démarquer et atteindre un public plus large. Voici quelques raisons convaincantes pour lesquelles un site web est essentiel :",
+    title: "Pourquoi avoir un site web ?",
     sections: [
       {
-        title: "Amélioration de la Visibilité",
-        body: "Un site web bien conçu et optimisé pour les moteurs de recherche (SEO) peut considérablement améliorer votre visibilité en ligne. Selon une étude, 90% du trafic sur le web provient de Google, ce qui montre l'importance d'être bien référencé sur ce moteur de recherche1. De plus, un site web vous permet d'être accessible 24h/24 et 7j/7, ce qui n'est pas toujours possible avec un magasin physique.",
+        title: "Augmentation de la Visibilité",
+        content:
+          "Un site web permet à votre entreprise d'être visible 24h/24 et 7j/7. Les clients potentiels peuvent trouver vos produits ou services à tout moment, ce qui augmente vos chances de conversion.",
       },
       {
         title: "Crédibilité et Confiance",
-        body: "Avoir un site web professionnel renforce votre crédibilité auprès de vos clients potentiels. Un site sécurisé (HTTPS) est particulièrement important, car 82% des internautes ne cliquent jamais sur un site non sécurisé2. Un site web bien conçu, avec des témoignages clients et des informations détaillées sur vos services ou produits, peut instaurer un climat de confiance et encourager les visiteurs à faire affaire avec vous.",
+        content:
+          "Un site web professionnel renforce la crédibilité de votre entreprise. Il montre que vous êtes sérieux et engagé dans votre activité, ce qui peut inspirer confiance à vos clients.",
       },
       {
-        title: "Augmentation des Ventes",
-        body: "Un site web peut directement contribuer à l'augmentation de vos ventes. Les entreprises qui investissent dans leur propre site web génèrent jusqu’à 25% de ventes supplémentaires grâce à cette présence digitale3. De plus, les sites web adaptés aux mobiles génèrent 40% plus de conversions, ce qui montre l'importance d'avoir un site responsive.",
+        title: "Accessibilité et Confort",
+        content:
+          "Un site web permet à vos clients d'accéder facilement à vos informations, produits et services depuis n'importe quel appareil. Cela améliore leur expérience et leur satisfaction.",
       },
       {
-        title: "Accessibilité et Confort pour les Clients",
-        body: "Un site web permet à vos clients d'accéder facilement à vos produits ou services, où qu'ils soient et à tout moment. Plus de 50% de toutes les ventes en e-commerce sont effectuées via des appareils mobiles, ce qui montre l'importance d'avoir un site optimisé pour les smartphones et tablettes",
-      },
-      {
-        title: "Analyse et Optimisation",
-        body: "Avec un site web, vous pouvez facilement analyser le comportement de vos visiteurs grâce à des outils comme Google Analytics. Ces données vous permettent d'optimiser votre site en fonction des préférences de vos utilisateurs et d'améliorer continuellement leur expérience",
-      },
-      {
-        title: "Conclusion",
-        body: "En résumé, avoir un site web est crucial pour toute entreprise ou professionnel souhaitant se développer dans le monde numérique. Il améliore votre visibilité, renforce votre crédibilité, augmente vos ventes, offre un confort d'accès à vos clients et vous permet d'analyser et d'optimiser vos performances. <br />Ne manquez pas cette opportunité de booster votre présence en ligne et de développer votre activité. Contactez-moi dès aujourd'hui pour discuter de votre projet et démarrer la création de votre site web sur mesure. Ensemble, faisons de votre vision une réalité digitale !.",
+        title: "Marketing et SEO",
+        content:
+          "Un site web optimisé pour le référencement naturel (SEO) peut attirer plus de visiteurs grâce à une meilleure visibilité sur les moteurs de recherche. Cela peut augmenter votre trafic organique et vos opportunités de conversion.",
       },
     ],
+    intro:
+      "Dans le monde numérique d'aujourd'hui, avoir un site web est devenu indispensable pour toute entreprise souhaitant se démarquer et atteindre un public plus large. Un site web bien conçu peut offrir de nombreux avantages, allant de l'amélioration de la visibilité à l'augmentation des ventes. Découvrez pourquoi il est crucial d'avoir un site web pour votre entreprise.",
+    conclusion:
+      "Avoir un site web est essentiel pour toute entreprise moderne. Il augmente votre visibilité, renforce votre crédibilité, améliore l'accessibilité pour vos clients et offre des opportunités de marketing efficaces. Ne manquez pas cette chance de booster votre présence en ligne et de développer votre entreprise.",
   },
   "no-code-vs-dev": {
-    main_title: "No-Code vs Développement Traditionnel : Comment Choisir ?",
-    intro:
-      "Dans le monde du développement de logiciels, deux approches se distinguent : le no-code et le développement traditionnel (ou 'full code'). Chacune a ses avantages et ses inconvénients, et le choix entre les deux dépend de vos besoins spécifiques, de vos ressources et de vos objectifs. Voici un aperçu pour vous aider à faire un choix éclairé.",
+    title: "Développement sur mesure vs No-Code",
     sections: [
       {
-        title: "Qu'est-ce que le No-Code ?",
-        body: "Le no-code est une approche de développement qui permet de créer des applications sans écrire une seule ligne de code. À la place, les utilisateurs utilisent des interfaces visuelles, des modèles préconçus et des fonctionnalités de glisser-déposer pour construire leurs applications. Cette méthode est particulièrement accessible aux non-développeurs, souvent appelés 'citizen developers'.",
+        title: "Personnalisation Totale",
+        content:
+          "Le développement sur mesure permet de créer un site web entièrement personnalisé selon vos besoins spécifiques. Vous n'êtes pas limité par les fonctionnalités ou les designs prédéfinis des solutions No-Code.",
       },
       {
-        title: "Avantages du No-Code",
-        body: "1. **Rapidité de Développement** : Le no-code permet de créer des applications beaucoup plus rapidement qu'avec le développement traditionnel. Les fonctionnalités de glisser-déposer et les modèles préconçus accélèrent considérablement le processus. 2. **Accessibilité** : Pas besoin de compétences en programmation. Les outils no-code sont conçus pour être utilisés par des personnes de tous horizons, y compris les entrepreneurs, les analystes et les employés sans formation technique. 3. **Coût Réduit** : Moins de besoin en ressources humaines spécialisées. Les entreprises peuvent économiser sur les coûts de développement en utilisant des plateformes no-code. 4. **Flexibilité** : Idéal pour les MVP (Minimum Viable Products) et les projets nécessitant une mise sur le marché rapide. Les modifications et les ajustements peuvent être faits rapidement sans nécessiter de refactorisation complète du code.",
+        title: "Performance Optimisée",
+        content:
+          "Un site web sur mesure est optimisé pour offrir des performances maximales. Les développeurs peuvent ajuster chaque aspect du site pour garantir une vitesse de chargement rapide et une expérience utilisateur fluide.",
       },
       {
-        title: "Inconvénients du No-Code",
-        body: "1. **Limitations de Personnalisation** : Les solutions no-code offrent moins de flexibilité pour des personnalisations avancées. Vous êtes souvent limité aux fonctionnalités et aux intégrations fournies par la plateforme. 2. **Dépendance à la Plateforme** : Vous êtes dépendant de la plateforme no-code que vous utilisez. Si la plateforme ferme ou change ses conditions, cela peut affecter votre application. 3. **Performance** : Les applications no-code peuvent parfois être moins performantes que celles développées avec du code traditionnel, surtout pour des applications complexes ou à grande échelle.",
+        title: "Évolutivité",
+        content:
+          "Les sites web sur mesure sont plus faciles à faire évoluer. Vous pouvez ajouter de nouvelles fonctionnalités ou modifier le design sans être limité par les contraintes des plateformes No-Code.",
       },
       {
-        title: "Qu'est-ce que le Développement Traditionnel ?",
-        body: "Le développement traditionnel, ou 'full code', implique l'écriture de code à partir de zéro. Les développeurs utilisent des langages de programmation comme Python, Java, ou JavaScript pour créer des applications sur mesure.",
-      },
-      {
-        title: "Avantages du Développement Traditionnel",
-        body: "1. **Personnalisation Totale** : Vous avez un contrôle total sur chaque aspect de votre application. Vous pouvez créer des fonctionnalités uniques et optimiser les performances selon vos besoins spécifiques. 2. **Évolutivité** : Les applications développées avec du code traditionnel sont souvent plus évolutives et peuvent gérer des charges de travail plus importantes. 3. **Propriété du Code** : Vous possédez le code source de votre application, ce qui vous donne la liberté de le modifier, de le vendre ou de le réutiliser comme bon vous semble.",
-      },
-      {
-        title: "Inconvénients du Développement Traditionnel",
-        body: "1. **Temps et Coûts** : Le développement traditionnel prend plus de temps et nécessite des compétences spécialisées, ce qui peut être coûteux. 2. **Complexité** : La gestion d'un projet de développement traditionnel peut être complexe, surtout pour les grandes équipes. Les bugs et les problèmes de compatibilité peuvent également être plus fréquents. 3. **Maintenance** : Les applications développées avec du code traditionnel nécessitent une maintenance régulière pour rester à jour avec les nouvelles technologies et les standards de sécurité.",
-      },
-      {
-        title: "Conclusion",
-        body: "Le choix entre no-code et développement traditionnel dépend de vos besoins spécifiques. Si vous avez besoin de lancer rapidement une application avec un budget limité et sans compétences techniques, le no-code est une excellente option. En revanche, si vous recherchez une solution hautement personnalisée et évolutive, le développement traditionnel pourrait être plus adapté. Quel que soit votre choix, il est crucial de bien comprendre les avantages et les inconvénients de chaque approche pour prendre une décision éclairée. Si vous avez des questions ou besoin de conseils personnalisés, n'hésitez pas à me contacter. Ensemble, nous trouverons la meilleure solution pour votre projet.",
+        title: "Sécurité Renforcée",
+        content:
+          "Le développement sur mesure permet d'intégrer des mesures de sécurité spécifiques à votre site web. Cela peut offrir une protection supplémentaire contre les vulnérabilités et les attaques.",
       },
     ],
+    intro:
+      "Lorsqu'il s'agit de créer un site web, vous avez le choix entre le développement sur mesure et les solutions No-Code. Bien que les deux options aient leurs avantages, le développement sur mesure offre des bénéfices uniques qui peuvent faire une réelle différence pour votre entreprise. Découvrez pourquoi opter pour un développement sur mesure peut être la meilleure décision.",
+    conclusion:
+      "Bien que les solutions No-Code puissent sembler attrayantes pour leur simplicité, le développement sur mesure offre des avantages significatifs en termes de personnalisation, de performance, d'évolutivité et de sécurité. Investir dans un site web sur mesure peut offrir un retour sur investissement à long terme et aider votre entreprise à se démarquer de la concurrence.",
+  },
+  "importance-maintenance": {
+    title: "L'Importance de la Maintenance de Votre Site Web",
+    sections: [
+      {
+        title: "Sécurité",
+        content:
+          "Les mises à jour régulières des plugins et du CMS peuvent aider à protéger votre site contre les vulnérabilités et les attaques.",
+      },
+      {
+        title: "Performance",
+        content:
+          "La maintenance régulière peut améliorer la vitesse de chargement de votre site, ce qui est crucial pour l'expérience utilisateur et le référencement.",
+      },
+      {
+        title: "Compatibilité",
+        content:
+          "Les navigateurs et les appareils évoluent constamment. La maintenance permet de s'assurer que votre site reste compatible avec les dernières technologies.",
+      },
+      {
+        title: "Contenu à Jour",
+        content:
+          "Un site web avec du contenu à jour est plus attrayant pour les visiteurs et peut améliorer votre référencement.",
+      },
+    ],
+    intro:
+      "La création d'un site web n'est que la première étape. La maintenance régulière est essentielle pour garantir que votre site reste performant, sécurisé et à jour. Découvrez pourquoi la maintenance de votre site web est cruciale.",
+    conclusion:
+      "La maintenance régulière de votre site web est essentielle pour garantir sa sécurité, sa performance, sa compatibilité et la pertinence de son contenu. Ne négligez pas cette étape cruciale pour le succès de votre présence en ligne.",
+  },
+  "benefices-ecommerce": {
+    title: "Les Avantages d'un Site E-commerce",
+    sections: [
+      {
+        title: "Accessibilité 24/7",
+        content:
+          "Un site e-commerce permet à vos clients d'acheter vos produits à tout moment, augmentant ainsi vos opportunités de vente.",
+      },
+      {
+        title: "Réduction des Coûts",
+        content:
+          "Les coûts opérationnels d'un site e-commerce sont souvent inférieurs à ceux d'un magasin physique.",
+      },
+      {
+        title: "Expansion du Marché",
+        content:
+          "Un site e-commerce vous permet de toucher une audience mondiale, élargissant ainsi votre marché potentiel.",
+      },
+      {
+        title: "Analyse des Données",
+        content:
+          "Les outils d'analyse intégrés permettent de suivre les comportements des clients et d'optimiser vos stratégies de vente.",
+      },
+    ],
+    intro:
+      "Dans un monde de plus en plus connecté, avoir un site e-commerce peut offrir de nombreux avantages à votre entreprise. Découvrez comment un site e-commerce peut booster vos ventes et améliorer votre présence en ligne.",
+    conclusion:
+      "Un site e-commerce offre une accessibilité 24/7, réduit les coûts opérationnels, permet une expansion du marché et fournit des outils d'analyse précieux. Ne manquez pas l'opportunité de booster vos ventes en ligne.",
+  },
+  "importance-design-responsive": {
+    title: "L'Importance du Design Responsive",
+    sections: [
+      {
+        title: "Amélioration de l'Expérience Utilisateur",
+        content:
+          "Un design responsive garantit que votre site est accessible et agréable à utiliser sur tous les appareils, améliorant ainsi l'expérience utilisateur.",
+      },
+      {
+        title: "Augmentation du Trafic Mobile",
+        content:
+          "Avec l'augmentation de l'utilisation des smartphones, un design responsive peut attirer plus de visiteurs mobiles.",
+      },
+      {
+        title: "Meilleur Référencement",
+        content:
+          "Google privilégie les sites mobiles dans ses résultats de recherche. Un design responsive peut donc améliorer votre SEO.",
+      },
+      {
+        title: "Réduction des Taux de Rebond",
+        content:
+          "Un site bien adapté aux différents écrans réduit les taux de rebond, gardant les visiteurs plus longtemps sur votre site.",
+      },
+    ],
+    intro:
+      "Le design responsive est devenu un élément crucial pour tout site web moderne. Découvrez pourquoi il est essentiel d'adopter un design responsive pour votre site.",
+    conclusion:
+      "Un design responsive améliore l'expérience utilisateur, augmente le trafic mobile, améliore le référencement et réduit les taux de rebond. Assurez-vous que votre site est accessible et agréable à utiliser sur tous les appareils.",
   },
 };
 
@@ -84,17 +165,22 @@ export default function BlogArticle({ params }: { params: { slug: string } }) {
   if (!article) return notFound();
 
   return (
-    <article className="px-6 py-8 md:px-16">
-      <h1 className="text-4xl font-bold text-secondary-12 mb-4">
-        {article.main_title}
+    <article className=" max-w-5xl mx-auto px-6 py-8 md:px-16">
+      <h1 className="text-4xl font-bold text-secondary-12 mb-6">
+        {article.title}
       </h1>
-      <p className="mb-4">{article.intro}</p>
-      {article.sections.map((article, i) => (
-        <section key={i}>
-          <h2 className="text-2xl font-semibold mb-3">{article.title}</h2>
-          <p className="mb-4">{article.body}</p>
-        </section>
-      ))}
+      <p className="text-lg leading-relaxed mb-6">{article.intro}</p>
+      <div className="space-y-8">
+        {article.sections.map((section, i) => (
+          <section key={i} className="border-l-4 border-secondary-12 pl-4">
+            <h2 className="text-2xl font-semibold mb-2">{section.title}</h2>
+            <p className="leading-relaxed">{section.content}</p>
+          </section>
+        ))}
+      </div>
+      <p className="mt-11 text-lg font-semibold text-secondary-12">
+        {article.conclusion}
+      </p>
     </article>
   );
 }

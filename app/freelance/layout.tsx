@@ -13,14 +13,14 @@ export const metadata: Metadata = {
       "Création d'Applications Web Performantes - Rennes & Remote - Sébastien",
     description:
       "Vous avez besoin d'un site pour mettre en avant vos produits, entreprise ou d'une personne supplémentaire en renfort à votre équipe ? Contactez Sébastien dès maintenant !",
-    url: "https://wild-fox-labs.vercel.app/",
+    url: "https://sebastienlau-dev.vercel.app/freelance",
     type: "website",
     images: [
       {
         url: "https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg",
         width: 1200,
         height: 630,
-        alt: "WildFox Labs - Création d'Applications Web",
+        alt: "Sébastien Lau - Création d'Applications Web",
       },
     ],
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         worksFor: {
           "@type": "Organization",
           name: "WildFox Labs",
-          url: "https://wild-fox-labs.vercel.app/",
+          url: "https://sebastienlau-dev.vercel.app/freelance",
         },
         contactPoint: {
           "@type": "ContactPoint",

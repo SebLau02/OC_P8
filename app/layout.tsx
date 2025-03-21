@@ -30,7 +30,7 @@ export default function RootLayout({
     name: "Portfolio Développeur web Sébastien LAU",
     description:
       "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
-    url: "https://sebastien-dev-portfolio.vercel.app/",
+    url: "https://sebastienlau-dev.vercel.app/",
     image:
       "https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg",
     creator: {

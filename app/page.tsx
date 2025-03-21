@@ -47,7 +47,7 @@ export default function Home() {
                   <Link
                     target={social.url === "#contact" ? "" : "_blank"}
                     href={social.url}
-                    key={i}
+                    key={i + social.label}
                     className={badgeVariants({
                       variant: "outline",
                       className:

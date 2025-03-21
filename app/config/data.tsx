@@ -19,6 +19,7 @@ import {
   MaltIcon,
   ContactIcon,
 } from "../_components/icons";
+import { ArticlesSlugs } from "./types";
 
 export const socials = [
   {
@@ -165,4 +166,37 @@ export const stacks = [
   { stack: Pg, label: "PostgreSQL" },
   { stack: Exp, label: "Express" },
   { stack: Mongo, label: "MongoDb" },
+];
+
+export const articles: ArticlesSlugs[] = [
+  {
+    slug: "avantages-site-web",
+    title: "Pourquoi avoir un site web ?",
+    cover:
+      "https://images.unsplash.com/photo-1639795199096-8b403789949f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    slug: "no-code-vs-dev",
+    title: "Développement sur mesure vs No-Code",
+    cover:
+      "https://images.unsplash.com/photo-1626278664285-f796b9ee7806?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    slug: "importance-maintenance",
+    title: "L'Importance de la Maintenance de Votre Site Web",
+    cover:
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    slug: "benefices-ecommerce",
+    title: "Les Avantages d'un Site E-commerce",
+    cover:
+      "https://images.unsplash.com/photo-1674027392857-9aed6e8ecab9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    slug: "importance-design-responsive",
+    title: "L'Importance du Design Responsive",
+    cover:
+      "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
