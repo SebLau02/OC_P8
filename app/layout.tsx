@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Raleway, Cutive_Mono } from "next/font/google";
 import { Footer } from "./_components/footer";
+import { Header } from "./_components/header";
 
 const RalewayMono = Raleway({
   subsets: ["latin"],
@@ -14,7 +15,7 @@ const CutiveMono = Cutive_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sébastien LAU - Portfolio déveoppeur",
+  title: "Sébastien LAU - Portfolio développeur",
   description:
     "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
 };
@@ -76,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full`}
       >
+        <Header />
         {children}
         <Footer />
       </body>

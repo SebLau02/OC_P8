@@ -27,41 +27,10 @@ export const socials = [
     label: "GitHub",
     icon: <GithubIcon />,
   },
-  {
-    url: "https://www.malt.fr/profile/sebastienlau",
-    label: "Malt",
-    icon: <MaltIcon />,
-  },
-  {
-    url: "https://www.instagram.com/lausebastien/",
-    label: "Instagram",
-    icon: <InstaIcon />,
-  },
-  {
-    url: "https://www.linkedin.com/in/sebastien-lau-884828228/",
-    label: "LinkedIn",
-    icon: <LinkedinIcon />,
-  },
-  { url: "#contact", label: "Contact me", icon: <ContactIcon /> },
+
+  { url: "#contact", label: "Mail", icon: <ContactIcon /> },
 ];
 
-export const enterprises = [
-  {
-    image: Tp,
-    name: "Talents et Paillettes",
-    website: "https://talentsetpaillettes.com/",
-  },
-  {
-    image: Ocr,
-    name: "Ouest concept réseaux",
-    website: "https://ouest-concept-reseaux.fr/",
-  },
-  {
-    image: Rentco,
-    name: "The Rent Company",
-    website: "https://www.derentcompany.fr/",
-  },
-];
 export const projects = [
   {
     type: "Pro",

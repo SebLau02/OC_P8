@@ -1,46 +1,61 @@
 /* eslint-disable @next/next/no-img-element */
-import { Header } from "./_components/header";
 import { Contact } from "./_components/contact";
-import { ProjectIconButton } from "./_components/projectIconButton";
 import Section from "./_components/section";
-import { Badge, badgeVariants } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Card, CardHeader } from "@/components/ui/card";
+import { badgeVariants } from "@/components/ui/badge";
+
+import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import Profile from "@/public/assets/profile.png";
 import { Parcours } from "./_components/parcours";
 import { StyledTitle } from "./_components/styledTitle";
-import { Backgrounds } from "./_components/backgrounds";
-import { enterprises, projects, socials, stacks } from "./config/data";
+import { socials, stacks } from "./config/data";
+import PROJECTS from "@/public/data/projets.json";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { SquareArrowOutUpRight } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 export default function Home() {
   return (
     <main>
-      <Header />
       <main className="p-2 overflow-x-hidden">
-        <Backgrounds />
         <Section>
-          <Card className="flex flex-col border-custom p-3 animate-fadeIn gap-3 mt-6 opacity-0">
-            <div className="flex gap-3">
-              <div className="h-20 rounded-full w-20 overflow-hidden">
-                <Image
-                  src={Profile}
-                  alt="sébastien lau, dévelopeur react"
-                  className="h-full w-full block object-cover"
-                />
-              </div>
-              <div>
-                <h1>Sébastien LAU</h1>
-                <h3>Développeur web</h3>
-              </div>
-            </div>
-            <p>Je crée des applications web avec React et Ruby on rails !</p>
+          <div className="flex flex-col border-custom p-3 animate-fadeIn gap-3 mt-6 opacity-0">
+            <h2>Hello, je suis Sébastien, développeur fullstack.</h2>
+            <p>
+              Ma spécialité c'est React et Rails. <br /> J'ai commencé mon
+              parcours par un{" "}
+              <Link
+                target="_blank"
+                href="https://www.enseignementsup-recherche.gouv.fr/fr/la-licence-generale-staps-un-diplome-professionnalisant-47601"
+                className="underline"
+              >
+                STAPS
+              </Link>{" "}
+              puis j'ai enchainé 3 ans de formations web avec{" "}
+              <Link
+                href={"https://openclassrooms.com/fr/"}
+                target="_blank"
+                className="underline"
+              >
+                Openclassrooms
+              </Link>{" "}
+              en alternance.
+            </p>
+            <p>
+              Durant ces 3 années de formations, j'ai eu l'opportunité de
+              travailler principalement sur des projets du type{" "}
+              <Link
+                href={"https://www.oracle.com/fr/erp/what-is-erp/"}
+                target="_blank"
+                className="underline"
+              >
+                ERP
+              </Link>
+              . Ces expériences m'ont permis d'acquérir une solide expertise sur
+              ce type de projets, ainsi que de collaborer avec des API externes
+              telles que Stripe ou Monday.
+            </p>
             <div className="flex flex-wrap gap-2">
               {socials.map((social, i) => (
                 <>
@@ -59,137 +74,73 @@ export default function Home() {
                 </>
               ))}
             </div>
-          </Card>
-        </Section>
-        <StyledTitle label="collaborations" orientation="positive" id="works" />
-        <Section className="px-0">
-          <div className="flex justify-center gap-3 items-center md:gap-16">
-            {enterprises.map((enterprise, i) => (
-              <Link
-                target="_blank"
-                href={enterprise.website}
-                key={i}
-                className={`block opacity-0 w-20 md:w-28 animate-fadeIn`}
-                style={{ animationDelay: `${(i + 3) / 10}s` }}
-              >
-                <Image
-                  src={enterprise.image}
-                  alt={enterprise.name}
-                  className="w-full object-cover"
-                />
-              </Link>
-            ))}
           </div>
-
-          <section className="mt-6">
-            <h3 className="text-center mb-2">quelques contributions</h3>
-            <div>
-              {projects.map((category, i) => (
-                <Card
-                  key={i}
-                  className={`mb-8 p-3 sm:p-6 border-custom opacity-0 ${
-                    i % 2 === 0 ? "animate-slideInReverse" : "animate-slideIn"
-                  }`}
-                  style={{
-                    animationDelay: "1s",
-                  }}
-                  id="pro-project"
-                >
-                  <CardHeader className="p-0 block">
-                    <Badge variant="secondary" className="ml-auto uppercase">
-                      {category.type}
-                    </Badge>
-                  </CardHeader>
-                  <section>
-                    {category.projects.map((project, i) => (
-                      <Accordion key={i} type="single" collapsible>
-                        <AccordionItem value={`item-${i + 1}`}>
-                          <AccordionTrigger className="pb-2">
-                            <div className="flex gap-2">
-                              {project.link === "" ? (
-                                <ProjectIconButton
-                                  url={project.icon}
-                                  label={project.name}
-                                />
-                              ) : (
-                                <Link
-                                  target="_blank"
-                                  href={project.link}
-                                  className="flex h-fit text-sm underline"
-                                >
-                                  <ProjectIconButton
-                                    url={project.icon}
-                                    label={project.name}
-                                  />
-                                  <svg
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                    className="inline ml-1 self-start size-3"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                                    />
-                                  </svg>
-                                </Link>
-                              )}
-                              <div>
-                                <h3 className="cursor-text mb-2 select-text">
-                                  {project.name}
-                                </h3>
-                                <Badge
-                                  variant="outline"
-                                  className="border-custom font-caption"
-                                >
-                                  {project.enterprise}
-                                </Badge>
-                              </div>
-                            </div>
-                          </AccordionTrigger>
-                          <AccordionContent className="pl-3">
-                            <table>
-                              {project.description.map((description, i) => (
-                                <p key={i} className="my-1">
-                                  <span className="underline">
-                                    {description.key}
-                                  </span>{" "}
-                                  {description.value}
-                                </p>
-                              ))}
-                              <p className="my-1 underline">Stack:</p>
-                              {project.stack.map((item, i) => (
-                                <Badge key={i} className="m-1">
-                                  {item}
-                                </Badge>
-                              ))}
-                            </table>
-
-                            {project.link !== "" && (
-                              <p className="text-end mt-2 pr-3">
-                                Visite le{" "}
-                                <a
-                                  href={project.link}
-                                  target="_blank"
-                                  className="underline"
-                                >
-                                  ICI
-                                </a>
-                              </p>
-                            )}
-                          </AccordionContent>
-                        </AccordionItem>
-                      </Accordion>
-                    ))}
-                  </section>
-                </Card>
-              ))}
-            </div>
-          </section>
         </Section>
-        <StyledTitle label="à propos" orientation="negative" id="about" />
+        <StyledTitle label="Contributions" orientation="positive" id="works" />
+        <Section className="px-0">
+          {PROJECTS.map((project, i) => (
+            <Card key={i}>
+              <div className="p-4 rounded-t-lg bg-foreground text-background flex flex-row items-center gap-4 justify-between mb-4">
+                <h3>
+                  <Link href={project.link} target="_blank" className="">
+                    {project.name}
+                  </Link>
+                </h3>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  aria-label="voir le projet en ligne"
+                  asChild
+                >
+                  <Link href={project.link} target="_blank">
+                    <SquareArrowOutUpRight className="text-foreground" />
+                  </Link>
+                </Button>
+              </div>
+
+              <Image
+                src={`/${project.cover.replace("public/", "")}`}
+                alt={project.name}
+                width={600}
+                height={250}
+                className="mx-auto"
+              />
+
+              <Separator className="mt-4 h-[2px]" />
+
+              <div className="p-4 rounded-b-lg">
+                <h4>Technologies:</h4>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className={badgeVariants({
+                        variant: "secondary",
+                        className:
+                          "font-caption rounded-full border-custom md:text-sm",
+                      })}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <h4 className="mt-4 mb-2">Description:</h4>
+                <div>
+                  <ReactMarkdown
+                    components={{
+                      p: ({ node, ...props }) => (
+                        <p className="prose prose-sm max-w-none" {...props} />
+                      ),
+                    }}
+                  >
+                    {project.description}
+                  </ReactMarkdown>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </Section>
+        <StyledTitle label="À propos" orientation="negative" id="about" />
         <Section className="max-w-3xl">
           <div className="flex flex-wrap justify-evenly gap-2 items-center md:gap-4">
             {stacks.map((stack, i) => (
@@ -204,7 +155,7 @@ export default function Home() {
           </div>
           <Parcours />
         </Section>
-        <StyledTitle label="contact" orientation="negative" id="contact" />
+        <StyledTitle label="Contact" orientation="negative" id="contact" />
         <Section>
           <Contact />
         </Section>

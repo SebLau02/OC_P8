@@ -33,13 +33,13 @@ export const Header = () => {
         }`}
       >
         <Link className="text-base sm:text-2xl" href="#works">
-          collaborations
+          Contributions
         </Link>
         <Link className="text-base sm:text-2xl" href="#about">
-          à propos
+          À propos
         </Link>
         <Link className="text-base sm:text-2xl" href="#contact">
-          contact
+          Contact
         </Link>
       </div>
     </header>

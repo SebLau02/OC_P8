@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Catalogue | La Petite Imprimerie",
+    "description": "Catalogue de produits pour La Petite Imprimerie, une entreprise spécialisée dans l'impression personnalisée.\n\nJ'y ai contribué en tant que développeur principal. Une attention particulière a été portée à l'optimisation du référencement naturel.",
+    "link": "https://catalogue.lapetiteimprimerie.fr/products/tee-shirts-1",
+    "cover": "public/projects/lpi.png",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Rails",
+      "Material UI"
+    ]
+  }
+]
