@@ -6,54 +6,88 @@ import Image from "next/image";
 import { StyledTitle } from "./_components/styledTitle";
 import PROJECTS from "@/public/data/projets.json";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { SquareArrowOutUpRight } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { ArrowDown, SquareArrowOutUpRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { educations, experiences } from "./config/data";
+import { educations, experiences, socials } from "./config/data";
 import { Fragment } from "react";
 
 export default function Home() {
   return (
     <main className="p-2 overflow-x-hidden">
-      <Section className="min-h-[100vh]">
-        <div className="flex flex-col border-custom p-3 animate-fadeIn gap-3 mt-6 opacity-0">
-          <h1 className="text-5xl mt-6">
-            Sébastien Lau, Développeur Fullstack.
+      <Section className="min-h-screen">
+        <div className="flex flex-col border-custom p-8 animate-fadeIn gap-6 mt-6 opacity-0">
+          {/* Badge de statut ou localisation */}
+          <div className="flex items-center gap-2 text-sm font-mono text-gray-500">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Disponible pour de nouveaux défis — Basé en France
+          </div>
+
+          <h1 className="text-6xl font-bold tracking-tight leading-tight">
+            Sébastien Lau <br />
+            <span className="text-custom-accent text-lg">
+              Développeur Fullstack.
+            </span>
           </h1>
-          <p className="mt-6">
-            Hello, je suis Sébastien, un développeur fullstack React et Rails.{" "}
-            <br /> J'ai commencé mon parcours par un{" "}
+
+          <div className="max-w-2xl space-y-6 text-lg leading-relaxed">
+            <p>
+              Spécialisé dans l’écosystème{" "}
+              <strong>React & Ruby on Rails</strong>, j’accompagne les
+              entreprises dans la création de solutions digitales à forte valeur
+              métier.
+            </p>
+
+            <p>
+              Fort de <strong>3 ans d’expérience</strong> dans la conception
+              d'applications
+              <Link
+                href="https://www.oracle.com/fr/erp/what-is-erp/"
+                target="_blank"
+                className="underline hover:text-custom-accent transition-colors ml-1"
+              >
+                SaaS & ERP
+              </Link>
+              , je maîtrise l’intégralité du cycle de développement : de la
+              modélisation de bases de données relationnelles complexes jusqu'au
+              déploiement d'interfaces fluides et performantes.
+            </p>
+
+            <p>
+              Mon approche : transformer des processus métiers complexes
+              (gestion de stocks, suivi de chantiers, logistique) en outils
+              numériques intuitifs, scalables et orientés résultats.
+            </p>
+          </div>
+
+          {/* Section Call to Action / Socials pour remplir le bas du 100vh */}
+          <div className="flex gap-4 mt-8 items-center">
+            <strong>Consulter mes projets</strong>
             <Link
-              target="_blank"
-              href="https://www.enseignementsup-recherche.gouv.fr/fr/la-licence-generale-staps-un-diplome-professionnalisant-47601"
-              className="underline"
+              href={"#works"}
+              className={buttonVariants({
+                variant: "outline",
+                className: "font-caption rounded-full border-custom md:text-sm",
+              })}
             >
-              STAPS
-            </Link>{" "}
-            puis j'ai enchainé 3 ans de formations web avec{" "}
-            <Link
-              href={"https://openclassrooms.com/fr/"}
-              target="_blank"
-              className="underline"
-            >
-              Openclassrooms
-            </Link>{" "}
-            en alternance.
-          </p>
-          <p>
-            Durant ces 3 années de formations, j'ai eu l'opportunité de
-            travailler principalement sur des projets du type{" "}
-            <Link
-              href={"https://www.oracle.com/fr/erp/what-is-erp/"}
-              target="_blank"
-              className="underline"
-            >
-              ERP
+              <ArrowDown size={20} />
             </Link>
-            . Ces expériences m'ont permis d'acquérir une solide expertise sur
-            ce type de projets, ainsi que de collaborer avec des API externes
-            telles que Stripe ou Monday.
-          </p>
+            ou
+            <Link
+              target="_blank"
+              href={"https://github.com/SebLau02"}
+              className={buttonVariants({
+                variant: "ghost",
+                className:
+                  "font-caption rounded-full border-custom md:text-sm w-fit",
+              })}
+            >
+              <Image src={"/github.svg"} alt="GitHub" width={30} height={30} />
+            </Link>
+          </div>
         </div>
       </Section>
       <StyledTitle label="Contributions" orientation="positive" id="works" />
