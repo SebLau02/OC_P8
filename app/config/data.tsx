@@ -1,142 +1,21 @@
-import Tp from "@/public/tp.jpg";
-import Ocr from "@/public/ocr.png";
-import Rentco from "@/public/rentco.svg";
-import TpIco from "@/public/tp_ico.png";
-import RentcoIco from "@/public/rentco_ico.png";
-import Mvg from "@/public/mvg.png";
-import Kasa from "@/public/kasa.png";
-import React from "@/public/react.svg";
-import Typescript from "@/public/ts.svg";
-import Ror from "@/public/rails.svg";
-import Pg from "@/public/postgresql.svg";
-import Exp from "@/public/exp.svg";
-import Mongo from "@/public/mongodb.svg";
-import WildFox from "@/public/web-app-manifest-192x192.png";
-import {
-  GithubIcon,
-  InstaIcon,
-  LinkedinIcon,
-  MaltIcon,
-  ContactIcon,
-} from "../_components/icons";
+import { Github, LucideProps, Mail } from "lucide-react";
 import { ArticlesSlugs } from "./types";
 
-export const socials = [
-  {
-    url: "https://github.com/SebLau02",
-    label: "GitHub",
-    icon: <GithubIcon />,
-  },
+export const socials = (props?: LucideProps) => {
+  return [
+    {
+      url: "https://github.com/SebLau02",
+      label: "GitHub",
+      icon: <Github {...props} />,
+    },
 
-  { url: "#contact", label: "Mail", icon: <ContactIcon /> },
-];
-
-export const projects = [
-  {
-    type: "Pro",
-    projects: [
-      {
-        name: "talentsetpaillettes.app",
-        enterprise: "Talents et Paillettes",
-        description: [
-          {
-            key: "Service:",
-            value: "Mise en relation entre chercheurs d'emploi et entreprises.",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement FrontEnd / Backend et maintenance",
-          },
-        ],
-        stack: ["React.js ", " Material UI ", "Ruby on Rails ", "PostgreSQL"],
-        link: "https://talentsetpaillettes.app/",
-        icon: TpIco,
-      },
-      {
-        name: "rentco.app",
-        enterprise: "The Rent Company",
-        description: [
-          {
-            key: "Service:",
-            value: "Outils de gestion de chantier immobilier.",
-          },
-          {
-            key: "Contribution:",
-            value: "Maintenance et développement de nouveaux modules",
-          },
-        ],
-        stack: ["Ruby on Rails", "PostgreSQL", "Bootstrap 5"],
-        link: "",
-        icon: RentcoIco,
-      },
-    ],
-  },
-  {
-    type: "Perso",
-    projects: [
-      {
-        name: "rent-a-kasa.vercel.app",
-        enterprise: "Formation",
-        description: [
-          {
-            key: "Service:",
-            value: "Application de location de logements",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement FrontEnd",
-          },
-        ],
-        stack: ["React.js", "Vite"],
-        link: "https://rent-a-kasa.vercel.app/",
-        icon: Kasa,
-      },
-      {
-        name: "mvgrimoire.vercel.app/",
-        enterprise: "Formation",
-        description: [
-          {
-            key: "Service:",
-            value: "Application de notation de livre",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement Backend",
-          },
-        ],
-        stack: ["Express.js", "MongoDB", "TypeScript", "Cloudinary"],
-        link: "https://mvgrimoire.vercel.app/",
-        icon: Mvg,
-      },
-      {
-        name: "sebastien-dev-portfolio.vercel.app",
-        enterprise: "Personnel",
-        description: [
-          {
-            key: "Service:",
-            value: "Mon portfolio personnel",
-          },
-          {
-            key: "Contribution:",
-            value: "Développement frontend / backend",
-          },
-        ],
-        stack: ["Next.js", "TypeScript", "Tailwind.css", "shadcn/ui"],
-        link: "https://sebastien-dev-portfolio.vercel.app/",
-        icon: WildFox,
-      },
-    ],
-  },
-];
-export const stacks = [
-  { stack: React, label: "React" },
-  { stack: Typescript, label: "Typescript" },
-  { stack: Ror, label: "Rails" },
-  { stack: Pg, label: "PostgreSQL" },
-  { stack: Exp, label: "Express" },
-  { stack: Mongo, label: "MongoDb" },
-];
-
+    {
+      url: "mailto:sebastien.lau2021@gmail.com",
+      label: "Mail",
+      icon: <Mail {...props} />,
+    },
+  ];
+};
 export const articles: ArticlesSlugs[] = [
   {
     slug: "avantages-site-web",
@@ -167,5 +46,42 @@ export const articles: ArticlesSlugs[] = [
     title: "L'Importance du Design Responsive",
     cover:
       "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export const educations = [
+  {
+    school: "Lycée Félix Ébouée",
+    location: "France, Guyane Française",
+    year: "2018",
+    name: "Baccalauréat Scientifique",
+    description:
+      "Baccalauréat scientifique avec mention assez bien, spécialité Informatique et Sciences du Numérique.",
+  },
+  {
+    school: "Université d'Artois",
+    location: "France, Hauts-de-France",
+    year: "2018 - 2021",
+    name: "Licence STAPS",
+    description:
+      "Licence en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialité Activités Physiques Adaptées et Santé (APAS).",
+  },
+  {
+    school: "Openclassrooms",
+    location: "France, Bretagne",
+    year: "2023 - 2024",
+    name: "Développeur Web",
+    description:
+      "Formation Développeur Web chez Openclassrooms en alternance. Acquisition de compétences en développement web fullstack, avec une spécialisation en React.",
+  },
+];
+export const experiences = [
+  {
+    company: "4Digit",
+    location: "France, Bretagne",
+    year: "2021 - 2027",
+    name: "Développeur Web Fullstack",
+    description:
+      "Développeur web fullstack chez 4Digit. L'entreprise est un spécialiste dans le développement des solutions ERP. J'ai travaillé sur plusieurs projets ERP, principalement en React et Ruby on Rails.",
   },
 ];

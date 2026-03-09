@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { socials } from "../config/data";
+import { badgeVariants } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 
 export const Header = () => {
   const [scrollDirection, setScrollDirection] = useState<string>("");
@@ -38,9 +41,22 @@ export const Header = () => {
         <Link className="text-base sm:text-2xl" href="#about">
           À propos
         </Link>
-        <Link className="text-base sm:text-2xl" href="#contact">
-          Contact
-        </Link>
+
+        <div className="flex flex-wrap gap-2">
+          {socials({ size: 16, className: "ml-2" }).map((social, i) => (
+            <Link
+              target={social.url === "#contact" ? "" : "_blank"}
+              href={social.url}
+              key={i}
+              className={buttonVariants({
+                variant: "outline",
+                className: "font-caption rounded-full border-custom md:text-sm",
+              })}
+            >
+              {social.label} {social.icon}
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   );
