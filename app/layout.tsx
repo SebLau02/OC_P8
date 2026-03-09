@@ -6,12 +6,12 @@ import { Header } from "./_components/header";
 
 const RalewayMono = Raleway({
   subsets: ["latin"],
-  variable: "--font-raleway-mono",
+  variable: "--font-body",
 });
 const CutiveMono = Cutive_Mono({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-cutive-mono",
+  variable: "--font-title",
 });
 
 export const metadata: Metadata = {

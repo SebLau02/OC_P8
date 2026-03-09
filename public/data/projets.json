@@ -1,15 +1,61 @@
 [
   {
     "name": "Catalogue | La Petite Imprimerie",
-    "description": "Catalogue de produits pour La Petite Imprimerie, une entreprise spécialisée dans l'impression personnalisée.\n\nJ'y ai contribué en tant que développeur principal. Une attention particulière a été portée à l'optimisation du référencement naturel.",
-    "link": "https://catalogue.lapetiteimprimerie.fr/products/tee-shirts-1",
+    "description": "#### Rôle \n  Développeur fullstack principale. \n  #### Objectif \n  Création d'un catalogue dynamique et d'un système de gestion de stocks sur mesure pour une imprimerie textile.\n #### Réalisations Techniques \n  Architecture E-commerce : Développement d'un catalogue produit fluide avec gestion complexe des variantes (tailles, couleurs, types d'impression).\n Optimisation SEO : Mise en place d'une structure technique performante (balisage sémantique, méta-données dynamiques, temps de chargement optimisés) pour maximiser la visibilité organique sur les requêtes d'impression personnalisée.\n Back-office Sur Mesure : Conception d'une interface d'administration sécurisée permettant la gestion en temps réel du catalogue, des stocks et des flux de commandes.",
+    "link": "https://catalogue.lapetiteimprimerie.fr",
     "cover": "public/projects/lpi.png",
     "technologies": [
       "Next.js",
       "TypeScript",
       "PostgreSQL",
       "Rails",
+      "Material UI",
+      "Cloudflare",
+      "Heroku"
+    ]
+  },
+  {
+    "name": "Rentco / Matchinvest",
+    "description": "#### Rôle \n Développeur secondaire/renfort\n #### Objectif\n Rentco : Solution PropTech de suivi de chantier immobilier \n\n Matchinvest : Plateforme d'investissement immobilier\n #### Réalisation technique \n ##### Rentco \n\n Refonte UX/UI : Modernisation complète de l'interface utilisateur pour une navigation métier intuitive et réactive. \n\n Ingénierie de fonctionnalités : Conception de formulaires dynamiques complexes et de pages de reporting. \n\n Architecture d'automatisation : Développement de Workers et Schedulers pour le traitement asynchrone des données de chantier.\n\n ##### Matchinvest \n\n Développement Fullstack : Intégration visuelle et déploiement des fonctionnalités de mise en relation entre les actifs Rentco et les investisseurs.\n\n Interconnexion système : Synchronisation des flux de données pour l'exposition des projets rénovés aux particuliers.",
+    "link": "https://www.matchinvest.fr/",
+    "cover": "public/projects/matchinvest.png",
+    "technologies": ["PostgreSQL", "Rails", "Bootstrap", "Heroku"]
+  },
+  {
+    "name": "CustomX",
+    "description": "#### Rôle \n Développeur Principal \n #### Objectif \n Plateforme SaaS multi-tenant d'orchestration ERP/MES dédiée à l'industrie textile. Digitalisation complète de la chaîne de valeur : de l'acquisition client (devisage dynamique) à la logistique (expédition), incluant la gestion prévisionnelle des achats, l'optimisation des stocks et le pilotage de production en temps réel. \n #### Réalisation technique \n Ingénierie Fullstack : Conception d'une architecture multi-instance scalable, modélisation de base de données relationnelle complexe et développement d'une API métier haute performance avec interface UX/UI optimisée.",
+    "link": null,
+    "cover": "public/projects/matchinvest.png",
+    "technologies": [
+      "PostgreSQL",
+      "Rails",
+      "Bootstrap",
+      "Heroku",
+      "React.js",
       "Material UI"
     ]
+  },
+  {
+    "name": "Grill'n Drink (Bêta)",
+    "description": "#### Rôle \n Développeur Fondateur & Lead \n #### Objectif \n Écosystème digital pour Grill’n Drink, plateforme communautaire de mise en relation géolocalisée. L'application permet la création, la découverte et la participation à des événements de convivialité (barbecues) entre particuliers basés sur la proximité. \n #### Réalisation technique \n Ingénierie Fullstack : Conception et déploiement du site vitrine optimisé conversion, de l'application mobile multiplateforme et d'une API centralisée assurant la synchronisation des données utilisateurs en temps réel.",
+    "link": "https://grill-and-drink.com/",
+    "cover": "public/projects/gnd.png",
+    "technologies": [
+      "HTML",
+      "Tailwind CSS",
+      "Cloudflare",
+      "Scaleway Object Storage",
+      "React Native",
+      "Rails",
+      "PostgreSQL",
+      "Google Play Store"
+    ]
+  },
+  {
+    "name": "Fairplays",
+    "description": "#### Rôle \n Développeur Secondaire \n #### Objectif \n Évolutions et maintenance de l'écosystème Fairplays, une plateforme hybride combinant réseau social sportif et marketplace de seconde main spécialisée. L'application permet aux sportifs de 90 disciplines de partager leurs performances ('Le Terrain') et de s'échanger du matériel technique ('Le Vestiaire') sans frais de commission. \n #### Réalisation technique \n Audit et reprise du code legacy : fiabilisation de l'existant, application de correctifs ergonomiques et refonte visuelle de l'interface pour moderniser l'expérience utilisateur et assurer la continuité du service.",
+    "link": "https://fairplays.fr",
+    "cover": "public/projects/fairplays.png",
+    "technologies": ["Flutter", "Rails", "PostgreSQL", "Google Play Store"]
   }
 ]

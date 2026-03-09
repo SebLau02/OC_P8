@@ -59,23 +59,36 @@
 
 p,
 ul,
-a {
-  font-family: var(--font-raleway-mono);
+a,
+i,
+span {
+  font-family: var(--font-body);
+}
+p,
+ul,
+a,
+span {
   @apply text-sm;
 }
 h1 {
+  font-family: var(--font-title);
+
   @apply text-3xl;
 }
 h2 {
+  font-family: var(--font-title);
   @apply text-2xl;
 }
 h3 {
+  font-family: var(--font-title);
   @apply text-xl;
 }
 h4 {
+  font-family: var(--font-title);
   @apply text-lg;
 }
 h5 {
+  font-family: var(--font-title);
   @apply text-base;
 }
 

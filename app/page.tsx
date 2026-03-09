@@ -77,33 +77,34 @@ export default function Home() {
           </div>
         </Section>
         <StyledTitle label="Contributions" orientation="positive" id="works" />
-        <Section className="px-0">
+        <Section className="px-0 max-w-[1440px] grid grid-cols-2 gap-4">
           {PROJECTS.map((project, i) => (
-            <Card key={i}>
+            <Card key={i} className="">
               <div className="p-4 rounded-t-lg bg-foreground text-background flex flex-row items-center gap-4 justify-between mb-4">
-                <h3>
-                  <Link href={project.link} target="_blank" className="">
-                    {project.name}
-                  </Link>
-                </h3>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  aria-label="voir le projet en ligne"
-                  asChild
-                >
-                  <Link href={project.link} target="_blank">
-                    <SquareArrowOutUpRight className="text-foreground" />
-                  </Link>
-                </Button>
+                <h3 className="">{project.name}</h3>
+
+                {project.link ? (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label="voir le projet en ligne"
+                    asChild
+                  >
+                    <Link href={project.link} target="_blank">
+                      <SquareArrowOutUpRight className="text-foreground" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <i className="text-xs">En cours de développement</i>
+                )}
               </div>
 
               <Image
                 src={`/${project.cover.replace("public/", "")}`}
                 alt={project.name}
                 width={600}
-                height={250}
-                className="mx-auto"
+                height={300}
+                className="mx-auto h-[300px] object-contain"
               />
 
               <Separator className="mt-4 h-[2px]" />
@@ -124,8 +125,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <h4 className="mt-4 mb-2">Description:</h4>
-                <div>
+                <div className="mt-4 mb-2">
                   <ReactMarkdown
                     components={{
                       p: ({ node, ...props }) => (
@@ -141,7 +141,7 @@ export default function Home() {
           ))}
         </Section>
         <StyledTitle label="À propos" orientation="negative" id="about" />
-        <Section className="max-w-3xl">
+        <Section>
           <div className="flex flex-wrap justify-evenly gap-2 items-center md:gap-4">
             {stacks.map((stack, i) => (
               <div key={i} className="w-1/6 max-w-20 min-w-10">

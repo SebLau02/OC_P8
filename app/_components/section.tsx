@@ -1,9 +1,22 @@
 import { PropsWithChildren } from "react";
 
-const Section = (props: PropsWithChildren<{ className?: string }>) => {
+interface Props extends PropsWithChildren<{ className?: string }> {
+  size?: keyof typeof sizeProps;
+}
+
+const sizeProps = {
+  small: "max-w-2xl",
+  medium: "max-w-3xl",
+  large: "max-w-4xl",
+};
+
+const Section = ({ className, children, size = "medium", ...props }: Props) => {
   return (
-    <section className={`max-w-3xl px-3 m-auto ${props.className}`}>
-      {props.children}
+    <section
+      className={`px-3 m-auto ${sizeProps[size]} ${className}`}
+      {...props}
+    >
+      {children}
     </section>
   );
 };

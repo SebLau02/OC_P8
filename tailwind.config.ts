@@ -79,8 +79,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["var(--font-cutive-mono)"],
-      caption: ["var(--font-raleway-mono)"],
+      sans: ["var(--font-title)"],
+      caption: ["var(--font-body)"],
     },
   },
   plugins: [tailwindcssAnimate],
