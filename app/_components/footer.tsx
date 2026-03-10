@@ -5,7 +5,7 @@ import { socials } from "../config/data";
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col bg-card justify-center w-full gap-3 items-center lg:px-28 px-3 py-3 sm:gap-6 sm:px-12 sm:py-6">
+    <div className="bg-muted flex flex-col bg-card justify-center w-full gap-3 items-center lg:px-28 px-3 py-3 sm:gap-6 sm:px-12 sm:py-6 mt-8">
       <div className="flex flex-col justify-center w-full gap-12 items-center md:flex-row md:gap-2">
         <div className="flex justify-center items-center flex-1 order-0 gap-6 md:order-1">
           {socials({ size: 64 }).map((social, i) => (

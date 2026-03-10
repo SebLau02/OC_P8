@@ -72,7 +72,15 @@ export const educations = [
     year: "2023 - 2024",
     name: "Développeur Web",
     description:
-      "Formation Développeur Web chez Openclassrooms en alternance. Acquisition de compétences en développement web fullstack, avec une spécialisation en React.",
+      "Formation Développeur Web chez Openclassrooms en alternance. Acquisition de compétences en développement web fullstack: gestion de projet, développement frontend et backend.",
+  },
+  {
+    school: "Openclassrooms",
+    location: "France, Bretagne",
+    year: "2024 - 2027",
+    name: "Développeur d'application JavaScript React",
+    description:
+      "Formation Développeur d'application JavaScript React chez Openclassrooms en alternance. Acquisition de compétences en développement frontend, avec une spécialisation en React: animation, accessibilité et tests.",
   },
 ];
 export const experiences = [

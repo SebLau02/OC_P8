@@ -91,10 +91,10 @@ export default function Home() {
         </div>
       </Section>
       <StyledTitle label="Contributions" orientation="positive" id="works" />
-      <Section className="px-0 max-w-[1440px] grid grid-cols-2 gap-4">
+      <Section className="px-0 max-w-[1440px] grid xs:grid-cols-2 md:grid-cols-2 gap-4">
         {PROJECTS.map((project, i) => (
-          <Card key={i} className="">
-            <div className="p-4 rounded-t-lg bg-foreground text-background flex flex-row items-center gap-4 justify-between mb-4">
+          <Card key={i}>
+            <div className="bg-muted p-4 rounded-t-xl flex flex-row items-center gap-4 justify-between mb-4">
               <h3 className="">{project.name}</h3>
 
               {project.link ? (
@@ -130,9 +130,9 @@ export default function Home() {
                   <span
                     key={i}
                     className={badgeVariants({
-                      variant: "secondary",
+                      variant: "outline",
                       className:
-                        "font-caption rounded-full border-custom md:text-sm",
+                        "font-caption rounded-full border-custom md:text-sm bg-muted",
                     })}
                   >
                     {tech}
@@ -160,7 +160,7 @@ export default function Home() {
         <Card className="flex flex-col gap-6 p-4 rounded-xs">
           {educations.map((education, i) => (
             <Fragment key={i}>
-              <div className="w-full grid grid-cols-3 gap-2">
+              <div className="w-full grid xs:grid-cols-1 sm:grid-cols-3 gap-2">
                 <div>
                   <h4>{education.school}</h4>
                   <p>{education.location}</p>
@@ -181,7 +181,7 @@ export default function Home() {
         <Card className="flex flex-col gap-6 p-4 rounded-xs">
           {experiences.map((experience, i) => (
             <Fragment key={i}>
-              <div className="w-full grid grid-cols-3 gap-2">
+              <div className="w-full grid xs:grid-cols-1 sm:grid-cols-3 gap-2">
                 <div>
                   <h4>{experience.company}</h4>
                   <p>{experience.location}</p>
@@ -198,6 +198,15 @@ export default function Home() {
             </Fragment>
           ))}
         </Card>
+        {/* <Section className="grid sm:grid-cols-1 sm:grid-cols-3 my-8">
+          <div>
+            <iframe
+              src="/assets/certificat_développeur_web_sébastien_lau.pdf"
+              className="w-full h-full"
+              title="Lecteur PDF"
+            />
+          </div>
+        </Section> */}
       </Section>
     </main>
   );
