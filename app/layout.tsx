@@ -41,7 +41,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" suppressHydrationWarning={true}>
+    <html lang="fr" suppressHydrationWarning={true} className="scroll-smooth">
       <head>
         <meta name="apple-mobile-web-app-title" content="seb-dev" />
         {/* Open Graph meta tags **START** */}
