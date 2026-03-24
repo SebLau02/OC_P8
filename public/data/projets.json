@@ -25,7 +25,7 @@
     "name": "CustomX",
     "description": "#### Rôle \n Développeur Principal \n #### Objectif \n Plateforme SaaS multi-tenant d'orchestration ERP/MES dédiée à l'industrie textile. Digitalisation complète de la chaîne de valeur : de l'acquisition client (devisage dynamique) à la logistique (expédition), incluant la gestion prévisionnelle des achats, l'optimisation des stocks et le pilotage de production en temps réel. \n #### Réalisation technique \n Ingénierie Fullstack : Conception d'une architecture multi-instance scalable, modélisation de base de données relationnelle complexe et développement d'une API métier haute performance avec interface UX/UI optimisée.",
     "link": null,
-    "cover": "public/projects/matchinvest.png",
+    "cover": "public/projects/customx.png",
     "technologies": [
       "PostgreSQL",
       "Rails",

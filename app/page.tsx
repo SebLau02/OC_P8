@@ -1,16 +1,17 @@
 import Section from "./_components/section";
-import { Badge, badgeVariants } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { StyledTitle } from "./_components/styledTitle";
 import PROJECTS from "@/public/data/projets.json";
 import { Separator } from "@/components/ui/separator";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { ArrowDown, SquareArrowOutUpRight } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import { educations, experiences, socials } from "./config/data";
+import { buttonVariants } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
+import { educations, experiences } from "./config/data";
 import { Fragment } from "react";
+import ProjectCard from "./_components/ProjectCard";
+import { ProjectBase } from "./config/types";
 
 export default function Home() {
   return (
@@ -18,7 +19,10 @@ export default function Home() {
       <Section className="min-h-screen">
         <div className="flex flex-col border-custom p-8 animate-fadeIn gap-6 mt-6 opacity-0">
           {/* Badge de statut ou localisation */}
-          <div className="flex items-center gap-2 text-sm font-mono text-gray-500">
+          <div
+            className="flex items-center gap-2 text-sm font-mono text-gray-500"
+            id="about"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -64,7 +68,7 @@ export default function Home() {
           </div>
 
           {/* Section Call to Action / Socials pour remplir le bas du 100vh */}
-          <div className="flex gap-4 mt-8 items-center">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 items-center">
             <strong>Consulter mes projets</strong>
             <Link
               href={"#works"}
@@ -93,68 +97,10 @@ export default function Home() {
       <StyledTitle label="Contributions" orientation="positive" id="works" />
       <Section className="px-0 max-w-[1440px] grid xs:grid-cols-2 md:grid-cols-2 gap-4">
         {PROJECTS.map((project, i) => (
-          <Card key={i}>
-            <div className="bg-muted p-4 rounded-t-xl flex flex-row items-center gap-4 justify-between mb-4">
-              <h3 className="">{project.name}</h3>
-
-              {project.link ? (
-                <Button
-                  variant="outline"
-                  size="icon"
-                  aria-label="voir le projet en ligne"
-                  asChild
-                >
-                  <Link href={project.link} target="_blank">
-                    <SquareArrowOutUpRight className="text-foreground" />
-                  </Link>
-                </Button>
-              ) : (
-                <i className="text-xs">En cours de développement</i>
-              )}
-            </div>
-
-            <Image
-              src={`/${project.cover.replace("public/", "")}`}
-              alt={project.name}
-              width={600}
-              height={300}
-              className="mx-auto h-[300px] object-contain"
-            />
-
-            <Separator className="mt-4 h-[2px]" />
-
-            <div className="p-4 rounded-b-lg">
-              <h4>Technologies:</h4>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className={badgeVariants({
-                      variant: "outline",
-                      className:
-                        "font-caption rounded-full border-custom md:text-sm bg-muted",
-                    })}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-4 mb-2">
-                <ReactMarkdown
-                  components={{
-                    p: ({ node, ...props }) => (
-                      <p className="prose prose-sm max-w-none" {...props} />
-                    ),
-                  }}
-                >
-                  {project.description}
-                </ReactMarkdown>
-              </div>
-            </div>
-          </Card>
+          <ProjectCard key={i} project={project as ProjectBase} />
         ))}
       </Section>
-      <StyledTitle label="À propos" orientation="negative" id="about" />
+      <StyledTitle label="Curriculum" orientation="negative" id="curriculum" />
       <Section>
         <h3 className="mt-6 mb-4">Scolaire</h3>
         <Card className="flex flex-col gap-6 p-4 rounded-xs">
@@ -198,15 +144,6 @@ export default function Home() {
             </Fragment>
           ))}
         </Card>
-        {/* <Section className="grid sm:grid-cols-1 sm:grid-cols-3 my-8">
-          <div>
-            <iframe
-              src="/assets/certificat_développeur_web_sébastien_lau.pdf"
-              className="w-full h-full"
-              title="Lecteur PDF"
-            />
-          </div>
-        </Section> */}
       </Section>
     </main>
   );

@@ -7,3 +7,11 @@ export interface ArticlesSlugs {
   title: string;
   cover: string;
 }
+
+export interface ProjectBase {
+  name: string;
+  description: string;
+  link: string;
+  cover: string;
+  technologies: string[];
+}
