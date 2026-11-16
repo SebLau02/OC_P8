@@ -2,7 +2,7 @@ import { site, status } from "./site";
 
 /** URL publique du site (à définir via NEXT_PUBLIC_SITE_URL en production). */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sebastienlau.dev"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sebastienlau.fr"
 ).replace(/\/$/, "");
 
 export const personId = `${siteUrl}/#person`;

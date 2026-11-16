@@ -24,16 +24,16 @@ Dépannage hors GitHub : `pnpm wrangler login` puis `pnpm run deploy`
 - `CLOUDFLARE_ACCOUNT_ID`
 
 **Variables GitHub Actions** (même écran, onglet Variables) :
-- `NEXT_PUBLIC_SITE_URL` : URL publique, sans slash final (ex. `https://mon-domaine.fr`).
+- `NEXT_PUBLIC_SITE_URL` : URL publique, sans slash final (`https://sebastienlau.fr`).
   Alimente le sitemap, les URLs canoniques, Open Graph et le JSON-LD.
 - `NEXT_PUBLIC_STATUS` : `recherche` (par défaut) ou `en-poste`.
 
 > Ces `NEXT_PUBLIC_*` sont lues **au build** : pour changer de statut ou de domaine,
 > modifier la variable puis relancer le déploiement.
 
-**Domaine personnalisé** : ajouter la zone au compte Cloudflare, attendre qu'elle soit
-active, puis décommenter `routes` dans `wrangler.jsonc` (crée DNS + certificat).
-Sans cela, le site est servi sur `portfolio-seb-lau.<compte>.workers.dev`.
+**Domaine personnalisé** : `sebastienlau.fr` est déclaré dans `routes` (`wrangler.jsonc`).
+La zone doit être **Active** dans le compte Cloudflare avant le premier déploiement ;
+le DNS et le certificat sont créés automatiquement.
 
 ## Contraintes Workers à respecter
 

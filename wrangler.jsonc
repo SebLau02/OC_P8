@@ -6,11 +6,11 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
 
-  // Domaine personnalisé : à décommenter une fois la zone active dans le compte
-  // Cloudflare (crée le DNS et le certificat tout seul au premier déploiement).
-  // , "routes": [{ "pattern": "sebastienlau.dev", "custom_domain": true }]
+  // Domaine personnalisé : crée le DNS et le certificat au déploiement.
+  // La zone doit être « Active » dans le compte Cloudflare.
+  "routes": [{ "pattern": "sebastienlau.fr", "custom_domain": true }]
 }
