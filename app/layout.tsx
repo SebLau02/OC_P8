@@ -4,6 +4,7 @@ import "./mono.css";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ScrollEffects } from "@/components/ScrollEffects";
 import { site, status } from "@/lib/site";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -47,6 +48,7 @@ export default function RootLayout({
         <a className="skip-link" href="#contenu">
           Aller au contenu
         </a>
+        <ScrollEffects />
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
