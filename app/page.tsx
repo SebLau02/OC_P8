@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CvButton } from "@/components/CvButton";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -58,32 +59,42 @@ export default function HomePage() {
             label="01 — À propos"
             title="Développeur full stack, du back-end à l'interface."
           />
-          <div className="about-body">
-            <div className="about-text">
-              <p className="ds-text">
-                Je suis développeur Full Stack chez {site.employer}, à Plerin, depuis février 2024.
-                J&apos;y développe des fonctionnalités back-end et front-end avec Ruby, PostgreSQL,
-                React et Next.js, je conçois des API et j&apos;intègre des services tiers.
-              </p>
-              <p className="ds-text secondary">
-                En parallèle, je prépare le diplôme Développeur d&apos;application JavaScript React
-                (niveau 6, bac +3/4) avec OpenClassrooms.
-              </p>
+          <div className="about-grid">
+            <div className="about-photo ds-media">
+              <Image
+                src="/profile.jpg"
+                alt={`Portrait de ${site.name}`}
+                fill
+                sizes="(min-width: 768px) 340px, 100vw"
+              />
             </div>
-            <dl className="facts">
-              <div className="fact">
-                <dt className="ds-label">{searching ? "Disponibilité" : "Poste actuel"}</dt>
-                <dd>{searching ? site.availability : `Développeur Full Stack — ${site.employer}`}</dd>
+            <div className="about-body">
+              <div className="about-text">
+                <p className="ds-text">
+                  Je suis développeur Full Stack chez {site.employer}, à Plerin, depuis février 2024.
+                  J&apos;y développe des fonctionnalités back-end et front-end avec Ruby, PostgreSQL,
+                  React et Next.js, je conçois des API et j&apos;intègre des services tiers.
+                </p>
+                <p className="ds-text secondary">
+                  En parallèle, je prépare le diplôme Développeur d&apos;application JavaScript React
+                  (niveau 6, bac +3/4) avec OpenClassrooms.
+                </p>
               </div>
-              <div className="fact">
-                <dt className="ds-label">Langues</dt>
-                <dd>Français (natif), anglais (avancé C1-C2)</dd>
-              </div>
-              <div className="fact">
-                <dt className="ds-label">Permis</dt>
-                <dd>Permis B</dd>
-              </div>
-            </dl>
+              <dl className="facts">
+                <div className="fact">
+                  <dt className="ds-label">{searching ? "Disponibilité" : "Poste actuel"}</dt>
+                  <dd>{searching ? site.availability : `Développeur Full Stack — ${site.employer}`}</dd>
+                </div>
+                <div className="fact">
+                  <dt className="ds-label">Langues</dt>
+                  <dd>Français (natif), anglais (avancé C1-C2)</dd>
+                </div>
+                <div className="fact">
+                  <dt className="ds-label">Permis</dt>
+                  <dd>Permis B</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>

@@ -614,3 +614,32 @@ html {
   transform: scaleX(0);
   pointer-events: none;
 }
+
+/* ---------- À propos : photo + texte ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+.about-photo {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 360px;
+}
+.about-photo img {
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-16);
+  }
+  .about-photo {
+    max-width: none;
+  }
+  .about-grid > .about-body {
+    grid-column: span 2;
+  }
+}
