@@ -405,7 +405,7 @@ html {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -423,7 +423,7 @@ html {
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -434,7 +434,7 @@ html {
 @media (prefers-reduced-motion: no-preference) {
   /* Entrée de page (changement de route) */
   .page-enter {
-    animation: fade var(--duration-slow) var(--ease-standard) both;
+    animation: fade-up 400ms var(--ease-standard) both;
   }
   .fade-in {
     animation: fade var(--duration-slow) var(--ease-standard) both;
@@ -442,13 +442,13 @@ html {
 
   /* Hero : apparition en cascade au chargement */
   .ds-hero-inner > * {
-    animation: fade-up var(--duration-slow) var(--ease-standard) both;
+    animation: fade-up 600ms var(--ease-standard) both;
   }
-  .ds-hero-inner > :nth-child(2) { animation-delay: 60ms; }
-  .ds-hero-inner > :nth-child(3) { animation-delay: 120ms; }
-  .ds-hero-inner > :nth-child(4) { animation-delay: 180ms; }
-  .ds-hero-inner > :nth-child(5) { animation-delay: 240ms; }
-  .ds-hero-inner > :nth-child(6) { animation-delay: 300ms; }
+  .ds-hero-inner > :nth-child(2) { animation-delay: 100ms; }
+  .ds-hero-inner > :nth-child(3) { animation-delay: 200ms; }
+  .ds-hero-inner > :nth-child(4) { animation-delay: 300ms; }
+  .ds-hero-inner > :nth-child(5) { animation-delay: 400ms; }
+  .ds-hero-inner > :nth-child(6) { animation-delay: 500ms; }
 
   /* Apparition au scroll (CSS pur, sans JS ni flash au chargement) */
   @supports (animation-timeline: view()) {
@@ -465,7 +465,7 @@ html {
     .pager-card {
       animation: reveal both var(--ease-standard);
       animation-timeline: view();
-      animation-range: entry 0% entry 35%;
+      animation-range: entry 0% entry 70%;
     }
   }
 
@@ -494,6 +494,9 @@ html {
   }
   a.ds-card {
     transition-property: border-color, box-shadow, transform;
+  }
+  a.ds-card:hover {
+    transform: translateY(-4px);
   }
   a.ds-card:active {
     transform: scale(0.995);
@@ -634,10 +637,10 @@ html {
     .ds-card-grid > :nth-child(even),
     .modules-grid > :nth-child(even),
     .shots-grid > :nth-child(even) {
-      animation-range: entry 12% entry 47%;
+      animation-range: entry 20% entry 90%;
     }
-    .shots-portrait > :nth-child(2) { animation-range: entry 10% entry 45%; }
-    .shots-portrait > :nth-child(3) { animation-range: entry 20% entry 55%; }
-    .shots-portrait > :nth-child(4) { animation-range: entry 30% entry 65%; }
+    .shots-portrait > :nth-child(2) { animation-range: entry 10% entry 80%; }
+    .shots-portrait > :nth-child(3) { animation-range: entry 20% entry 90%; }
+    .shots-portrait > :nth-child(4) { animation-range: entry 30% entry 100%; }
   }
 }
