@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: Props) {
   const next = toCardData(getProject(slugs[(at + 1) % slugs.length]));
 
   const shots = p.screenshots;
-  const mobile = /mobile/i.test(p.type);
+  const mobile = p.screenshots_layout === "portrait";
   const ratio = mobile ? "9 / 19.5" : "16 / 10";
   const sections = splitSections(p.content);
   const intro = sections.filter((s) => ["Présentation", "Mon rôle"].includes(s.title));

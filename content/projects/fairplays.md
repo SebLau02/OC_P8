@@ -50,6 +50,7 @@ links:
   site: https://fairplays.fr/
   repo: privé
 cover: projects/fairplays/01-apercu.jpg
+screenshots_layout: portrait
 screenshots:
   - { src: "projects/fairplays/02-profil.jpg", alt: "Profil d'un sportif", caption: "Profil : abonnés, évaluations et vestiaire d'articles", kind: capture }
   - { src: "projects/fairplays/03-fil-communaute.jpg", alt: "Fil de la communauté", caption: "Communauté : stories et publications", kind: capture }
@@ -57,7 +58,7 @@ screenshots:
 ---
 
 ## Présentation
-FairPlays (anciennement Ovestiaire) permet de revendre son équipement entre sportifs et de suivre une communauté.
+FairPlays permet de revendre son équipement entre sportifs et de suivre une communauté.
 
 ## Mon rôle
 Rejoint en 2024 sur un projet démarré en 2021 : 157 de mes commits sur 974 au total, surtout sur l'application mobile.

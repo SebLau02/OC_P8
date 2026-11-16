@@ -34,6 +34,8 @@ export type Project = {
   challenges?: string[];
   links?: { site?: string; repo?: string };
   cover?: string;
+  /** « portrait » pour des captures d'application mobile (défaut : paysage). */
+  screenshots_layout?: "portrait" | "landscape";
   screenshots: Screenshot[];
   content: string;
 };
