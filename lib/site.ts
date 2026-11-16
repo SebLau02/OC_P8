@@ -21,7 +21,7 @@ export const site = {
   availability: "Mars 2027",
   employer: "4Digit",
   intro:
-    "Ce qui me motive dans ce métier, c'est tout le chemin : partir d'un problème concret, bien le comprendre, puis concevoir l'outil qui y répond.",
+    "D'un problème à l'outil qui y répond : c'est ce qui me motive, chaque jour.",
 };
 
 /** Ordre d'affichage (index, navigation précédent / suivant). */
