@@ -391,3 +391,9 @@ html {
 .ds-card-media {
   position: relative;
 }
+
+/* Captures en couleur (le design system les passait en niveaux de gris) */
+.ds-card-media img,
+.ds-media img {
+  filter: none;
+}

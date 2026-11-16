@@ -1,6 +1,6 @@
 ---
-slug: ovestiaire
-title: Ovestiaire
+slug: fairplays
+title: FairPlays
 tagline: Application mobile de marketplace et communauté pour sportifs
 summary: >-
   Application iOS / Android où les sportifs vendent et achètent des équipements d'occasion, échangent par messagerie,
@@ -49,15 +49,15 @@ challenges:
 links:
   site: https://fairplays.fr/
   repo: privé
+cover: projects/fairplays/01-apercu.jpg
 screenshots:
-  - { src: "projects/ovestiaire/01-marketplace.jpg", alt: "Marketplace", caption: "Marketplace : articles par sport (écran de démonstration fictif)", kind: maquette }
-  - { src: "projects/ovestiaire/02-article.jpg", alt: "Fiche article", caption: "Fiche article : prix, état, vendeur certifié (écran de démonstration fictif)", kind: maquette }
-  - { src: "projects/ovestiaire/03-messagerie.jpg", alt: "Messagerie", caption: "Messagerie entre acheteurs et vendeurs (écran de démonstration fictif)", kind: maquette }
-  - { src: "projects/ovestiaire/04-communaute.jpg", alt: "Communauté", caption: "Communauté : stories et annonces (écran de démonstration fictif)", kind: maquette }
+  - { src: "projects/fairplays/02-profil.jpg", alt: "Profil d'un sportif", caption: "Profil : abonnés, évaluations et vestiaire d'articles", kind: capture }
+  - { src: "projects/fairplays/03-fil-communaute.jpg", alt: "Fil de la communauté", caption: "Communauté : stories et publications", kind: capture }
+  - { src: "projects/fairplays/04-fiche-article.jpg", alt: "Fiche article", caption: "Fiche article : prix, état, messagerie et achat", kind: capture }
 ---
 
 ## Présentation
-Ovestiaire (« vestiaire » des sportifs) permet de revendre son équipement entre sportifs et de suivre une communauté.
+FairPlays (anciennement Ovestiaire) permet de revendre son équipement entre sportifs et de suivre une communauté.
 
 ## Mon rôle
 Rejoint en 2024 sur un projet démarré en 2021 : 157 de mes commits sur 974 au total, surtout sur l'application mobile.

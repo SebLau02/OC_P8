@@ -33,6 +33,7 @@ export type Project = {
   contributions?: string[];
   challenges?: string[];
   links?: { site?: string; repo?: string };
+  cover?: string;
   screenshots: Screenshot[];
   content: string;
 };
@@ -89,7 +90,7 @@ export function startYear(period: string): string {
 
 export function toCardData(p: Project): ProjectCardData {
   const meta = cardMeta[p.slug];
-  const cover = p.screenshots[0];
+  const cover = p.cover ?? p.screenshots[0]?.src;
   return {
     slug: p.slug,
     title: p.title,
@@ -97,7 +98,7 @@ export function toCardData(p: Project): ProjectCardData {
     year: startYear(p.period),
     status: meta?.status ?? p.status.split(/[,(]/)[0].trim(),
     tags: meta?.tags ?? p.tags.slice(0, 3),
-    cover: cover ? `/${cover.src}` : null,
+    cover: cover ? `/${cover}` : null,
     coverAlt: `Capture de ${p.title}`,
   };
 }

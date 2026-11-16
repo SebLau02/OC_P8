@@ -1,13 +1,13 @@
 ---
 slug: lpi-v3
-title: La Petite Imprimerie (LPI v3)
+title: La Petite Imprimerie
 tagline: Catalogue e-commerce textile personnalisé, blog SEO et back-office, migrés depuis WordPress
 summary: >-
   Refonte complète du site d'un atelier de personnalisation textile : catalogue produits avec filtres avancés,
   panier et devis, commandes fournisseurs (Stanley/Stella, Imbretex), blog et pages SEO, migration de 389 URLs
   WordPress avec redirections 301.
 type: E-commerce + CMS + back-office
-status: En production (bascule du domaine principal en cours)
+status: En production
 period: "Août 2025 → novembre 2026"
 role: Développeur full-stack principal
 team: 2-3 développeurs

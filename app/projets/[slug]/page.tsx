@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import { GalleryProvider, Shot } from "@/components/Gallery";
+import { emphasize } from "@/components/emphasize";
 import { SectionHead } from "@/components/SectionHead";
 import { getProject, getSlugs, splitSections, toCardData } from "@/lib/projects";
 
@@ -18,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (!getSlugs().includes(slug)) return {};
   const p = getProject(slug);
-  const cover = p.screenshots[0];
+  const cover = p.cover ?? p.screenshots[0]?.src;
   return {
     title: p.title,
     description: p.tagline,
     openGraph: {
       title: p.title,
       description: p.tagline,
-      images: cover ? [`/${cover.src}`] : undefined,
+      images: cover ? [`/${cover}`] : undefined,
     },
   };
 }
@@ -37,6 +38,11 @@ const stackLabels: Record<string, string> = {
   data: "Données",
   infra: "Infra",
   services: "Services",
+};
+
+const mdComponents: Components = {
+  p: ({ children }) => <p>{emphasize(children)}</p>,
+  li: ({ children }) => <li>{emphasize(children)}</li>,
 };
 
 const isUrl = (v?: string) => !!v && /^https?:\/\//.test(v);
@@ -77,11 +83,11 @@ export default async function ProjectPage({ params }: Props) {
       title: s.title,
       node: (
         <div className="ds-prose">
-          <ReactMarkdown>{s.body}</ReactMarkdown>
+          <ReactMarkdown components={mdComponents}>{s.body}</ReactMarkdown>
           {s.title === "Mon rôle" && p.contributions && p.contributions.length > 0 && (
             <ul>
               {p.contributions.map((c) => (
-                <li key={c}>{c}</li>
+                <li key={c}>{emphasize(c)}</li>
               ))}
             </ul>
           )}
@@ -135,7 +141,7 @@ export default async function ProjectPage({ params }: Props) {
       title: s.title,
       node: (
         <div className="ds-prose">
-          <ReactMarkdown>{s.body}</ReactMarkdown>
+          <ReactMarkdown components={mdComponents}>{s.body}</ReactMarkdown>
         </div>
       ),
     });

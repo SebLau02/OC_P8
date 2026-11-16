@@ -32,7 +32,7 @@ export const projectOrder = [
   "rentco",
   "cgi",
   "lfsf",
-  "ovestiaire",
+  "fairplays",
 ];
 
 /** Projets mis en avant sur l'accueil. */
@@ -52,7 +52,7 @@ export const cardMeta: Record<string, { status: string; tags: string[] }> = {
     status: "En développement",
     tags: ["Agriculture", "Traçabilité", "Next.js"],
   },
-  ovestiaire: {
+  fairplays: {
     status: "Sur les stores",
     tags: ["Mobile", "Flutter", "Marketplace"],
   },
