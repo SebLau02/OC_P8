@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { site } from "@/lib/site";
 import { CvButton } from "./CvButton";
+import { Logo } from "./Logo";
 
 const links = [
   { href: "/", label: "Accueil" },
@@ -30,9 +30,7 @@ export function Header() {
   return (
     <header className={`ds-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="ds-header-inner">
-        <Link className="ds-logo" href="/" onClick={close}>
-          {site.name}
-        </Link>
+        <Logo onClick={close} />
         <nav className="ds-nav" aria-label="Navigation principale">
           <ul>
             {links.map((l) => (

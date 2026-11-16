@@ -643,3 +643,12 @@ html {
     grid-column: span 2;
   }
 }
+
+/* Logo « chemin » (option D) */
+.ds-logo {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+.logo-dim {
+  color: var(--foreground-subtle);
+}
