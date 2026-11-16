@@ -200,6 +200,7 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <GalleryProvider title={p.title} shots={shots}>
       <div id="top">
+        <div className="read-progress" aria-hidden="true" />
         <section className="ds-section" style={{ paddingBottom: 64 }}>
           <div className="ds-container section-stack-tight" style={{ gap: 24 }}>
             <Link className="ds-link-arrow" href="/projets" style={{ alignSelf: "flex-start" }}>

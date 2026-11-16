@@ -524,3 +524,120 @@ html {
     animation: fade var(--duration-base) var(--ease-standard) both;
   }
 }
+
+/* =====================================================================
+   Animations au scroll — second niveau
+   ===================================================================== */
+.read-progress {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Header : se resserre et se souligne dès qu'on descend */
+  .ds-header-inner {
+    transition: height var(--duration-base) var(--ease-standard);
+  }
+  .ds-header {
+    transition: border-color var(--duration-base) var(--ease-standard);
+  }
+  .ds-header.is-scrolled {
+    border-bottom-color: var(--border-strong);
+  }
+  .ds-header.is-scrolled .ds-header-inner {
+    height: 56px;
+  }
+
+  @supports (animation-timeline: view()) {
+    /* Barre de progression de lecture (pages projet) */
+    @keyframes read-grow {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+    .read-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 2px;
+      z-index: 30;
+      background: var(--foreground);
+      transform-origin: left;
+      animation: read-grow linear both;
+      animation-timeline: scroll(root);
+    }
+
+    /* Filet des titres de section : se dessine de gauche à droite */
+    @keyframes draw-line {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+    .ds-section-head {
+      position: relative;
+      border-top: 0;
+    }
+    .ds-section-head::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: var(--foreground);
+      transform-origin: left;
+      animation: draw-line both var(--ease-standard);
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+
+    /* Timeline : la ligne se remplit et le jalon s'allume */
+    @keyframes fill-line {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+    @keyframes tick-on {
+      from {
+        background: var(--border-strong);
+      }
+      to {
+        background: var(--foreground);
+      }
+    }
+    .ds-timeline-item::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--foreground);
+      transform-origin: top;
+      animation: fill-line linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 55%;
+    }
+    .ds-timeline-item:not(.is-current)::before {
+      animation: tick-on linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 45%;
+    }
+
+    /* Cartes en cascade : la 2e colonne arrive un peu après la 1re */
+    .ds-card-grid > :nth-child(even),
+    .modules-grid > :nth-child(even),
+    .shots-grid > :nth-child(even) {
+      animation-range: entry 12% entry 47%;
+    }
+    .shots-portrait > :nth-child(2) { animation-range: entry 10% entry 45%; }
+    .shots-portrait > :nth-child(3) { animation-range: entry 20% entry 55%; }
+    .shots-portrait > :nth-child(4) { animation-range: entry 30% entry 65%; }
+  }
+}

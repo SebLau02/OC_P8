@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { CvButton } from "./CvButton";
 
@@ -14,13 +14,21 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const current = (href: string) =>
     href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href);
   const close = () => setOpen(false);
 
   return (
-    <header className="ds-header">
+    <header className={`ds-header${scrolled ? " is-scrolled" : ""}`}>
       <div className="ds-header-inner">
         <Link className="ds-logo" href="/" onClick={close}>
           {site.name}
