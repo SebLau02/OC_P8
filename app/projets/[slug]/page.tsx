@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import ReactMarkdown, { type Components } from "react-markdown";
 import { GalleryProvider, Shot } from "@/components/Gallery";
 import { emphasize } from "@/components/emphasize";
+import { JsonLd } from "@/components/JsonLd";
 import { SectionHead } from "@/components/SectionHead";
+import { startYear } from "@/lib/projects";
+import { breadcrumbSchema, personId, siteUrl } from "@/lib/seo";
 import { getProject, getSlugs, splitSections, toCardData } from "@/lib/projects";
 
 export const dynamicParams = false;
@@ -23,7 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: p.title,
     description: p.tagline,
+    alternates: { canonical: `/projets/${slug}` },
     openGraph: {
+      type: "article",
+      url: `/projets/${slug}`,
       title: p.title,
       description: p.tagline,
       images: cover ? [`/${cover}`] : undefined,
@@ -200,6 +206,30 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <GalleryProvider title={p.title} shots={shots}>
       <div id="top">
+        <JsonLd
+          data={[
+            breadcrumbSchema([
+              { name: "Accueil", path: "/" },
+              { name: "Projets", path: "/projets" },
+              { name: p.title, path: `/projets/${slug}` },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "CreativeWork",
+              name: p.title,
+              headline: p.tagline,
+              description: p.summary?.trim() || p.tagline,
+              url: `${siteUrl}/projets/${slug}`,
+              image: (p.cover ?? shots[0]?.src) ? `${siteUrl}/${p.cover ?? shots[0]?.src}` : undefined,
+              keywords: p.tags.join(", "),
+              inLanguage: "fr-FR",
+              dateCreated: startYear(p.period) || undefined,
+              author: { "@id": personId },
+              creator: { "@id": personId },
+              ...(isUrl(p.links?.site) ? { sameAs: [p.links!.site] } : {}),
+            },
+          ]}
+        />
         <section className="ds-section" style={{ paddingBottom: 64 }}>
           <div className="ds-container section-stack-tight" style={{ gap: 24 }}>
             <Link className="ds-link-arrow" href="/projets" style={{ alignSelf: "flex-start" }}>

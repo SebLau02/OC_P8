@@ -6,6 +6,7 @@ import { filterLabels } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Projets",
   description: "Projets professionnels et missions, du SaaS au mobile.",
+  alternates: { canonical: "/projets" },
 };
 
 export default function ProjectsPage() {
