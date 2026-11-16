@@ -1,84 +1,54 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./mono.css";
 import "./globals.css";
-import { Raleway, Cutive_Mono } from "next/font/google";
-import { Footer } from "./_components/footer";
-import { Header } from "./_components/header";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { site, status } from "@/lib/site";
 
-const RalewayMono = Raleway({
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-geist-mono",
 });
-const CutiveMono = Cutive_Mono({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-title",
-});
+
+const description =
+  status === "recherche"
+    ? `${site.name}, développeur full stack (React, Next.js, Ruby on Rails). Disponible à partir de ${site.availability.toLowerCase()}.`
+    : `${site.name}, développeur full stack (React, Next.js, Ruby on Rails) chez ${site.employer}.`;
 
 export const metadata: Metadata = {
-  title: "Sébastien LAU - Portfolio développeur",
-  description:
-    "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://sebastienlau.dev",
+  ),
+  title: {
+    default: `${site.name} — ${site.role}`,
+    template: `%s — ${site.name}`,
+  },
+  description,
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    title: `${site.name} — ${site.role}`,
+    description,
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const projectSchema = {
-    "@context": "http://schema.org",
-    "@type": "Project",
-    name: "Portfolio Développeur web Sébastien LAU",
-    description:
-      "Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin",
-    url: "https://sebastienlau-dev.vercel.app/",
-    image:
-      "https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg",
-    creator: {
-      "@type": "Person",
-      name: "Sébastien LAU",
-    },
-  };
-
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" suppressHydrationWarning={true} className="scroll-smooth">
-      <head>
-        <meta name="apple-mobile-web-app-title" content="seb-dev" />
-        {/* Open Graph meta tags **START** */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Sébastien, développeur web" />
-        <meta
-          property="og:description"
-          content="Voici mon portfolio de développeur, vous y trouverez tout les informations dont vous avez besoin"
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dw7tgqocy/image/upload/v1735297776/Designer_1_ykr6sh.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://sebastien-dev-portfolio.vercel.app/"
-        />
-        <meta
-          property="og:site_name"
-          content="Sébastien LAU - Portfolio développeur"
-        />
-        <meta property="og:locale" content="fr_FR" />
-        {/* Open Graph meta tags **END** */}
-        {/* Schema.org **START** */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(projectSchema),
-          }}
-        />
-        {/* Schema.org **END** */}
-      </head>
-      <body
-        className={`${RalewayMono.variable} ${CutiveMono.variable} font-sans h-full`}
-      >
+    <html
+      lang="fr"
+      data-theme="light"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body>
+        <a className="skip-link" href="#contenu">
+          Aller au contenu
+        </a>
         <Header />
-        {children}
+        <main id="contenu">{children}</main>
         <Footer />
       </body>
     </html>

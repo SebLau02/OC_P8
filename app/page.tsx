@@ -1,150 +1,211 @@
-import Section from "./_components/section";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import Link from "next/link";
-import Image from "next/image";
-import { StyledTitle } from "./_components/styledTitle";
-import PROJECTS from "@/public/data/projets.json";
-import { Separator } from "@/components/ui/separator";
-import { buttonVariants } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
-import { educations, experiences } from "./config/data";
-import { Fragment } from "react";
-import ProjectCard from "./_components/ProjectCard";
-import { ProjectBase } from "./config/types";
+import { CvButton } from "@/components/CvButton";
+import { ProjectCard } from "@/components/ProjectCard";
+import { SectionHead } from "@/components/SectionHead";
+import { getProject, getSlugs } from "@/lib/projects";
+import {
+  experience,
+  featuredSlugs,
+  formation,
+  site,
+  stack,
+  status,
+} from "@/lib/site";
 
-export default function Home() {
+export default function HomePage() {
+  const searching = status === "recherche";
+  const total = getSlugs().length;
+  const featured = featuredSlugs.map(getProject);
+
   return (
-    <main className="p-2 overflow-x-hidden">
-      <Section className="min-h-screen">
-        <div className="flex flex-col border-custom p-8 animate-fadeIn gap-6 mt-6 opacity-0">
-          {/* Badge de statut ou localisation */}
-          <div
-            className="flex items-center gap-2 text-sm font-mono text-gray-500"
-            id="about"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            Disponible pour de nouveaux défis — Basé en France
+    <div id="top">
+      <section className="ds-hero">
+        <div className="ds-hero-inner">
+          <div className="ds-hero-status">
+            {searching ? (
+              <span className="ds-badge">Disponible à partir de {site.availability.toLowerCase()}</span>
+            ) : (
+              <span className="ds-badge ds-badge-outline">En poste chez {site.employer}</span>
+            )}
           </div>
-
-          <h1 className="text-6xl font-bold tracking-tight leading-tight">
-            Sébastien Lau <br />
-            <span className="text-custom-accent text-lg">
-              Développeur Fullstack.
-            </span>
+          <p className="ds-label">{site.stackLine}</p>
+          <h1 className="ds-hero-title">
+            {site.name}
+            <br />
+            <span className="ds-dim">{site.role}.</span>
           </h1>
-
-          <div className="max-w-2xl space-y-6 text-lg leading-relaxed">
-            <p>
-              Spécialisé dans l’écosystème{" "}
-              <strong>React & Ruby on Rails</strong>, j’accompagne les
-              entreprises dans la création de solutions digitales à forte valeur
-              métier.
-            </p>
-
-            <p>
-              Fort de <strong>3 ans d’expérience</strong> dans la conception
-              d'applications
-              <Link
-                href="https://www.oracle.com/fr/erp/what-is-erp/"
-                target="_blank"
-                className="underline hover:text-custom-accent transition-colors ml-1"
-              >
-                SaaS & ERP
-              </Link>
-              , je maîtrise l’intégralité du cycle de développement : de la
-              modélisation de bases de données relationnelles complexes jusqu'au
-              déploiement d'interfaces fluides et performantes.
-            </p>
-
-            <p>
-              Mon approche : transformer des processus métiers complexes
-              (gestion de stocks, suivi de chantiers, logistique) en outils
-              numériques intuitifs, scalables et orientés résultats.
-            </p>
+          <p className="ds-text-lg">{site.intro}</p>
+          <div className="ds-hero-actions">
+            <Link className="ds-btn ds-btn-primary ds-btn-lg" href="/projets">
+              Voir mes projets <span className="ds-btn-arrow">→</span>
+            </Link>
+            <CvButton variant="secondary" size="lg" />
           </div>
-
-          {/* Section Call to Action / Socials pour remplir le bas du 100vh */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8 items-center">
-            <strong>Consulter mes projets</strong>
-            <Link
-              href={"#works"}
-              className={buttonVariants({
-                variant: "outline",
-                className: "font-caption rounded-full border-custom md:text-sm",
-              })}
-            >
-              <ArrowDown size={20} />
-            </Link>
-            ou
-            <Link
-              target="_blank"
-              href={"https://github.com/SebLau02"}
-              className={buttonVariants({
-                variant: "ghost",
-                className:
-                  "font-caption rounded-full border-custom md:text-sm w-fit",
-              })}
-            >
-              <Image src={"/github.svg"} alt="GitHub" width={30} height={30} />
-            </Link>
+          <div className="ds-hero-meta">
+            <a className="ds-link-arrow" href={site.github} rel="noopener noreferrer">
+              {site.githubLabel} <span className="ds-arrow">↗</span>
+            </a>
+            <a className="ds-link-arrow" href={`mailto:${site.email}`}>
+              {site.email} <span className="ds-arrow">→</span>
+            </a>
           </div>
         </div>
-      </Section>
-      <StyledTitle label="Contributions" orientation="positive" id="works" />
-      <Section className="px-0 max-w-[1440px] grid xs:grid-cols-2 md:grid-cols-2 gap-4">
-        {PROJECTS.map((project, i) => (
-          <ProjectCard key={i} project={project as ProjectBase} />
-        ))}
-      </Section>
-      <StyledTitle label="Curriculum" orientation="negative" id="curriculum" />
-      <Section>
-        <h3 className="mt-6 mb-4">Scolaire</h3>
-        <Card className="flex flex-col gap-6 p-4 rounded-xs">
-          {educations.map((education, i) => (
-            <Fragment key={i}>
-              <div className="w-full grid xs:grid-cols-1 sm:grid-cols-3 gap-2">
-                <div>
-                  <h4>{education.school}</h4>
-                  <p>{education.location}</p>
-                  <Badge variant="default" className="mt-4">
-                    {education.year}
-                  </Badge>
-                </div>
-                <div className="col-span-2">
-                  <h4>{education.name}</h4>
-                  <p>{education.description}</p>
-                </div>
+      </section>
+
+      <section id="a-propos" className="ds-section section-surface-bordered">
+        <div className="ds-container section-stack">
+          <SectionHead
+            label="01 — À propos"
+            title="Développeur full stack, du back-end à l'interface."
+          />
+          <div className="about-body">
+            <div className="about-text">
+              <p className="ds-text">
+                Je suis développeur Full Stack chez {site.employer}, à Plerin, depuis février 2024.
+                J&apos;y développe des fonctionnalités back-end et front-end avec Ruby, PostgreSQL,
+                React et Next.js, je conçois des API et j&apos;intègre des services tiers.
+              </p>
+              <p className="ds-text secondary">
+                En parallèle, je prépare le diplôme Développeur d&apos;application JavaScript React
+                (niveau 6, bac +3/4) avec OpenClassrooms.
+              </p>
+            </div>
+            <dl className="facts">
+              <div className="fact">
+                <dt className="ds-label">{searching ? "Disponibilité" : "Poste actuel"}</dt>
+                <dd>{searching ? site.availability : `Développeur Full Stack — ${site.employer}`}</dd>
               </div>
-              {i < educations.length - 1 && <Separator />}
-            </Fragment>
-          ))}
-        </Card>
-        <h3 className="mt-6 mb-4">Professionel</h3>
-        <Card className="flex flex-col gap-6 p-4 rounded-xs">
-          {experiences.map((experience, i) => (
-            <Fragment key={i}>
-              <div className="w-full grid xs:grid-cols-1 sm:grid-cols-3 gap-2">
-                <div>
-                  <h4>{experience.company}</h4>
-                  <p>{experience.location}</p>
-                  <Badge variant="default" className="mt-4">
-                    {experience.year}
-                  </Badge>
-                </div>
-                <div className="col-span-2">
-                  <h4>{experience.name}</h4>
-                  <p>{experience.description}</p>
-                </div>
+              <div className="fact">
+                <dt className="ds-label">Langues</dt>
+                <dd>Français (natif), anglais (avancé C1-C2)</dd>
               </div>
-              {i < experiences.length - 1 && <Separator />}
-            </Fragment>
-          ))}
-        </Card>
-      </Section>
-    </main>
+              <div className="fact">
+                <dt className="ds-label">Permis</dt>
+                <dd>Permis B</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="ds-section">
+        <div className="ds-container section-stack">
+          <SectionHead label="02 — Expérience" title="Expérience" />
+          <ol className="ds-timeline">
+            {experience.map((e) => (
+              <li key={e.title} className={`ds-timeline-item${e.current ? " is-current" : ""}`}>
+                <span className="ds-timeline-date">{e.date}</span>
+                <div className="ds-timeline-body">
+                  <h3 className="ds-h4">{e.title}</h3>
+                  <p className="ds-timeline-org">{e.org}</p>
+                  <ul className="ds-timeline-desc timeline-list">
+                    {e.items.map((i) => (
+                      <li key={i}>{i}</li>
+                    ))}
+                  </ul>
+                  <ul className="ds-tags">
+                    {e.tags.map((t) => (
+                      <li key={t}>
+                        <span className="ds-tag">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="formation" className="ds-section flush-top">
+        <div className="ds-container section-stack">
+          <SectionHead label="03 — Formation" title="Formation" />
+          <ol className="ds-timeline">
+            {formation.map((f) => (
+              <li key={f.title} className={`ds-timeline-item${f.current ? " is-current" : ""}`}>
+                <span className="ds-timeline-date">{f.date}</span>
+                <div className="ds-timeline-body">
+                  <h3 className="ds-h4">{f.title}</h3>
+                  <p className="ds-timeline-org">{f.org}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="projets" className="ds-section section-surface-bordered">
+        <div className="ds-container section-stack">
+          <SectionHead
+            label="04 — Projets"
+            title="Projets sélectionnés"
+            action={
+              <Link className="ds-link-arrow" href="/projets">
+                Voir tous les projets ({total}) <span className="ds-arrow">→</span>
+              </Link>
+            }
+          />
+          <div className="ds-card-grid">
+            {featured.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="stack" className="ds-section">
+        <div className="ds-container section-stack">
+          <SectionHead label="05 — Stack" title="Stack technique" />
+          <div className="ds-skills">
+            <dl className="ds-skills-grid">
+              {stack.map((g) => (
+                <div key={g.name} className="ds-skill-group">
+                  <dt>
+                    <span className="ds-label" style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span>{g.name}</span>
+                      <span>{String(g.items.length).padStart(2, "0")}</span>
+                    </span>
+                  </dt>
+                  <dd>
+                    <ul>
+                      {g.items.map((i) => (
+                        <li key={i} className="ds-skill">
+                          <span>{i}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="ds-section section-surface">
+        <div className="ds-container section-stack-tight">
+          <SectionHead label="06 — Contact" />
+          <div className="contact-block">
+            <h2 className="ds-display" style={{ maxWidth: "18ch" }}>
+              {searching ? "Vous recrutez ? Parlons-en." : "Envie d'échanger ? Écrivez-moi."}
+            </h2>
+            <p className="ds-text-lg">
+              {searching
+                ? `Je cherche un poste de développeur full stack, à partir de ${site.availability.toLowerCase()}. Mon CV et mon code sont à portée de clic, le plus simple pour échanger reste l'email.`
+                : `Je suis actuellement développeur full stack chez ${site.employer}. Pour parler code, technique ou opportunités, le plus simple reste l'email.`}
+            </p>
+            <a className="ds-link contact-email" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
+            <div className="contact-actions">
+              <CvButton />
+              <a className="ds-link-arrow" href={site.github} rel="noopener noreferrer">
+                {site.githubLabel} <span className="ds-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
