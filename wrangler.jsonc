@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-seb-lau",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true }
+
+  // Domaine personnalisé : à décommenter une fois la zone active dans le compte
+  // Cloudflare (crée le DNS et le certificat tout seul au premier déploiement).
+  // , "routes": [{ "pattern": "sebastienlau.dev", "custom_domain": true }]
+}
