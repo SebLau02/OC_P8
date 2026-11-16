@@ -21,7 +21,7 @@ export const site = {
   availability: "Mars 2027",
   employer: "4Digit",
   intro:
-    "D'un problème à l'outil qui y répond : c'est ce qui me motive, chaque jour.",
+    "D'un problème à l'outil qui y répond : voilà ce qui me passionne.",
 };
 
 /** Ordre d'affichage (index, navigation précédent / suivant). */
