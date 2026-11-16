@@ -21,7 +21,7 @@ export const site = {
   availability: "Mars 2027",
   employer: "4Digit",
   intro:
-    "Ce qui me motive, c'est le paradoxe des projets : uniques mais similaires. Chaque application a ses spécificités, rappelant des expériences passées tout en offrant de nouveaux défis. Chaque fonction peut toujours être perfectionnée.",
+    "Ce qui me motive dans ce métier, c'est tout le chemin : partir d'un problème concret, bien le comprendre, puis concevoir l'outil qui y répond.",
 };
 
 /** Ordre d'affichage (index, navigation précédent / suivant). */
