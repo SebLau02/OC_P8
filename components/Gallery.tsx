@@ -71,7 +71,7 @@ export function GalleryProvider({
           data-theme="dark"
           role="dialog"
           aria-modal="true"
-          aria-label={`Captures — ${title}`}
+          aria-label={`Aperçu — ${title}`}
         >
           <div className="lightbox-bar">
             <p className="ds-label" style={{ color: "var(--foreground-secondary)" }}>

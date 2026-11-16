@@ -180,7 +180,7 @@ export default async function ProjectPage({ params }: Props) {
 
   if (shots.length > 0) {
     blocks.push({
-      title: "Captures",
+      title: "Aperçu",
       node: (
         <div className={mobile ? "shots-grid shots-portrait" : "shots-grid"}>
           {shots.map((s, i) => (
