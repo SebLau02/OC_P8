@@ -47,7 +47,7 @@ challenges:
   - Gestion des jetons et expiration, traduction des erreurs réseau
   - Navigation par onglets avec notifications profondes
 links:
-  site: "À compléter (liens App Store / Google Play)"
+  site: https://fairplays.fr/
   repo: privé
 screenshots:
   - { src: "projects/ovestiaire/01-marketplace.jpg", alt: "Marketplace", caption: "Marketplace : articles par sport (écran de démonstration fictif)", kind: maquette }

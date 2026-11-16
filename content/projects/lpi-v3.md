@@ -54,7 +54,7 @@ challenges:
   - Préserver le référencement pendant la migration
   - Catalogue volumineux avec filtres combinés
 links:
-  site: https://lapetiteimprimerie.fr
+  site: https://lapetiteimprimerie.fr/
   repo: privé
 screenshots:
   - { src: "projects/lpi-v3/01-catalogue-tee-shirts.jpg", alt: "Catalogue tee-shirts", caption: "Catalogue : filtres par catégorie, produits personnalisables", kind: capture }

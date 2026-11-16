@@ -73,7 +73,7 @@ challenges:
   - Génération PDF performante avec beaucoup d'images
   - Cache Cloudflare vs contenus d'exclusivité
 links:
-  site: "À compléter"
+  site: https://trustifygroup.fr/
   repo: privé
 screenshots:
   - { src: "projects/trustify/02-catalogue-programmes.jpg", alt: "Catalogue des programmes", caption: "Catalogue : filtres (ville, budget, typologie, rendement, stratégie fiscale)", kind: capture }

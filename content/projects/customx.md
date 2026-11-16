@@ -62,7 +62,7 @@ challenges:
   - Calculs de prix dynamiques selon quantités, tailles et techniques de marquage
   - Multi-tenant (entreprises) et rôles
 links:
-  site: "À compléter"
+  site: https://customx.fr/
   repo: privé
 screenshots:
   - { src: "projects/customx/01-dashboard.jpg", alt: "Tableau de bord", caption: "Tableau de bord : chiffre d'affaires, devis et commandes", kind: capture }

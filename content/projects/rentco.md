@@ -81,7 +81,7 @@ challenges:
   - Modèle de coûts réels multi-factures / multi-chantiers
   - Intégrer plusieurs API tierces avec webhooks et quotas
 links:
-  site: "À compléter"
+  site: https://www.rentco.app/
   repo: privé
 screenshots:
   - { src: "projects/rentco/01-tableau-de-bord.jpg", alt: "Tableau de bord", caption: "Tableau de bord : chiffrages, clients potentiels et checklist", kind: capture }

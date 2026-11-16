@@ -219,26 +219,13 @@ export default async function ProjectPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, paddingTop: 8 }}>
-              {isUrl(p.links?.site) ? (
+            {isUrl(p.links?.site) && (
+              <div style={{ paddingTop: 8 }}>
                 <a className="ds-btn ds-btn-primary" href={p.links!.site} target="_blank" rel="noopener noreferrer">
                   Voir le site <span className="ds-btn-arrow">↗</span>
                 </a>
-              ) : (
-                <button type="button" className="ds-btn ds-btn-primary" disabled>
-                  Voir le site <span className="ds-btn-arrow">↗</span>
-                </button>
-              )}
-              {isUrl(p.links?.repo) ? (
-                <a className="ds-btn ds-btn-outline" href={p.links!.repo} target="_blank" rel="noopener noreferrer">
-                  Code source <span className="ds-btn-arrow">↗</span>
-                </a>
-              ) : (
-                <button type="button" className="ds-btn ds-btn-outline" disabled>
-                  Code source — Privé
-                </button>
-              )}
-            </div>
+              </div>
+            )}
             {shots[0] && !mobile && (
               <div style={{ marginTop: 32 }}>
                 <Shot shot={shots[0]} index={0} ratio="16 / 9" sizes="(min-width: 1120px) 1056px, 100vw" priority />
