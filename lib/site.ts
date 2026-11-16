@@ -24,7 +24,50 @@ export const site = {
     "Ce qui me motive, c'est le paradoxe des projets : uniques mais similaires. Chaque application a ses spécificités, rappelant des expériences passées tout en offrant de nouveaux défis. Chaque fonction peut toujours être perfectionnée.",
 };
 
-export const featuredSlugs = ["customx", "lpi-v3", "trustify", "rentco"];
+/** Ordre d'affichage (index, navigation précédent / suivant). */
+export const projectOrder = [
+  "customx",
+  "lpi-v3",
+  "trustify",
+  "rentco",
+  "cgi",
+  "lfsf",
+  "ovestiaire",
+];
+
+/** Projets mis en avant sur l'accueil. */
+export const featuredSlugs = projectOrder.slice(0, 4);
+
+/** Libellés courts des cartes (statut + 3 tags, utilisés aussi par les filtres). */
+export const cardMeta: Record<string, { status: string; tags: string[] }> = {
+  customx: { status: "En production", tags: ["SaaS", "Next.js", "Rails"] },
+  "lpi-v3": { status: "En production", tags: ["E-commerce", "SEO", "Next.js"] },
+  trustify: {
+    status: "En production",
+    tags: ["Immobilier", "Marque blanche", "Next.js"],
+  },
+  rentco: { status: "En production", tags: ["ERP", "Immobilier", "Rails"] },
+  cgi: { status: "Livré (v1)", tags: ["Immobilier", "Next.js", "Stripe"] },
+  lfsf: {
+    status: "En développement",
+    tags: ["Agriculture", "Traçabilité", "Next.js"],
+  },
+  ovestiaire: {
+    status: "Sur les stores",
+    tags: ["Mobile", "Flutter", "Marketplace"],
+  },
+};
+
+export const filterLabels = [
+  "Tous",
+  "Next.js",
+  "Rails",
+  "Flutter",
+  "SaaS",
+  "E-commerce",
+  "Immobilier",
+  "Mobile",
+];
 
 export const experience = [
   {

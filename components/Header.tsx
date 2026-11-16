@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/lib/site";
 import { CvButton } from "./CvButton";
@@ -13,6 +14,9 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const current = (href: string) =>
+    href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href);
   const close = () => setOpen(false);
 
   return (
@@ -25,7 +29,9 @@ export function Header() {
           <ul>
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href}>{l.label}</Link>
+                <Link href={l.href} aria-current={current(l.href) ? "page" : undefined}>
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -51,7 +57,7 @@ export function Header() {
           <ul>
             {links.map((l, i) => (
               <li key={l.href}>
-                <Link href={l.href} onClick={close}>
+                <Link href={l.href} onClick={close} aria-current={current(l.href) ? "page" : undefined}>
                   {l.label}
                   <span className="ds-mono">0{i + 1}</span>
                 </Link>

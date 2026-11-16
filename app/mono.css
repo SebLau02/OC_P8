@@ -275,3 +275,30 @@ a.ds-card:hover .ds-arrow, .ds-card.is-hover .ds-arrow { transform: translate(2p
 .ds-sep-strong { border-top-color: var(--foreground); }
 .ds-section-head { display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--foreground); }
 .ds-section-head-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+
+/* ---------- Ajouts pages projets ---------- */
+.ds-card-media .ds-mono, .ds-media .ds-mono { color: var(--foreground-secondary); padding: 0 var(--space-4); text-align: center; }
+.ds-card-media img, .ds-media img { filter: grayscale(1); transition: filter var(--duration-base) var(--ease-standard); }
+a.ds-card:hover .ds-card-media img, a.ds-media:hover img, a.ds-card:focus-visible .ds-card-media img { filter: none; }
+a.ds-media { transition: border-color var(--duration-base) var(--ease-standard); }
+a.ds-media:hover { border-color: var(--border-strong); }
+.ds-tags-scroll { flex-wrap: nowrap; overflow-x: auto; padding: 2px 2px 8px; margin: -2px -2px 0; scrollbar-width: thin; }
+.ds-tags-scroll > * { flex: none; }
+.ds-meta { margin: 0; display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+.ds-meta > div { display: flex; flex-direction: column; gap: var(--space-1); padding-top: var(--space-3); border-top: 1px solid var(--border); }
+.ds-meta dd { margin: 0; font-size: 15px; line-height: 24px; }
+
+/* Typographie éditoriale (contenu Markdown) */
+.ds-prose { max-width: 68ch; font-size: 16px; line-height: 28px; color: var(--foreground-secondary); }
+.ds-prose > * { margin: 0; }
+.ds-prose > * + * { margin-top: var(--space-6); }
+.ds-prose h2 { font-size: 28px; line-height: 34px; letter-spacing: -0.025em; font-weight: 600; color: var(--foreground); margin-top: var(--space-12); }
+.ds-prose h3 { font-size: 20px; line-height: 28px; letter-spacing: -0.015em; font-weight: 600; color: var(--foreground); margin-top: var(--space-8); }
+.ds-prose h2 + *, .ds-prose h3 + * { margin-top: var(--space-3); }
+.ds-prose strong { color: var(--foreground); font-weight: 600; }
+.ds-prose ul, .ds-prose ol { padding-left: 20px; display: flex; flex-direction: column; gap: var(--space-3); }
+.ds-prose li::marker { color: var(--foreground-subtle); font-family: var(--font-mono); font-size: 13px; }
+.ds-prose a { color: var(--foreground); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border-strong); }
+.ds-prose a:hover { text-decoration-color: var(--foreground); }
+.ds-prose code { font-family: var(--font-mono); font-size: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0 var(--space-1); }
+.ds-prose blockquote { border-left: 1px solid var(--foreground); padding-left: var(--space-4); color: var(--foreground); }

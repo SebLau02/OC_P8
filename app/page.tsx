@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CvButton } from "@/components/CvButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHead } from "@/components/SectionHead";
-import { getProject, getSlugs } from "@/lib/projects";
+import { getProject, getSlugs, toCardData } from "@/lib/projects";
 import {
   experience,
   featuredSlugs,
@@ -15,7 +15,7 @@ import {
 export default function HomePage() {
   const searching = status === "recherche";
   const total = getSlugs().length;
-  const featured = featuredSlugs.map(getProject);
+  const featured = featuredSlugs.map((s) => toCardData(getProject(s)));
 
   return (
     <div id="top">
