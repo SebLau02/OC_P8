@@ -386,3 +386,8 @@ html {
     padding: 128px 0 160px;
   }
 }
+
+/* Les images `fill` des cartes se positionnent par rapport à leur cadre */
+.ds-card-media {
+  position: relative;
+}
