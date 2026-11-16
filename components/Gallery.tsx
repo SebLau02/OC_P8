@@ -88,7 +88,7 @@ export function GalleryProvider({
             <button type="button" className="ds-btn ds-btn-outline lightbox-nav" aria-label="Capture précédente" onClick={() => go(-1)}>
               ←
             </button>
-            <figure className="lightbox-figure">
+            <figure className="lightbox-figure fade-in" key={index}>
               <div className="lightbox-img">
                 <Image src={`/${shot.src}`} alt={shot.alt} fill sizes="100vw" priority />
               </div>

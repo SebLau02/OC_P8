@@ -397,3 +397,130 @@ html {
 .ds-media img {
   filter: none;
 }
+
+/* =====================================================================
+   Animations — discrètes (≤ 250 ms), désactivées si l'utilisateur
+   demande moins de mouvement.
+   ===================================================================== */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrée de page (changement de route) */
+  .page-enter {
+    animation: fade var(--duration-slow) var(--ease-standard) both;
+  }
+  .fade-in {
+    animation: fade var(--duration-slow) var(--ease-standard) both;
+  }
+
+  /* Hero : apparition en cascade au chargement */
+  .ds-hero-inner > * {
+    animation: fade-up var(--duration-slow) var(--ease-standard) both;
+  }
+  .ds-hero-inner > :nth-child(2) { animation-delay: 60ms; }
+  .ds-hero-inner > :nth-child(3) { animation-delay: 120ms; }
+  .ds-hero-inner > :nth-child(4) { animation-delay: 180ms; }
+  .ds-hero-inner > :nth-child(5) { animation-delay: 240ms; }
+  .ds-hero-inner > :nth-child(6) { animation-delay: 300ms; }
+
+  /* Apparition au scroll (CSS pur, sans JS ni flash au chargement) */
+  @supports (animation-timeline: view()) {
+    .ds-section-head,
+    .ds-timeline-item,
+    .ds-skill-group,
+    .ds-card-grid > *,
+    .modules-grid > *,
+    .shots-grid > *,
+    .challenges li,
+    .ds-prose,
+    .about-body,
+    .contact-block,
+    .pager-card {
+      animation: reveal both var(--ease-standard);
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+
+  /* Survols et clics */
+  .ds-btn:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98);
+  }
+  .ds-btn {
+    transition-property: background-color, border-color, color, transform;
+  }
+  .ds-tag {
+    transition-property: border-color, color, background-color, transform;
+  }
+  .filter-tag:active {
+    transform: scale(0.96);
+  }
+  .ds-card-media img,
+  .ds-media img {
+    transition: transform var(--duration-slow) var(--ease-standard);
+  }
+  a.ds-card:hover .ds-card-media img,
+  a.ds-card:focus-visible .ds-card-media img,
+  .shot-btn:hover img,
+  .shot-btn:focus-visible img {
+    transform: scale(1.03);
+  }
+  a.ds-card {
+    transition-property: border-color, box-shadow, transform;
+  }
+  a.ds-card:active {
+    transform: scale(0.995);
+  }
+  .shot-btn:active {
+    transform: scale(0.99);
+  }
+  .ds-logo,
+  .ds-nav a {
+    transition: color var(--duration-fast) var(--ease-standard),
+      background-color var(--duration-fast) var(--ease-standard);
+  }
+  .ds-timeline-item::before {
+    transition: width var(--duration-base) var(--ease-standard);
+  }
+  .ds-timeline-item:hover::before {
+    width: 24px;
+  }
+  .ds-skill {
+    transition: padding-left var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+  .ds-skill:hover {
+    padding-left: var(--space-2);
+    border-color: var(--border-strong);
+  }
+  .lightbox {
+    animation: fade var(--duration-base) var(--ease-standard) both;
+  }
+}

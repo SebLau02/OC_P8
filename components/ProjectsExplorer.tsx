@@ -52,7 +52,7 @@ export function ProjectsExplorer({
             </div>
           </div>
           {n > 0 ? (
-            <div className="ds-card-grid">
+            <div className="ds-card-grid fade-in" key={active}>
               {visible.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
               ))}
